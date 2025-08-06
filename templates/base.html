@@ -70,6 +70,17 @@
         }
       }
       
+      @keyframes slideDown {
+        from { 
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to { 
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
       @keyframes bounceGentle {
         0%, 20%, 53%, 80%, 100% {
           transform: translate3d(0, 0, 0);
@@ -85,6 +96,16 @@
         }
       }
       
+      @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+      }
+      
+      @keyframes shimmer {
+        0% { background-position: -200% center; }
+        100% { background-position: 200% center; }
+      }
+      
       .glass-effect {
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
@@ -93,12 +114,12 @@
       }
       
       .hover-lift {
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       }
       
       .hover-lift:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        transform: translateY(-8px);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
       }
       
       .gradient-text {
@@ -111,55 +132,300 @@
       .smooth-scroll {
         scroll-behavior: smooth;
       }
+      
+      .nav-item {
+        position: relative;
+        transition: all 0.3s ease;
+      }
+      
+      .nav-item::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #4A90E2, #2ECC71);
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+      }
+      
+      .nav-item:hover::after {
+        width: 100%;
+      }
+      
+      .dropdown-animate {
+        opacity: 0;
+        transform: translateY(-10px) scale(0.95);
+        transition: all 0.2s ease-out;
+      }
+      
+      .dropdown-animate.show {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+      
+      .btn-modern {
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);
+      }
+      
+      .btn-modern::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        transition: left 0.5s;
+      }
+      
+      .btn-modern:hover::before {
+        left: 100%;
+      }
+      
+      .btn-modern:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(74, 144, 226, 0.3);
+      }
+      
+      .btn-secondary-modern {
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        background: linear-gradient(135deg, #FF6B35 0%, #E55A2B 100%);
+      }
+      
+      .btn-secondary-modern::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        transition: left 0.5s;
+      }
+      
+      .btn-secondary-modern:hover::before {
+        left: 100%;
+      }
+      
+      .btn-secondary-modern:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+      }
+      
+      .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease-out;
+      }
+      
+      .animate-on-scroll.animate {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      
+      .logo-pulse {
+        animation: pulse 2s infinite;
+      }
+      
+      .mobile-menu {
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+      }
+      
+      .mobile-menu.open {
+        transform: translateX(0);
+      }
+      
+      .backdrop {
+        backdrop-filter: blur(8px);
+        background: rgba(0, 0, 0, 0.1);
+      }
+      
+      /* Improved card animations */
+      .card-hover {
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+      
+      .card-hover:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        border-color: rgba(74, 144, 226, 0.2);
+      }
+      
+      /* Ripple effect */
+      .ripple {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.6);
+        transform: scale(0);
+        animation: ripple-animation 0.6s linear;
+        pointer-events: none;
+      }
+      
+      @keyframes ripple-animation {
+        to {
+          transform: scale(4);
+          opacity: 0;
+        }
+      }
+      
+      /* Loading state for buttons */
+      .loading {
+        position: relative;
+        pointer-events: none;
+      }
+      
+      .loading::after {
+        content: '';
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        margin: auto;
+        border: 2px solid transparent;
+        border-top-color: #ffffff;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      
+      /* Enhanced focus states */
+      *:focus {
+        outline: 2px solid #4A90E2;
+        outline-offset: 2px;
+        border-radius: 4px;
+      }
+      
+      /* Scroll indicator */
+      .scroll-indicator {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, #4A90E2, #2ECC71);
+        transform-origin: left;
+        transform: scaleX(0);
+        z-index: 9999;
+      }
+      
+      /* Lazy loading placeholder */
+      .lazy {
+        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+        background-size: 200% 100%;
+        animation: loading 1.5s infinite;
+      }
+      
+      @keyframes loading {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+      }
+      
+      /* Text animations */
+      .text-shimmer {
+        background: linear-gradient(90deg, #4A90E2, #2ECC71, #4A90E2);
+        background-size: 200% 100%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: shimmer 3s ease-in-out infinite;
+      }
+      
+      /* Stagger animations */
+      .stagger-animation > * {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: staggerFadeIn 0.6s ease forwards;
+      }
+      
+      .stagger-animation > *:nth-child(1) { animation-delay: 0.1s; }
+      .stagger-animation > *:nth-child(2) { animation-delay: 0.2s; }
+      .stagger-animation > *:nth-child(3) { animation-delay: 0.3s; }
+      .stagger-animation > *:nth-child(4) { animation-delay: 0.4s; }
+      .stagger-animation > *:nth-child(5) { animation-delay: 0.5s; }
+      
+      @keyframes staggerFadeIn {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      /* Improved mobile responsiveness */
+      @media (max-width: 768px) {
+        .nav-item::after {
+          display: none;
+        }
+        
+        .btn-modern, .btn-secondary-modern {
+          padding: 12px 24px;
+          font-size: 16px;
+        }
+      }
     </style>
 </head>
 
 <body class="font-inter bg-white text-gray-900 smooth-scroll">
     <!-- Navigation Header -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+    <header class="fixed top-0 left-0 right-0 z-50 backdrop border-b border-gray-200 shadow-lg">
         <div class="w-full px-4">
-            <nav class="flex justify-between items-center h-12">
+            <nav class="flex justify-between items-center h-14">
                 <!-- Brand Logo -->
                 <div class="flex items-center flex-shrink-0">
-                    <a href="/" class="flex items-center">
-                        <div class="w-7 h-7 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center mr-2">
+                    <a href="/" class="flex items-center logo-pulse hover:scale-105 transition-transform duration-300">
+                        <div class="w-8 h-8 bg-gradient-to-br from-primary via-blue-500 to-accent rounded-xl flex items-center justify-center mr-3 shadow-lg">
                             <i class="fas fa-briefcase text-white text-sm"></i>
                         </div>
-                        <span class="text-lg font-bold text-primary">morgan</span>
+                        <span class="text-xl font-bold gradient-text">morgan</span>
                     </a>
                 </div>
 
                 <!-- Desktop Navigation Menu - All in one line -->
                 <div class="hidden lg:flex items-center justify-center flex-1 mx-8">
                     <!-- Latest Jobs Dropdown -->
-                    <div class="relative group">
-                        <a href="{% url 'jobs:index' %}" class="flex items-center px-3 py-2 text-sm text-gray-700 hover:text-primary font-medium transition-colors duration-200 whitespace-nowrap">
+                    <div class="relative group nav-item">
+                        <a href="{% url 'jobs:index' %}" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:text-primary font-medium transition-all duration-300 whitespace-nowrap hover:bg-blue-50 rounded-lg">
                             Latest Jobs
-                            <i class="fas fa-chevron-down ml-1 text-xs transform group-hover:rotate-180 transition-transform duration-200"></i>
+                            <i class="fas fa-chevron-down ml-2 text-xs transform group-hover:rotate-180 transition-transform duration-300"></i>
                         </a>
                         <!-- Dropdown Menu -->
-                        <div class="absolute top-full left-0 mt-2 w-80 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-gray-100">
-                            <div class="p-4 grid grid-cols-2 gap-4">
+                        <div class="absolute top-full left-0 mt-3 w-80 bg-white rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible dropdown-animate border border-gray-100 overflow-hidden">
+                            <div class="p-6 grid grid-cols-2 gap-6">
                                 <div>
-                                    <h3 class="font-semibold text-gray-900 mb-2 text-xs">By Category</h3>
-                                    <ul class="space-y-1">
+                                    <h3 class="font-semibold text-gray-900 mb-3 text-xs uppercase tracking-wide">By Category</h3>
+                                    <ul class="space-y-2">
                                         {% load searchtags %}
                                         {% load page_tags %}
                                         {% get_skills as total_skills %}
                                         {% for skill in total_skills|slice:":5" %}
-                                        <li><a href="{{ skill.get_job_url }}" class="text-xs text-gray-600 hover:text-primary hover:bg-blue-50 px-2 py-1 block rounded transition-colors">{{ skill.name|truncatewords:2 }}</a></li>
+                                        <li><a href="{{ skill.get_job_url }}" class="text-xs text-gray-600 hover:text-primary hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 px-3 py-2 block rounded-lg transition-all duration-200 transform hover:scale-105">{{ skill.name|truncatewords:2 }}</a></li>
                                         {% endfor %}
-                                        <li><a href="{% url 'jobs_by_skill' %}" class="text-xs text-primary hover:text-accent px-2 py-1 block rounded font-medium">View All →</a></li>
+                                        <li><a href="{% url 'jobs_by_skill' %}" class="text-xs text-primary hover:text-accent px-3 py-2 block rounded-lg font-semibold hover:bg-gradient-to-r hover:from-primary hover:to-accent hover:text-white transition-all duration-300">View All →</a></li>
                                     </ul>
                                 </div>
                                 <div>
-                                    <h3 class="font-semibold text-gray-900 mb-2 text-xs">By Location</h3>
-                                    <ul class="space-y-1">
+                                    <h3 class="font-semibold text-gray-900 mb-3 text-xs uppercase tracking-wide">By Location</h3>
+                                    <ul class="space-y-2">
                                         {% get_locations as total_locations %}
                                         {% for location in total_locations|slice:":5" %}
-                                        <li><a href="{{ location.get_job_url }}" class="text-xs text-gray-600 hover:text-primary hover:bg-blue-50 px-2 py-1 block rounded transition-colors">{{ location.name }}</a></li>
+                                        <li><a href="{{ location.get_job_url }}" class="text-xs text-gray-600 hover:text-primary hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 px-3 py-2 block rounded-lg transition-all duration-200 transform hover:scale-105">{{ location.name }}</a></li>
                                         {% endfor %}
-                                        <li><a href="{% url 'jobs_by_location' 'jobs' %}" class="text-xs text-primary hover:text-accent px-2 py-1 block rounded font-medium">View All →</a></li>
+                                        <li><a href="{% url 'jobs_by_location' 'jobs' %}" class="text-xs text-primary hover:text-accent px-3 py-2 block rounded-lg font-semibold hover:bg-gradient-to-r hover:from-primary hover:to-accent hover:text-white transition-all duration-300">View All →</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -167,39 +433,43 @@
                     </div>
                     
                     <!-- Other Navigation Items -->
-                    <a href="{% url 'fresher_jobs_by_skills' 'fresher' %}" class="px-3 py-2 text-sm text-gray-700 hover:text-primary font-medium transition-colors duration-200 whitespace-nowrap">Fresher Jobs</a>
-                    <a href="{% url 'fresher_jobs_by_skills' 'walkin' %}" class="px-3 py-2 text-sm text-gray-700 hover:text-primary font-medium transition-colors duration-200 whitespace-nowrap">Walkin Jobs</a>
-                    <a href="{% url 'internship_jobs' %}" class="px-3 py-2 text-sm text-gray-700 hover:text-primary font-medium transition-colors duration-200">Internship</a>
-                    <a href="{% url 'companies' %}" class="px-3 py-2 text-sm text-gray-700 hover:text-primary font-medium transition-colors duration-200">Companies</a>
-                    <a href="{% url 'recruiters' %}" class="px-3 py-2 text-sm text-gray-700 hover:text-primary font-medium transition-colors duration-200">Recruiters</a>
-                    <a href="{% url 'my:alerts_list' %}" class="px-3 py-2 text-sm text-gray-700 hover:text-primary font-medium transition-colors duration-200 whitespace-nowrap">Job Alerts</a>
+                    <a href="{% url 'fresher_jobs_by_skills' 'fresher' %}" class="nav-item px-4 py-3 text-sm text-gray-700 hover:text-primary font-medium transition-all duration-300 whitespace-nowrap hover:bg-blue-50 rounded-lg">Fresher Jobs</a>
+                    <a href="{% url 'fresher_jobs_by_skills' 'walkin' %}" class="nav-item px-4 py-3 text-sm text-gray-700 hover:text-primary font-medium transition-all duration-300 whitespace-nowrap hover:bg-blue-50 rounded-lg">Walkin Jobs</a>
+                    <a href="{% url 'internship_jobs' %}" class="nav-item px-4 py-3 text-sm text-gray-700 hover:text-primary font-medium transition-all duration-300 hover:bg-blue-50 rounded-lg">Internship</a>
+                    <a href="{% url 'companies' %}" class="nav-item px-4 py-3 text-sm text-gray-700 hover:text-primary font-medium transition-all duration-300 hover:bg-blue-50 rounded-lg">Companies</a>
+                    <a href="{% url 'recruiters' %}" class="nav-item px-4 py-3 text-sm text-gray-700 hover:text-primary font-medium transition-all duration-300 hover:bg-blue-50 rounded-lg">Recruiters</a>
+                    <a href="{% url 'my:alerts_list' %}" class="nav-item px-4 py-3 text-sm text-gray-700 hover:text-primary font-medium transition-all duration-300 whitespace-nowrap hover:bg-blue-50 rounded-lg">Job Alerts</a>
                 </div>
 
                 <!-- User Actions -->
-                <div class="hidden lg:flex items-center space-x-2 flex-shrink-0">
+                <div class="hidden lg:flex items-center space-x-3 flex-shrink-0">
                     {% if request.user.is_authenticated %}
-                        <a href="{% url 'my:profile' %}" class="px-3 py-2 text-sm text-gray-700 hover:text-primary font-medium transition-colors duration-200">
-                            My Profile
+                        <a href="{% url 'my:profile' %}" class="px-4 py-2 text-sm text-gray-700 hover:text-primary font-medium transition-all duration-300 hover:bg-blue-50 rounded-lg">
+                            <i class="fas fa-user mr-2"></i>My Profile
                         </a>
-                        <a href="/logout/?next={{ request.path }}" class="px-3 py-2 text-sm text-red-600 hover:text-red-700 font-medium transition-colors duration-200">
-                            Logout
+                        <a href="/logout/?next={{ request.path }}" class="px-4 py-2 text-sm text-red-600 hover:text-white hover:bg-red-600 font-medium transition-all duration-300 rounded-lg">
+                            <i class="fas fa-sign-out-alt mr-2"></i>Logout
                         </a>
                     {% else %}
-                        <a href="/login" class="px-4 py-1.5 text-sm text-primary border border-primary rounded-full hover:bg-primary hover:text-white font-medium transition-all duration-200">
+                        <a href="/login" class="btn-modern px-6 py-2 text-sm text-white border border-primary rounded-full font-medium shadow-md">
                             Login
                         </a>
-                        <a href="/register" class="px-4 py-1.5 text-sm bg-secondary text-white rounded-full hover:bg-orange-600 font-medium transition-all duration-200">
+                        <a href="/register" class="btn-secondary-modern px-6 py-2 text-sm text-white rounded-full font-medium shadow-md">
                             Register
                         </a>
                         <div class="relative group">
-                            <button class="flex items-center px-3 py-2 text-sm text-gray-700 hover:text-primary font-medium transition-colors duration-200 whitespace-nowrap">
+                            <button class="flex items-center px-4 py-2 text-sm text-gray-700 hover:text-primary font-medium transition-all duration-300 whitespace-nowrap hover:bg-blue-50 rounded-lg">
                                 For employers
-                                <i class="fas fa-chevron-down ml-1 text-xs transform group-hover:rotate-180 transition-transform duration-200"></i>
+                                <i class="fas fa-chevron-down ml-2 text-xs transform group-hover:rotate-180 transition-transform duration-300"></i>
                             </button>
-                            <div class="absolute top-full right-0 mt-2 w-44 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-gray-100">
-                                <div class="p-2">
-                                    <a href="{% url 'post_job' %}" class="block px-3 py-2 text-sm text-gray-700 hover:text-primary hover:bg-blue-50 rounded transition-colors font-medium">Post Jobs</a>
-                                    <a href="{% url 'recruiter:new_user' %}" class="block px-3 py-2 text-sm text-gray-700 hover:text-primary hover:bg-blue-50 rounded transition-colors font-medium">Recruiter Registration</a>
+                            <div class="absolute top-full right-0 mt-3 w-52 bg-white rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible dropdown-animate border border-gray-100 overflow-hidden">
+                                <div class="p-3">
+                                    <a href="{% url 'post_job' %}" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:text-primary hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 rounded-lg transition-all duration-200 font-medium">
+                                        <i class="fas fa-plus-circle mr-3 text-primary"></i>Post Jobs
+                                    </a>
+                                    <a href="{% url 'recruiter:new_user' %}" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:text-primary hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 rounded-lg transition-all duration-200 font-medium">
+                                        <i class="fas fa-user-tie mr-3 text-primary"></i>Recruiter Registration
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -216,26 +486,46 @@
             </nav>
 
             <!-- Mobile Menu -->
-            <div id="mobile-menu" class="lg:hidden hidden border-t border-gray-200 bg-white">
-                <div class="p-4 space-y-3">
-                    <a href="{% url 'jobs:index' %}" class="block px-4 py-3 text-gray-700 hover:text-primary hover:bg-blue-50 rounded-lg transition-colors font-medium">Latest Jobs</a>
-                    <a href="{% url 'fresher_jobs_by_skills' 'fresher' %}" class="block px-4 py-3 text-gray-700 hover:text-primary hover:bg-blue-50 rounded-lg transition-colors font-medium">Fresher Jobs</a>
-                    <a href="{% url 'fresher_jobs_by_skills' 'walkin' %}" class="block px-4 py-3 text-gray-700 hover:text-primary hover:bg-blue-50 rounded-lg transition-colors font-medium">Walkin Jobs</a>
-                    <a href="{% url 'internship_jobs' %}" class="block px-4 py-3 text-gray-700 hover:text-primary hover:bg-blue-50 rounded-lg transition-colors font-medium">Internship</a>
-                    <a href="{% url 'companies' %}" class="block px-4 py-3 text-gray-700 hover:text-primary hover:bg-blue-50 rounded-lg transition-colors font-medium">Companies</a>
-                    <a href="{% url 'recruiters' %}" class="block px-4 py-3 text-gray-700 hover:text-primary hover:bg-blue-50 rounded-lg transition-colors font-medium">Recruiters</a>
-                    <a href="{% url 'my:alerts_list' %}" class="block px-4 py-3 text-gray-700 hover:text-primary hover:bg-blue-50 rounded-lg transition-colors font-medium">Job Alerts</a>
+            <div id="mobile-menu" class="lg:hidden hidden border-t border-gray-200 bg-white mobile-menu backdrop-blur-sm">
+                <div class="p-6 space-y-2">
+                    <a href="{% url 'jobs:index' %}" class="flex items-center px-4 py-4 text-gray-700 hover:text-primary hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 rounded-xl transition-all duration-300 font-medium transform hover:scale-105">
+                        <i class="fas fa-briefcase mr-3 text-primary"></i>Latest Jobs
+                    </a>
+                    <a href="{% url 'fresher_jobs_by_skills' 'fresher' %}" class="flex items-center px-4 py-4 text-gray-700 hover:text-primary hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 rounded-xl transition-all duration-300 font-medium transform hover:scale-105">
+                        <i class="fas fa-graduation-cap mr-3 text-primary"></i>Fresher Jobs
+                    </a>
+                    <a href="{% url 'fresher_jobs_by_skills' 'walkin' %}" class="flex items-center px-4 py-4 text-gray-700 hover:text-primary hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 rounded-xl transition-all duration-300 font-medium transform hover:scale-105">
+                        <i class="fas fa-walking mr-3 text-primary"></i>Walkin Jobs
+                    </a>
+                    <a href="{% url 'internship_jobs' %}" class="flex items-center px-4 py-4 text-gray-700 hover:text-primary hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 rounded-xl transition-all duration-300 font-medium transform hover:scale-105">
+                        <i class="fas fa-laptop-code mr-3 text-primary"></i>Internship
+                    </a>
+                    <a href="{% url 'companies' %}" class="flex items-center px-4 py-4 text-gray-700 hover:text-primary hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 rounded-xl transition-all duration-300 font-medium transform hover:scale-105">
+                        <i class="fas fa-building mr-3 text-primary"></i>Companies
+                    </a>
+                    <a href="{% url 'recruiters' %}" class="flex items-center px-4 py-4 text-gray-700 hover:text-primary hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 rounded-xl transition-all duration-300 font-medium transform hover:scale-105">
+                        <i class="fas fa-user-tie mr-3 text-primary"></i>Recruiters
+                    </a>
+                    <a href="{% url 'my:alerts_list' %}" class="flex items-center px-4 py-4 text-gray-700 hover:text-primary hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 rounded-xl transition-all duration-300 font-medium transform hover:scale-105">
+                        <i class="fas fa-bell mr-3 text-primary"></i>Job Alerts
+                    </a>
                     
                     {% if request.user.is_authenticated %}
-                        <div class="border-t border-gray-200 pt-3 mt-3 space-y-3">
-                            <a href="{% url 'my:profile' %}" class="block px-4 py-3 text-gray-700 hover:text-primary hover:bg-blue-50 rounded-lg transition-colors font-medium">My Profile</a>
-                            <a href="/logout/?next={{ request.path }}" class="block px-4 py-3 text-red-600 hover:text-red-700 hover:bg-red-50 rounded-lg transition-colors font-medium">Logout</a>
+                        <div class="border-t border-gray-200 pt-4 mt-4 space-y-2">
+                            <a href="{% url 'my:profile' %}" class="flex items-center px-4 py-4 text-gray-700 hover:text-primary hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 rounded-xl transition-all duration-300 font-medium transform hover:scale-105">
+                                <i class="fas fa-user mr-3 text-primary"></i>My Profile
+                            </a>
+                            <a href="/logout/?next={{ request.path }}" class="flex items-center px-4 py-4 text-red-600 hover:text-white hover:bg-red-500 rounded-xl transition-all duration-300 font-medium transform hover:scale-105">
+                                <i class="fas fa-sign-out-alt mr-3"></i>Logout
+                            </a>
                         </div>
                     {% else %}
-                        <div class="border-t border-gray-200 pt-3 mt-3 space-y-3">
-                            <a href="/login" class="block px-4 py-3 text-center bg-primary text-white rounded-lg hover:bg-blue-600 transition-colors font-medium">Login</a>
-                            <a href="/register" class="block px-4 py-3 text-center bg-secondary text-white rounded-lg hover:bg-orange-600 transition-colors font-medium">Register</a>
-                            <a href="{% url 'post_job' %}" class="block px-4 py-3 text-gray-700 hover:text-primary hover:bg-blue-50 rounded-lg transition-colors font-medium">Post Jobs</a>
+                        <div class="border-t border-gray-200 pt-4 mt-4 space-y-3">
+                            <a href="/login" class="btn-modern block px-4 py-4 text-center text-white rounded-xl font-medium shadow-lg">Login</a>
+                            <a href="/register" class="btn-secondary-modern block px-4 py-4 text-center text-white rounded-xl font-medium shadow-lg">Register</a>
+                            <a href="{% url 'post_job' %}" class="flex items-center px-4 py-4 text-gray-700 hover:text-primary hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 rounded-xl transition-all duration-300 font-medium transform hover:scale-105">
+                                <i class="fas fa-plus-circle mr-3 text-primary"></i>Post Jobs
+                            </a>
                         </div>
                     {% endif %}
                 </div>
@@ -316,33 +606,206 @@
 
     <!-- Scripts -->
     <script>
-        // Mobile Menu Toggle
+        // Modern Mobile Menu Toggle with animations
         function toggleMobileMenu() {
             const mobileMenu = document.getElementById('mobile-menu');
             const menuIcon = document.getElementById('menu-icon');
             const closeIcon = document.getElementById('close-icon');
 
-            mobileMenu.classList.toggle('hidden');
-            menuIcon.classList.toggle('hidden');
-            closeIcon.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('hidden');
+                setTimeout(() => {
+                    mobileMenu.classList.add('open');
+                }, 10);
+                menuIcon.classList.add('hidden');
+                closeIcon.classList.remove('hidden');
+                
+                // Animate menu items
+                const menuItems = mobileMenu.querySelectorAll('a');
+                menuItems.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.style.animation = `slideDown 0.3s ease forwards`;
+                        item.style.animationDelay = `${index * 50}ms`;
+                    }, 100);
+                });
+            } else {
+                mobileMenu.classList.remove('open');
+                setTimeout(() => {
+                    mobileMenu.classList.add('hidden');
+                }, 300);
+                menuIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            }
         }
 
-        // Initialize Lucide icons
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+
+        // Enhanced dropdown animations
+        function initDropdowns() {
+            const dropdowns = document.querySelectorAll('.group');
+            
+            dropdowns.forEach(dropdown => {
+                const menu = dropdown.querySelector('.dropdown-animate');
+                if (!menu) return;
+                
+                dropdown.addEventListener('mouseenter', () => {
+                    menu.classList.add('show');
+                });
+                
+                dropdown.addEventListener('mouseleave', () => {
+                    menu.classList.remove('show');
+                });
+            });
+        }
+
+        // Smooth scroll with offset for fixed header
+        function smoothScrollToElement(targetId) {
+            const target = document.getElementById(targetId);
+            if (target) {
+                const headerOffset = 80; // Account for fixed header
+                const elementPosition = target.offsetTop;
+                const offsetPosition = elementPosition - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // Page load animations
+        function initPageAnimations() {
+            // Fade in navbar
+            const header = document.querySelector('header');
+            if (header) {
+                header.style.animation = 'slideDown 0.6s ease forwards';
+            }
+
+            // Animate elements on scroll
+            const animateElements = document.querySelectorAll('.animate-on-scroll');
+            animateElements.forEach(element => observer.observe(element));
+        }
+
+        // Initialize everything when DOM is loaded
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Lucide icons
             if (typeof lucide !== 'undefined') {
                 lucide.createIcons();
             }
-        });
 
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+            // Initialize animations
+            initPageAnimations();
+            initDropdowns();
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    smoothScrollToElement(targetId);
                 });
             });
+
+            // Add card hover effects to job listings and other cards
+            const cards = document.querySelectorAll('.job_item, .company_col, .job_col');
+            cards.forEach(card => {
+                card.classList.add('card-hover');
+            });
+
+            // Navbar scroll effect
+            let lastScrollTop = 0;
+            const navbar = document.querySelector('header');
+            
+            window.addEventListener('scroll', function() {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                if (scrollTop > 100) {
+                    navbar.classList.add('shadow-2xl');
+                    navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                } else {
+                    navbar.classList.remove('shadow-2xl');
+                    navbar.style.background = 'rgba(255, 255, 255, 0.8)';
+                }
+                
+                // Hide/show navbar on scroll
+                if (scrollTop > lastScrollTop && scrollTop > 200) {
+                    navbar.style.transform = 'translateY(-100%)';
+                } else {
+                    navbar.style.transform = 'translateY(0)';
+                }
+                
+                lastScrollTop = scrollTop;
+            });
+
+            // Add loading animation to buttons
+            const buttons = document.querySelectorAll('button, .btn');
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    if (!this.classList.contains('loading')) {
+                        this.classList.add('loading');
+                        setTimeout(() => {
+                            this.classList.remove('loading');
+                        }, 2000);
+                    }
+                });
+            });
+
+            // Lazy loading for images
+            const images = document.querySelectorAll('img[data-src]');
+            const imageObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+
+            images.forEach(img => imageObserver.observe(img));
         });
+
+        // Add ripple effect to buttons
+        function addRippleEffect() {
+            const buttons = document.querySelectorAll('.btn-modern, .btn-secondary-modern');
+            
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    const ripple = document.createElement('span');
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    ripple.style.left = x + 'px';
+                    ripple.style.top = y + 'px';
+                    ripple.classList.add('ripple');
+                    
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+        }
+
+        // Call ripple effect function when page loads
+        window.addEventListener('load', addRippleEffect);
     </script>
 
     {% block extra_js %}{% endblock %}
