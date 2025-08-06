@@ -11,101 +11,112 @@
 {% endblock %}
 
 {% block meta_tags %}
+<meta name="description" content="Morgan - India's premier job portal. Find your dream job from thousands of opportunities across top companies. Expert placement services connecting talent with success." />
+<meta name="keywords" content="jobs in india, job search, employment, careers, recruitment, job portal, job opportunities, placement services" />
 <meta name="google-site-verification" content="YRAH49iQBxqqgGD-ogtwLY3t39VcM_7NrhX0hyzirPY" />
-<meta name="msvalidate.01" content="7748852145A5ECD3CF9FD6D8EAA04EDE" />
 {% endblock %}
 
 {% block base %}
 <!-- Hero Section -->
-<section class="relative bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 min-h-screen flex items-center overflow-hidden">
+<section class="relative bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 min-h-screen flex items-center overflow-hidden">
   <!-- Animated Background Elements -->
   <div class="absolute inset-0">
-    <div class="absolute top-10 left-10 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
-    <div class="absolute top-20 right-10 w-96 h-96 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse" style="animation-delay: 2s;"></div>
-    <div class="absolute bottom-10 left-1/2 w-80 h-80 bg-pink-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse" style="animation-delay: 4s;"></div>
+    <div class="absolute top-20 left-20 w-64 h-64 bg-primary/10 rounded-full animate-bounce-gentle"></div>
+    <div class="absolute top-40 right-20 w-96 h-96 bg-accent/10 rounded-full animate-bounce-gentle" style="animation-delay: 2s;"></div>
+    <div class="absolute bottom-20 left-1/3 w-80 h-80 bg-secondary/10 rounded-full animate-bounce-gentle" style="animation-delay: 4s;"></div>
   </div>
   
-  <!-- Grid Pattern Overlay -->
-  <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,%3csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 32 32\' width=\'32\' height=\'32\' fill=\'none\' stroke-width=\'1\' stroke=\'%23ffffff\'%3e%3cpath d=\'m0 .5h32v31h-32z\'/%3e%3c/svg%3e');"></div>
+  <!-- Floating Icons -->
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <div class="absolute top-32 left-1/4 text-primary/20 animate-bounce" style="animation-delay: 1s;">
+      <i class="fas fa-laptop-code text-4xl"></i>
+    </div>
+    <div class="absolute top-48 right-1/4 text-accent/20 animate-bounce" style="animation-delay: 3s;">
+      <i class="fas fa-chart-line text-3xl"></i>
+    </div>
+    <div class="absolute bottom-48 left-1/5 text-secondary/20 animate-bounce" style="animation-delay: 5s;">
+      <i class="fas fa-briefcase text-4xl"></i>
+    </div>
+  </div>
   
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
       <!-- Hero Content -->
-      <div class="lg:col-span-7 text-center lg:text-left">
-        <!-- Live Indicator Badge -->
-        <div class="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 text-white px-6 py-3 rounded-full text-sm font-medium mb-8 hover:bg-white/20 transition-all duration-300 group cursor-pointer">
-          <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-          <span>15,000+ Career Opportunities Live</span>
-          <i data-lucide="trending-up" class="w-4 h-4 group-hover:scale-110 transition-transform"></i>
+      <div class="lg:col-span-7 text-center lg:text-left animate-fade-in">
+        <!-- Live Badge -->
+        <div class="inline-flex items-center gap-3 bg-white/80 backdrop-blur-sm border border-white/40 text-gray-700 px-6 py-3 rounded-full text-sm font-medium mb-8 hover:bg-white/90 transition-all duration-300 group cursor-pointer shadow-lg">
+          <div class="w-2 h-2 bg-accent rounded-full animate-pulse"></div>
+          <span>25,000+ Live Job Opportunities</span>
+          <i class="fas fa-arrow-right text-xs group-hover:translate-x-1 transition-transform duration-200"></i>
         </div>
         
         <!-- Main Heading -->
         <h1 class="text-5xl md:text-6xl lg:text-7xl font-black mb-8 leading-tight">
-          <span class="text-white">Your Career</span>
+          <span class="text-gray-800">Find Your</span>
           <br>
-          <span class="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-500">Success Partner</span>
+          <span class="gradient-text">Dream Career</span>
         </h1>
         
         <!-- Subheading -->
-        <p class="text-xl md:text-2xl lg:text-3xl mb-12 text-gray-200 font-light leading-relaxed max-w-4xl">
-          Morgan Consultancy - Expert placement services connecting talent with opportunity since 2010
+        <p class="text-xl md:text-2xl lg:text-3xl mb-12 text-gray-600 font-light leading-relaxed max-w-4xl animate-slide-up">
+          India's most trusted job portal connecting talent with top employers across all industries
         </p>
 
         <!-- Enhanced Search Form -->
-        <div class="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl border border-white/20 p-8 mb-8">
+        <div class="bg-white rounded-3xl shadow-2xl border border-gray-100 p-8 mb-12 animate-slide-up hover-lift">
           <form name="search-form" id="search-form" class="search-form" method="POST" action="{% url 'jobs:index' %}">
             {% csrf_token %}
             <div class="flex flex-col lg:flex-row gap-4 mb-6">
-              <!-- Job Title/Skills Input -->
+              <!-- Job Search Input -->
               <div class="flex-1">
-                <label class="block text-sm font-semibold text-gray-700 mb-2">What career opportunity interests you?</label>
+                <label class="block text-sm font-semibold text-gray-700 mb-3">What job are you looking for?</label>
                 <div class="relative group">
                   <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                    <i data-lucide="target" class="w-5 h-5 text-gray-400 group-focus-within:text-primary-500 transition-colors"></i>
+                    <i class="fas fa-search text-gray-400 group-focus-within:text-primary transition-colors"></i>
                   </div>
-                  <input type="text" class="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white text-gray-900 placeholder-gray-500 shadow-sm transition-all duration-200 hover:shadow-md" name="q" id="q-field" placeholder="e.g. Senior Developer, Product Manager, Business Analyst" autocomplete="off">
-                  <div id="skills-autocomplete" class="absolute z-[9999] w-full bg-white border border-gray-200 rounded-2xl shadow-xl mt-2 hidden max-h-60 overflow-y-auto"></div>
+                  <input type="text" class="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-primary focus:border-transparent bg-white text-gray-900 placeholder-gray-500 shadow-sm transition-all duration-200 hover:shadow-md font-medium" name="q" id="q-field" placeholder="Job title, skills, or company name" autocomplete="off">
+                  <div id="skills-autocomplete" class="absolute z-50 w-full bg-white border border-gray-200 rounded-2xl shadow-2xl mt-2 hidden max-h-60 overflow-y-auto"></div>
                 </div>
               </div>
 
               <!-- Location Input -->
               <div class="flex-1">
-                <label class="block text-sm font-semibold text-gray-700 mb-2">Preferred work location?</label>
+                <label class="block text-sm font-semibold text-gray-700 mb-3">Where do you want to work?</label>
                 <div class="relative group">
                   <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                    <i data-lucide="map-pin" class="w-5 h-5 text-gray-400 group-focus-within:text-primary-500 transition-colors"></i>
+                    <i class="fas fa-map-marker-alt text-gray-400 group-focus-within:text-primary transition-colors"></i>
                   </div>
-                  <input type="text" class="w-full pl-14 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white text-gray-900 placeholder-gray-500 shadow-sm transition-all duration-200 hover:shadow-md" name="location" id="location_input" placeholder="e.g. Mumbai, Delhi, Pune, Remote" autocomplete="off">
-                  <div id="location-autocomplete" class="absolute z-[9999] w-full bg-white border border-gray-200 rounded-2xl shadow-xl mt-2 hidden max-h-60 overflow-y-auto"></div>
+                  <input type="text" class="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-primary focus:border-transparent bg-white text-gray-900 placeholder-gray-500 shadow-sm transition-all duration-200 hover:shadow-md font-medium" name="location" id="location_input" placeholder="City, state, or remote" autocomplete="off">
+                  <div id="location-autocomplete" class="absolute z-50 w-full bg-white border border-gray-200 rounded-2xl shadow-2xl mt-2 hidden max-h-60 overflow-y-auto"></div>
                 </div>
               </div>
 
               <!-- Search Button -->
               <div class="lg:self-end">
-                <button type="submit" class="w-full lg:w-auto px-8 py-4 bg-gradient-to-r from-primary-600 to-purple-600 hover:from-primary-700 hover:to-purple-700 text-white font-bold rounded-2xl shadow-lg flex items-center justify-center gap-3 transition-all duration-300 hover:shadow-xl hover:scale-105 group">
-                  <i data-lucide="search" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
-                  <span>Find Opportunities</span>
+                <button type="submit" class="w-full lg:w-auto px-8 py-4 bg-gradient-to-r from-primary to-accent hover:from-blue-600 hover:to-green-600 text-white font-bold rounded-2xl shadow-lg flex items-center justify-center gap-3 transition-all duration-300 hover:shadow-xl hover:scale-105 group">
+                  <i class="fas fa-search group-hover:scale-110 transition-transform"></i>
+                  <span>Search Jobs</span>
                 </button>
               </div>
             </div>
 
-            <!-- Job Type Pills -->
+            <!-- Job Type Filters -->
             <div class="flex flex-wrap gap-3 justify-center lg:justify-start">
-              <button type="button" data-job-type="full-time" class="px-6 py-3 text-sm font-semibold rounded-full bg-primary-600 text-white shadow-md transition-all duration-200 hover:shadow-lg hover:scale-105 group" id="full-time">
-                <i data-lucide="building-2" class="w-4 h-4 inline mr-2 group-hover:rotate-12 transition-transform"></i>
-                Permanent Roles
+              <button type="button" data-job-type="full-time" class="px-6 py-3 text-sm font-semibold rounded-full bg-primary text-white shadow-md transition-all duration-200 hover:shadow-lg hover:scale-105 group" id="full-time">
+                <i class="fas fa-building mr-2 group-hover:rotate-12 transition-transform"></i>
+                Full Time
               </button>
-              <button type="button" data-job-type="internship" class="px-6 py-3 text-sm font-semibold rounded-full text-gray-600 bg-gray-100 hover:bg-emerald-100 hover:text-emerald-600 transition-all duration-200 hover:scale-105 group" id="internship">
-                <i data-lucide="graduation-cap" class="w-4 h-4 inline mr-2 group-hover:rotate-12 transition-transform"></i>
+              <button type="button" data-job-type="internship" class="px-6 py-3 text-sm font-semibold rounded-full text-gray-600 bg-gray-100 hover:bg-accent hover:text-white transition-all duration-200 hover:scale-105 group" id="internship">
+                <i class="fas fa-graduation-cap mr-2 group-hover:rotate-12 transition-transform"></i>
                 Internships
               </button>
-              <button type="button" data-job-type="walk-in" class="px-6 py-3 text-sm font-semibold rounded-full text-gray-600 bg-gray-100 hover:bg-purple-100 hover:text-purple-600 transition-all duration-200 hover:scale-105 group" id="walk-in">
-                <i data-lucide="door-open" class="w-4 h-4 inline mr-2 group-hover:rotate-12 transition-transform"></i>
-                Walk-in Drives
+              <button type="button" data-job-type="walk-in" class="px-6 py-3 text-sm font-semibold rounded-full text-gray-600 bg-gray-100 hover:bg-secondary hover:text-white transition-all duration-200 hover:scale-105 group" id="walk-in">
+                <i class="fas fa-door-open mr-2 group-hover:rotate-12 transition-transform"></i>
+                Walk-ins
               </button>
-              <button type="button" data-job-type="fresher" class="px-6 py-3 text-sm font-semibold rounded-full text-gray-600 bg-gray-100 hover:bg-orange-100 hover:text-orange-600 transition-all duration-200 hover:scale-105 group" id="fresher">
-                <i data-lucide="sparkles" class="w-4 h-4 inline mr-2 group-hover:rotate-12 transition-transform"></i>
-                Fresh Graduates
+              <button type="button" data-job-type="fresher" class="px-6 py-3 text-sm font-semibold rounded-full text-gray-600 bg-gray-100 hover:bg-purple-500 hover:text-white transition-all duration-200 hover:scale-105 group" id="fresher">
+                <i class="fas fa-star mr-2 group-hover:rotate-12 transition-transform"></i>
+                Fresh Jobs
               </button>
             </div>
 
@@ -113,49 +124,51 @@
           </form>
         </div>
 
-        <!-- Quick Stats -->
-        <div class="flex flex-wrap gap-8 justify-center lg:justify-start text-white/80">
+        <!-- Trust Indicators -->
+        <div class="flex flex-wrap gap-8 justify-center lg:justify-start text-gray-600">
           <div class="text-center group cursor-pointer">
-            <div class="text-2xl font-bold text-white group-hover:scale-110 transition-transform">15K+</div>
-            <div class="text-sm group-hover:text-emerald-300 transition-colors">Successful Placements</div>
+            <div class="text-3xl font-bold text-primary group-hover:scale-110 transition-transform" id="counter-1">25K+</div>
+            <div class="text-sm group-hover:text-primary transition-colors">Live Jobs</div>
           </div>
           <div class="text-center group cursor-pointer">
-            <div class="text-2xl font-bold text-white group-hover:scale-110 transition-transform">800+</div>
-            <div class="text-sm group-hover:text-cyan-300 transition-colors">Partner Companies</div>
+            <div class="text-3xl font-bold text-accent group-hover:scale-110 transition-transform" id="counter-2">1200+</div>
+            <div class="text-sm group-hover:text-accent transition-colors">Top Companies</div>
           </div>
           <div class="text-center group cursor-pointer">
-            <div class="text-2xl font-bold text-white group-hover:scale-110 transition-transform">13+</div>
-            <div class="text-sm group-hover:text-blue-300 transition-colors">Years of Excellence</div>
+            <div class="text-3xl font-bold text-secondary group-hover:scale-110 transition-transform" id="counter-3">15+</div>
+            <div class="text-sm group-hover:text-secondary transition-colors">Years Excellence</div>
+          </div>
+          <div class="text-center group cursor-pointer">
+            <div class="text-3xl font-bold text-purple-600 group-hover:scale-110 transition-transform" id="counter-4">95%</div>
+            <div class="text-sm group-hover:text-purple-600 transition-colors">Success Rate</div>
           </div>
         </div>
       </div>
 
       <!-- Hero Visual -->
-      <div class="lg:col-span-5 text-center">
+      <div class="lg:col-span-5 text-center animate-slide-up">
         <div class="relative">
-          <!-- Floating Cards Animation -->
-          <div class="relative z-10">
-            <div class="grid grid-cols-2 gap-6 p-8">
-              <div class="bg-white/10 backdrop-blur-lg rounded-3xl p-6 shadow-2xl border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105 animate-bounce group cursor-pointer" style="animation-duration: 3s;">
-                <i data-lucide="award" class="w-8 h-8 text-emerald-400 mb-4 group-hover:rotate-12 transition-transform"></i>
-                <div class="text-2xl font-bold text-white">98%</div>
-                <div class="text-sm text-gray-200">Placement Success</div>
-              </div>
-              <div class="bg-white/10 backdrop-blur-lg rounded-3xl p-6 shadow-2xl border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105 animate-bounce group cursor-pointer" style="animation-duration: 3s; animation-delay: 1s;">
-                <i data-lucide="zap" class="w-8 h-8 text-cyan-400 mb-4 group-hover:rotate-12 transition-transform"></i>
-                <div class="text-2xl font-bold text-white">7</div>
-                <div class="text-sm text-gray-200">Days Avg Placement</div>
-              </div>
-              <div class="bg-white/10 backdrop-blur-lg rounded-3xl p-6 shadow-2xl border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105 animate-bounce group cursor-pointer" style="animation-duration: 3s; animation-delay: 2s;">
-                <i data-lucide="users-round" class="w-8 h-8 text-purple-400 mb-4 group-hover:rotate-12 transition-transform"></i>
-                <div class="text-2xl font-bold text-white">25K+</div>
-                <div class="text-sm text-gray-200">Active Candidates</div>
-              </div>
-              <div class="bg-white/10 backdrop-blur-lg rounded-3xl p-6 shadow-2xl border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105 animate-bounce group cursor-pointer" style="animation-duration: 3s; animation-delay: 3s;">
-                <i data-lucide="map" class="w-8 h-8 text-yellow-400 mb-4 group-hover:rotate-12 transition-transform"></i>
-                <div class="text-2xl font-bold text-white">50+</div>
-                <div class="text-sm text-gray-200">Major Cities</div>
-              </div>
+          <!-- Achievement Cards -->
+          <div class="grid grid-cols-2 gap-6 p-8">
+            <div class="glass-effect rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 animate-bounce-gentle group cursor-pointer">
+              <i class="fas fa-trophy text-3xl text-yellow-500 mb-4 group-hover:rotate-12 transition-transform"></i>
+              <div class="text-2xl font-bold text-gray-800">Top Rated</div>
+              <div class="text-sm text-gray-600">Job Portal</div>
+            </div>
+            <div class="glass-effect rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 animate-bounce-gentle group cursor-pointer" style="animation-delay: 1s;">
+              <i class="fas fa-clock text-3xl text-primary mb-4 group-hover:rotate-12 transition-transform"></i>
+              <div class="text-2xl font-bold text-gray-800">24/7</div>
+              <div class="text-sm text-gray-600">Support</div>
+            </div>
+            <div class="glass-effect rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 animate-bounce-gentle group cursor-pointer" style="animation-delay: 2s;">
+              <i class="fas fa-shield-alt text-3xl text-accent mb-4 group-hover:rotate-12 transition-transform"></i>
+              <div class="text-2xl font-bold text-gray-800">Verified</div>
+              <div class="text-sm text-gray-600">Companies</div>
+            </div>
+            <div class="glass-effect rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 animate-bounce-gentle group cursor-pointer" style="animation-delay: 3s;">
+              <i class="fas fa-rocket text-3xl text-secondary mb-4 group-hover:rotate-12 transition-transform"></i>
+              <div class="text-2xl font-bold text-gray-800">Fast</div>
+              <div class="text-sm text-gray-600">Placement</div>
             </div>
           </div>
         </div>
@@ -164,95 +177,100 @@
   </div>
 </section>
 
-<!-- Job Categories Section -->
+<!-- Popular Job Categories -->
 <section class="py-20 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-16">
+    <div class="text-center mb-16 animate-fade-in">
       <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-        Our <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-purple-600">Expertise Areas</span>
+        Popular <span class="gradient-text">Job Categories</span>
       </h2>
       <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-        Morgan Consultancy specializes in connecting top talent with leading companies across diverse industries
+        Explore opportunities across diverse industries and find your perfect career match
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Technology Category -->
-      <a href="/technology-jobs/" class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 relative overflow-hidden">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-slide-up">
+      <!-- IT & Software Category -->
+      <a href="/technology-jobs/" class="group glass-effect rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 relative overflow-hidden hover-lift">
         <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-100 to-blue-50 rounded-full -translate-y-10 translate-x-10 opacity-50"></div>
-        <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 relative z-10">
-          <i data-lucide="cpu" class="w-8 h-8 text-white"></i>
+        <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 relative z-10">
+          <i class="fas fa-laptop-code text-white text-2xl"></i>
         </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-3">Technology & IT</h3>
-        <p class="text-gray-600 mb-4">Full-stack development, cloud computing, data science, and emerging tech</p>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">IT & Software</h3>
+        <p class="text-gray-600 mb-4">Software development, web design, data science, AI/ML, cybersecurity</p>
         <div class="flex items-center justify-between">
-          <span class="text-blue-600 font-semibold">3,200+ Opportunities</span>
-          <i data-lucide="arrow-up-right" class="w-5 h-5 text-gray-400 group-hover:text-blue-600 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300"></i>
+          <span class="text-primary font-semibold">8,500+ Jobs</span>
+          <i class="fas fa-arrow-right text-gray-400 group-hover:text-primary group-hover:translate-x-2 transition-all duration-300"></i>
         </div>
       </a>
 
-      <!-- Marketing Category -->
-      <a href="/marketing-jobs/" class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100">
-        <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-          <i data-lucide="megaphone" class="w-8 h-8 text-white"></i>
+      <!-- Marketing & Sales -->
+      <a href="/marketing-jobs/" class="group glass-effect rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 relative overflow-hidden hover-lift">
+        <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-green-100 to-green-50 rounded-full -translate-y-10 translate-x-10 opacity-50"></div>
+        <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+          <i class="fas fa-chart-line text-white text-2xl"></i>
         </div>
         <h3 class="text-xl font-bold text-gray-900 mb-3">Marketing & Sales</h3>
-        <p class="text-gray-600 mb-4">Digital marketing, content creation, brand management, sales leadership</p>
+        <p class="text-gray-600 mb-4">Digital marketing, sales management, content creation, brand strategy</p>
         <div class="flex items-center justify-between">
-          <span class="text-green-600 font-semibold">1,800+ Jobs</span>
-          <i data-lucide="arrow-right" class="w-5 h-5 text-gray-400 group-hover:text-green-600 group-hover:translate-x-1 transition-all duration-300"></i>
+          <span class="text-accent font-semibold">3,200+ Jobs</span>
+          <i class="fas fa-arrow-right text-gray-400 group-hover:text-accent group-hover:translate-x-2 transition-all duration-300"></i>
         </div>
       </a>
 
-      <!-- Finance Category -->
-      <a href="/finance-jobs/" class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100">
-        <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-          <i data-lucide="coins" class="w-8 h-8 text-white"></i>
+      <!-- Finance & Banking -->
+      <a href="/finance-jobs/" class="group glass-effect rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 relative overflow-hidden hover-lift">
+        <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-purple-100 to-purple-50 rounded-full -translate-y-10 translate-x-10 opacity-50"></div>
+        <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+          <i class="fas fa-coins text-white text-2xl"></i>
         </div>
         <h3 class="text-xl font-bold text-gray-900 mb-3">Finance & Banking</h3>
-        <p class="text-gray-600 mb-4">Banking, investment, financial analysis, accounting, fintech</p>
+        <p class="text-gray-600 mb-4">Investment banking, financial analysis, accounting, fintech solutions</p>
         <div class="flex items-center justify-between">
-          <span class="text-purple-600 font-semibold">1,200+ Jobs</span>
-          <i data-lucide="arrow-right" class="w-5 h-5 text-gray-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all duration-300"></i>
+          <span class="text-purple-600 font-semibold">2,100+ Jobs</span>
+          <i class="fas fa-arrow-right text-gray-400 group-hover:text-purple-600 group-hover:translate-x-2 transition-all duration-300"></i>
         </div>
       </a>
 
-      <!-- Healthcare Category -->
-      <a href="/healthcare-jobs/" class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100">
-        <div class="w-16 h-16 bg-gradient-to-r from-red-500 to-red-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-          <i data-lucide="heart" class="w-8 h-8 text-white"></i>
+      <!-- Healthcare -->
+      <a href="/healthcare-jobs/" class="group glass-effect rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 relative overflow-hidden hover-lift">
+        <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-red-100 to-red-50 rounded-full -translate-y-10 translate-x-10 opacity-50"></div>
+        <div class="w-16 h-16 bg-gradient-to-r from-red-500 to-red-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+          <i class="fas fa-heartbeat text-white text-2xl"></i>
         </div>
         <h3 class="text-xl font-bold text-gray-900 mb-3">Healthcare</h3>
-        <p class="text-gray-600 mb-4">Medical professionals, healthcare administration, pharmaceuticals</p>
+        <p class="text-gray-600 mb-4">Medical professionals, healthcare management, pharmaceuticals</p>
         <div class="flex items-center justify-between">
-          <span class="text-red-600 font-semibold">900+ Jobs</span>
-          <i data-lucide="arrow-right" class="w-5 h-5 text-gray-400 group-hover:text-red-600 group-hover:translate-x-1 transition-all duration-300"></i>
+          <span class="text-red-600 font-semibold">1,800+ Jobs</span>
+          <i class="fas fa-arrow-right text-gray-400 group-hover:text-red-600 group-hover:translate-x-2 transition-all duration-300"></i>
         </div>
       </a>
 
-      <!-- Education Category -->
-      <a href="/education-jobs/" class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100">
-        <div class="w-16 h-16 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-          <i data-lucide="book-open" class="w-8 h-8 text-white"></i>
+      <!-- Education -->
+      <a href="/education-jobs/" class="group glass-effect rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 relative overflow-hidden hover-lift">
+        <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-yellow-100 to-yellow-50 rounded-full -translate-y-10 translate-x-10 opacity-50"></div>
+        <div class="w-16 h-16 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+          <i class="fas fa-graduation-cap text-white text-2xl"></i>
         </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-3">Education & Training</h3>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Education</h3>
         <p class="text-gray-600 mb-4">Teaching, training, educational technology, academic research</p>
         <div class="flex items-center justify-between">
-          <span class="text-yellow-600 font-semibold">750+ Jobs</span>
-          <i data-lucide="arrow-right" class="w-5 h-5 text-gray-400 group-hover:text-yellow-600 group-hover:translate-x-1 transition-all duration-300"></i>
+          <span class="text-yellow-600 font-semibold">1,400+ Jobs</span>
+          <i class="fas fa-arrow-right text-gray-400 group-hover:text-yellow-600 group-hover:translate-x-2 transition-all duration-300"></i>
         </div>
       </a>
 
-      <!-- Design Category -->
-      <a href="/design-jobs/" class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100">
-        <div class="w-16 h-16 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-          <i data-lucide="palette" class="w-8 h-8 text-white"></i>
+      <!-- Design & Creative -->
+      <a href="/design-jobs/" class="group glass-effect rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 relative overflow-hidden hover-lift">
+        <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-indigo-100 to-indigo-50 rounded-full -translate-y-10 translate-x-10 opacity-50"></div>
+        <div class="w-16 h-16 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+          <i class="fas fa-palette text-white text-2xl"></i>
         </div>
         <h3 class="text-xl font-bold text-gray-900 mb-3">Design & Creative</h3>
-        <p class="text-gray-600 mb-4">UI/UX design, graphic design, creative direction, content creation</p>
+        <p class="text-gray-600 mb-4">UI/UX design, graphic design, creative direction, multimedia</p>
         <div class="flex items-center justify-between">
-          <span class="text-indigo-600 font-semibold">650+ Jobs</span>
-          <i data-lucide="arrow-right" class="w-5 h-5 text-gray-400 group-hover:text-indigo-600 group-hover:translate-x-1 transition-all duration-300"></i>
+          <span class="text-indigo-600 font-semibold">950+ Jobs</span>
+          <i class="fas fa-arrow-right text-gray-400 group-hover:text-indigo-600 group-hover:translate-x-2 transition-all duration-300"></i>
         </div>
       </a>
     </div>
@@ -262,23 +280,24 @@
 <!-- Popular Locations -->
 <section class="py-20 bg-gray-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-16">
+    <div class="text-center mb-16 animate-fade-in">
       <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-        <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">Popular</span> Job Locations
+        Jobs by <span class="gradient-text">Location</span>
       </h2>
       <p class="text-xl text-gray-600">
-        Discover career opportunities across India's top cities
+        Discover career opportunities in India's major cities
       </p>
     </div>
 
     {% get_locations as total_locations %}
     {% if total_locations %}
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-8">
-        {% for location in total_locations|slice:"36" %}
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-8 animate-slide-up">
+        {% for location in total_locations|slice:"24" %}
           <a href="{{ location.get_job_url }}" 
-             class="group block text-center py-6 px-4 bg-white hover:bg-blue-50 text-gray-700 hover:text-blue-600 text-sm font-medium rounded-2xl transition-all duration-300 border border-gray-200 hover:border-blue-200 shadow-sm hover:shadow-lg hover:scale-105">
-            <i data-lucide="map-pin" class="w-6 h-6 mx-auto mb-3 text-gray-400 group-hover:text-blue-500 transition-colors"></i>
-            <div class="font-semibold">{{ location.name }}</div>
+             class="group block text-center py-6 px-4 glass-effect hover:bg-white text-gray-700 hover:text-primary text-sm font-semibold rounded-2xl transition-all duration-300 border border-gray-200 hover:border-primary shadow-sm hover:shadow-lg hover:scale-105 hover-lift">
+            <i class="fas fa-map-marker-alt text-2xl mb-3 text-gray-400 group-hover:text-primary transition-colors"></i>
+            <div class="font-bold">{{ location.name }}</div>
+            <div class="text-xs text-gray-500 mt-1">View Jobs</div>
           </a>
         {% endfor %}
       </div>
@@ -287,145 +306,109 @@
 </section>
 
 <!-- Stats Section -->
-<section class="py-24 bg-gradient-to-r from-gray-900 via-blue-900 to-purple-900 relative overflow-hidden">
-  <div class="absolute inset-0">
-    <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-blue-600/10 to-purple-600/10"></div>
-  </div>
+<section class="py-24 bg-gradient-to-r from-primary via-accent to-secondary relative overflow-hidden">
+  <div class="absolute inset-0 bg-black/10"></div>
   
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-20">
+    <div class="text-center mb-20 animate-fade-in">
       <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8">
-        Join the Success Story
+        Trusted by Millions
       </h2>
-      <p class="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto">
-        Be part of India's fastest growing job platform trusted by professionals nationwide
+      <p class="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto">
+        Join India's largest community of job seekers and employers
       </p>
     </div>
     
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="text-center p-10 rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-500 group">
-        <div class="w-24 h-24 bg-gradient-to-br from-blue-500 to-blue-600 rounded-3xl flex items-center justify-center mx-auto mb-8 group-hover:scale-110 transition-transform duration-300">
-          <i data-lucide="briefcase" class="w-12 h-12 text-white"></i>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 animate-slide-up">
+      <div class="text-center p-8 rounded-3xl bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-500 group hover-lift">
+        <div class="w-20 h-20 bg-white/20 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+          <i class="fas fa-briefcase text-white text-3xl"></i>
         </div>
-        <h3 data-counter="10000" class="text-5xl lg:text-6xl font-bold text-blue-400 mb-4">0+</h3>
-        <p class="text-white font-semibold text-xl mb-3">Active Jobs</p>
-        <p class="text-gray-400 text-sm">Updated daily across all industries</p>
+        <h3 data-counter="25000" class="text-4xl lg:text-5xl font-bold text-white mb-4">0+</h3>
+        <p class="text-white/90 font-semibold text-lg mb-2">Active Jobs</p>
+        <p class="text-white/70 text-sm">Updated daily</p>
       </div>
       
-      <div class="text-center p-10 rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-500 group">
-        <div class="w-24 h-24 bg-gradient-to-br from-green-500 to-green-600 rounded-3xl flex items-center justify-center mx-auto mb-8 group-hover:scale-110 transition-transform duration-300">
-          <i data-lucide="users" class="w-12 h-12 text-white"></i>
+      <div class="text-center p-8 rounded-3xl bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-500 group hover-lift">
+        <div class="w-20 h-20 bg-white/20 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+          <i class="fas fa-users text-white text-3xl"></i>
         </div>
-        <h3 data-counter="50000" class="text-5xl lg:text-6xl font-bold text-green-400 mb-4">0+</h3>
-        <p class="text-white font-semibold text-xl mb-3">Job Seekers</p>
-        <p class="text-gray-400 text-sm">Verified profiles ready to hire</p>
+        <h3 data-counter="500000" class="text-4xl lg:text-5xl font-bold text-white mb-4">0+</h3>
+        <p class="text-white/90 font-semibold text-lg mb-2">Registered Users</p>
+        <p class="text-white/70 text-sm">Growing daily</p>
       </div>
       
-      <div class="text-center p-10 rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-500 group">
-        <div class="w-24 h-24 bg-gradient-to-br from-purple-500 to-purple-600 rounded-3xl flex items-center justify-center mx-auto mb-8 group-hover:scale-110 transition-transform duration-300">
-          <i data-lucide="building" class="w-12 h-12 text-white"></i>
+      <div class="text-center p-8 rounded-3xl bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-500 group hover-lift">
+        <div class="w-20 h-20 bg-white/20 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+          <i class="fas fa-building text-white text-3xl"></i>
         </div>
-        <h3 data-counter="5000" class="text-5xl lg:text-6xl font-bold text-purple-400 mb-4">0+</h3>
-        <p class="text-white font-semibold text-xl mb-3">Companies</p>
-        <p class="text-gray-400 text-sm">Trusted brands and startups</p>
+        <h3 data-counter="12000" class="text-4xl lg:text-5xl font-bold text-white mb-4">0+</h3>
+        <p class="text-white/90 font-semibold text-lg mb-2">Companies</p>
+        <p class="text-white/70 text-sm">Trust us</p>
+      </div>
+      
+      <div class="text-center p-8 rounded-3xl bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-500 group hover-lift">
+        <div class="w-20 h-20 bg-white/20 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+          <i class="fas fa-handshake text-white text-3xl"></i>
+        </div>
+        <h3 data-counter="150000" class="text-4xl lg:text-5xl font-bold text-white mb-4">0+</h3>
+        <p class="text-white/90 font-semibold text-lg mb-2">Successful Placements</p>
+        <p class="text-white/70 text-sm">And counting</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Featured Companies -->
+<!-- Call to Action -->
 <section class="py-20 bg-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-        Trusted by <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">Leading Companies</span>
-      </h2>
-      <p class="text-xl text-gray-600">
-        Join professionals working at India's top organizations
-      </p>
-    </div>
-
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
-      <div class="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-100">
-        <div class="text-center">
-          <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-            <i data-lucide="building" class="w-8 h-8 text-white"></i>
-          </div>
-          <span class="text-sm font-semibold text-gray-700">TechCorp</span>
-        </div>
-      </div>
-      <div class="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-100">
-        <div class="text-center">
-          <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-            <i data-lucide="building" class="w-8 h-8 text-white"></i>
-          </div>
-          <span class="text-sm font-semibold text-gray-700">FinanceHub</span>
-        </div>
-      </div>
-      <div class="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-100">
-        <div class="text-center">
-          <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-            <i data-lucide="building" class="w-8 h-8 text-white"></i>
-          </div>
-          <span class="text-sm font-semibold text-gray-700">StartupX</span>
-        </div>
-      </div>
-      <div class="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-100">
-        <div class="text-center">
-          <div class="w-16 h-16 bg-gradient-to-r from-red-500 to-red-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-            <i data-lucide="building" class="w-8 h-8 text-white"></i>
-          </div>
-          <span class="text-sm font-semibold text-gray-700">HealthPlus</span>
-        </div>
-      </div>
-      <div class="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-100">
-        <div class="text-center">
-          <div class="w-16 h-16 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-            <i data-lucide="building" class="w-8 h-8 text-white"></i>
-          </div>
-          <span class="text-sm font-semibold text-gray-700">EduTech</span>
-        </div>
-      </div>
-      <div class="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-100">
-        <div class="text-center">
-          <div class="w-16 h-16 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-            <i data-lucide="building" class="w-8 h-8 text-white"></i>
-          </div>
-          <span class="text-sm font-semibold text-gray-700">DesignStudio</span>
-        </div>
-      </div>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-fade-in">
+    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+      Ready to <span class="gradient-text">Start Your Journey?</span>
+    </h2>
+    <p class="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
+      Join thousands of professionals who found their dream jobs through Morgan
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="/register" class="px-8 py-4 bg-gradient-to-r from-primary to-accent text-white font-bold rounded-2xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 group">
+        <i class="fas fa-user-plus mr-2 group-hover:rotate-12 transition-transform"></i>
+        Create Your Profile
+      </a>
+      <a href="{% url 'jobs:index' %}" class="px-8 py-4 border-2 border-primary text-primary hover:bg-primary hover:text-white font-bold rounded-2xl transition-all duration-300 group">
+        <i class="fas fa-search mr-2 group-hover:rotate-12 transition-transform"></i>
+        Browse Jobs
+      </a>
     </div>
   </div>
 </section>
 {% endblock %}
 
 {% block extra_js %}
-<script type="text/javascript">
-  $(document).ready(function() {
+<script>
+$(document).ready(function() {
     // Initialize Lucide icons
     if (typeof lucide !== 'undefined') {
-      lucide.createIcons();
+        lucide.createIcons();
     }
 
     // Enhanced autocomplete styling
     function createAutocompleteItem(item, type = 'skill') {
-      const jobsCount = item.jobs_count ? ` (${item.jobs_count} jobs)` : '';
-      const name = item.name || item.title || 'Unknown';
-      
-      return `
-        <div class="ac-result px-6 py-4 hover:bg-blue-50 cursor-pointer border-b border-gray-100 last:border-b-0 flex items-center justify-between group transition-all duration-200">
-          <div class="flex items-center gap-4">
-            <div class="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center group-hover:bg-blue-200 transition-colors">
-              <i data-lucide="${type === 'location' ? 'map-pin' : 'search'}" class="w-5 h-5 text-blue-600"></i>
+        const jobsCount = item.jobs_count ? ` (${item.jobs_count} jobs)` : '';
+        const name = item.name || item.title || 'Unknown';
+        
+        return `
+            <div class="ac-result px-6 py-4 hover:bg-blue-50 cursor-pointer border-b border-gray-100 last:border-b-0 flex items-center justify-between group transition-all duration-200">
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center group-hover:bg-blue-200 transition-colors">
+                        <i class="fas fa-${type === 'location' ? 'map-marker-alt' : 'search'} text-primary"></i>
+                    </div>
+                    <div>
+                        <span class="text-gray-900 font-semibold group-hover:text-primary transition-colors">${name}</span>
+                        <div class="text-xs text-gray-500">${jobsCount}</div>
+                    </div>
+                </div>
+                <i class="fas fa-arrow-right text-gray-400 opacity-0 group-hover:opacity-100 group-hover:text-primary transition-all duration-200"></i>
             </div>
-            <div>
-              <span class="text-gray-900 font-semibold group-hover:text-blue-600 transition-colors">${name}</span>
-              <div class="text-xs text-gray-500">${jobsCount}</div>
-            </div>
-          </div>
-          <i data-lucide="arrow-right" class="w-5 h-5 text-gray-400 opacity-0 group-hover:opacity-100 group-hover:text-blue-600 transition-all duration-200"></i>
-        </div>
-      `;
+        `;
     }
 
     // Skills autocomplete
@@ -433,57 +416,53 @@
     var autocompleteDiv = $('#skills-autocomplete');
     
     if (inputField.length && autocompleteDiv.length) {
-      inputField.on('keyup', function() {
-        var query = $(this).val().trim();
-        
-        if (query.length < 1) {
-          autocompleteDiv.addClass('hidden').html('');
-          return;
-        }
-        
-        autocompleteDiv.removeClass('hidden').html(`
-          <div class="px-6 py-4 text-gray-500 flex items-center gap-3">
-            <div class="w-5 h-5 border-2 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
-            Loading suggestions...
-          </div>
-        `);
-        
-        $.ajax({
-          url: '/skill-auto/',
-          type: 'GET',
-          data: { q: query },
-          dataType: 'json',
-          success: function(data) {
-            var results = data.results || [];
+        inputField.on('keyup', function() {
+            var query = $(this).val().trim();
             
-            if (results.length === 0) {
-              autocompleteDiv.html('<div class="px-6 py-4 text-gray-500 text-center">No results found</div>');
-              return;
+            if (query.length < 1) {
+                autocompleteDiv.addClass('hidden').html('');
+                return;
             }
             
-            var html = '';
-            $.each(results, function(i, item) {
-              html += createAutocompleteItem(item, 'skill');
+            autocompleteDiv.removeClass('hidden').html(`
+                <div class="px-6 py-4 text-gray-500 flex items-center gap-3">
+                    <div class="w-5 h-5 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
+                    Loading suggestions...
+                </div>
+            `);
+            
+            $.ajax({
+                url: '/skill-auto/',
+                type: 'GET',
+                data: { q: query },
+                dataType: 'json',
+                success: function(data) {
+                    var results = data.results || [];
+                    
+                    if (results.length === 0) {
+                        autocompleteDiv.html('<div class="px-6 py-4 text-gray-500 text-center">No results found</div>');
+                        return;
+                    }
+                    
+                    var html = '';
+                    $.each(results, function(i, item) {
+                        html += createAutocompleteItem(item, 'skill');
+                    });
+                    
+                    autocompleteDiv.html(html);
+                    
+                    autocompleteDiv.find('.ac-result').on('click', function(e) {
+                        e.preventDefault();
+                        var text = $(this).find('span').first().text();
+                        inputField.val(text);
+                        autocompleteDiv.addClass('hidden').html('');
+                    });
+                },
+                error: function() {
+                    autocompleteDiv.html('<div class="px-6 py-4 text-red-500 text-center">Error loading suggestions</div>');
+                }
             });
-            
-            autocompleteDiv.html(html);
-            
-            if (typeof lucide !== 'undefined') {
-              lucide.createIcons();
-            }
-            
-            autocompleteDiv.find('.ac-result').on('click', function(e) {
-              e.preventDefault();
-              var text = $(this).find('span').first().text();
-              inputField.val(text);
-              autocompleteDiv.addClass('hidden').html('');
-            });
-          },
-          error: function() {
-            autocompleteDiv.html('<div class="px-6 py-4 text-red-500 text-center">Error loading suggestions</div>');
-          }
         });
-      });
     }
 
     // Location autocomplete
@@ -491,158 +470,135 @@
     var locationAutocompleteDiv = $('#location-autocomplete');
     
     if (locationInput.length && locationAutocompleteDiv.length) {
-      locationInput.on('keyup', function() {
-        var query = $(this).val().trim();
-        
-        if (query.length < 1) {
-          locationAutocompleteDiv.addClass('hidden').html('');
-          return;
-        }
-        
-        locationAutocompleteDiv.removeClass('hidden').html(`
-          <div class="px-6 py-4 text-gray-500 flex items-center gap-3">
-            <div class="w-5 h-5 border-2 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
-            Loading suggestions...
-          </div>
-        `);
-        
-        $.ajax({
-          url: '/city-auto/',
-          type: 'GET',
-          data: { location: query },
-          dataType: 'json',
-          success: function(data) {
-            var results = data.results || [];
+        locationInput.on('keyup', function() {
+            var query = $(this).val().trim();
             
-            if (results.length === 0) {
-              locationAutocompleteDiv.html('<div class="px-6 py-4 text-gray-500 text-center">No results found</div>');
-              return;
+            if (query.length < 1) {
+                locationAutocompleteDiv.addClass('hidden').html('');
+                return;
             }
             
-            var html = '';
-            $.each(results, function(i, item) {
-              html += createAutocompleteItem(item, 'location');
+            locationAutocompleteDiv.removeClass('hidden').html(`
+                <div class="px-6 py-4 text-gray-500 flex items-center gap-3">
+                    <div class="w-5 h-5 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
+                    Loading suggestions...
+                </div>
+            `);
+            
+            $.ajax({
+                url: '/city-auto/',
+                type: 'GET',
+                data: { location: query },
+                dataType: 'json',
+                success: function(data) {
+                    var results = data.results || [];
+                    
+                    if (results.length === 0) {
+                        locationAutocompleteDiv.html('<div class="px-6 py-4 text-gray-500 text-center">No results found</div>');
+                        return;
+                    }
+                    
+                    var html = '';
+                    $.each(results, function(i, item) {
+                        html += createAutocompleteItem(item, 'location');
+                    });
+                    
+                    locationAutocompleteDiv.html(html);
+                    
+                    locationAutocompleteDiv.find('.ac-result').on('click', function(e) {
+                        e.preventDefault();
+                        var text = $(this).find('span').first().text();
+                        locationInput.val(text);
+                        locationAutocompleteDiv.addClass('hidden').html('');
+                    });
+                },
+                error: function() {
+                    locationAutocompleteDiv.html('<div class="px-6 py-4 text-red-500 text-center">Error loading suggestions</div>');
+                }
             });
-            
-            locationAutocompleteDiv.html(html);
-            
-            if (typeof lucide !== 'undefined') {
-              lucide.createIcons();
-            }
-            
-            locationAutocompleteDiv.find('.ac-result').on('click', function(e) {
-              e.preventDefault();
-              var text = $(this).find('span').first().text();
-              locationInput.val(text);
-              locationAutocompleteDiv.addClass('hidden').html('');
-            });
-          },
-          error: function() {
-            locationAutocompleteDiv.html('<div class="px-6 py-4 text-red-500 text-center">Error loading suggestions</div>');
-          }
         });
-      });
     }
 
     // Hide autocomplete when clicking outside
     $(document).on('click', function(e) {
-      if (!$(e.target).closest('#q-field, #skills-autocomplete').length) {
-        autocompleteDiv.addClass('hidden').html('');
-      }
-      if (!$(e.target).closest('#location_input, #location-autocomplete').length) {
-        locationAutocompleteDiv.addClass('hidden').html('');
-      }
+        if (!$(e.target).closest('#q-field, #skills-autocomplete').length) {
+            autocompleteDiv.addClass('hidden').html('');
+        }
+        if (!$(e.target).closest('#location_input, #location-autocomplete').length) {
+            locationAutocompleteDiv.addClass('hidden').html('');
+        }
     });
 
-    // Job type tab functionality
-    $('[data-job-type]').click(function (e) {
-      e.preventDefault();
-      
-      $('[data-job-type]').removeClass('bg-primary-600 text-white shadow-md');
-      $('[data-job-type]').addClass('text-gray-600 bg-gray-100 hover:bg-blue-100 hover:text-blue-600');
-      
-      $('#job_type').val($(this).data('job-type'));
-      
-      $(this).removeClass('text-gray-600 bg-gray-100 hover:bg-blue-100 hover:text-blue-600');
-      $(this).addClass('bg-primary-600 text-white shadow-md');
+    // Job type selection
+    $('[data-job-type]').click(function(e) {
+        e.preventDefault();
+        
+        $('[data-job-type]').removeClass('bg-primary text-white shadow-md');
+        $('[data-job-type]').addClass('text-gray-600 bg-gray-100');
+        
+        $('#job_type').val($(this).data('job-type'));
+        
+        $(this).removeClass('text-gray-600 bg-gray-100');
+        $(this).addClass('bg-primary text-white shadow-md');
     });
 
     // Counter animation
     const statsObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const counter = entry.target;
-          const target = parseInt(counter.getAttribute('data-counter'));
-          let current = 0;
-          const increment = target / 100;
-          const timer = setInterval(() => {
-            current += increment;
-            if (current >= target) {
-              counter.textContent = target.toLocaleString() + '+';
-              clearInterval(timer);
-            } else {
-              counter.textContent = Math.floor(current).toLocaleString() + '+';
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counter = entry.target;
+                const target = parseInt(counter.getAttribute('data-counter'));
+                let current = 0;
+                const increment = target / 100;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        counter.textContent = target.toLocaleString() + '+';
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = Math.floor(current).toLocaleString() + '+';
+                    }
+                }, 20);
             }
-          }, 20);
-        }
-      });
+        });
     }, { threshold: 0.5 });
 
     $('[data-counter]').each(function() {
-      statsObserver.observe(this);
+        statsObserver.observe(this);
     });
 
     // Search form submission
     $('#search-form').on('submit', function(e) {
-      e.preventDefault();
-      
-      const form = $(this);
-      const skill = form.find('[name="q"]').val().trim();
-      const location = form.find('[name="location"]').val().trim();
-      const jobType = form.find('[name="job_type"]').val();
-      
-      if (!skill && !location) {
-        const alertDiv = $(`
-          <div class="fixed top-4 right-4 bg-red-500 text-white px-6 py-4 rounded-2xl shadow-2xl z-50 border border-red-600 max-w-sm">
-            <div class="flex items-center gap-3">
-              <i data-lucide="alert-circle" class="w-5 h-5"></i>
-              <span class="font-medium">Please enter a skill or select a location</span>
-            </div>
-          </div>
-        `);
-        $('body').append(alertDiv);
+        e.preventDefault();
         
-        if (typeof lucide !== 'undefined') {
-          lucide.createIcons();
+        const form = $(this);
+        const skill = form.find('[name="q"]').val().trim();
+        const location = form.find('[name="location"]').val().trim();
+        const jobType = form.find('[name="job_type"]').val();
+        
+        if (!skill && !location) {
+            // Show notification
+            const notification = $(`
+                <div class="fixed top-24 right-4 bg-red-500 text-white px-6 py-4 rounded-2xl shadow-2xl z-50 border border-red-600 max-w-sm animate-slide-in">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <span class="font-medium">Please enter a job title or location</span>
+                    </div>
+                </div>
+            `);
+            $('body').append(notification);
+            
+            setTimeout(() => {
+                notification.fadeOut(300, function() {
+                    notification.remove();
+                });
+            }, 3000);
+            return false;
         }
         
-        setTimeout(() => {
-          alertDiv.fadeOut(300, function() {
-            alertDiv.remove();
-          });
-        }, 3000);
-        return false;
-      }
-      
-      let targetUrl = '';
-      
-      if (skill && location) {
-        const slugifiedSkill = skill.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
-        const slugifiedLocation = location.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
-        targetUrl = `/${slugifiedSkill}-jobs-in-${slugifiedLocation}/?job_type=${encodeURIComponent(jobType)}`;
-      } else if (skill && !location) {
-        const slugifiedSkill = skill.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
-        targetUrl = `/${slugifiedSkill}-jobs/?job_type=${encodeURIComponent(jobType)}`;
-      } else if (!skill && location) {
-        const slugifiedLocation = location.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
-        targetUrl = `/jobs-in-${slugifiedLocation}/?job_type=${encodeURIComponent(jobType)}`;
-      } else {
-        targetUrl = `/jobs/?job_type=${encodeURIComponent(jobType)}`;
-      }
-      
-      window.location.href = targetUrl;
-      return false;
+        // Submit the form
+        this.submit();
     });
-  });
+});
 </script>
 {% endblock %}
