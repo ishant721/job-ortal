@@ -94,14 +94,13 @@
             </div>
 
             <!-- Desktop Navigation Menu -->
-            <div class="hidden lg:flex items-center space-x-1">
-              <ul class="flex items-center space-x-1">
+            <div class="hidden lg:flex items-center space-x-6">
+              <ul class="flex items-center space-x-6">
                 <!-- Jobs Dropdown -->
                 <li class="relative group">
-                  <a href="{% url 'jobs:index' %}" class="flex items-center text-gray-700 hover:text-primary-600 text-sm font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200">
-                    <i data-lucide="search" class="w-4 h-4 mr-2"></i>
+                  <a href="{% url 'jobs:index' %}" class="flex items-center text-gray-700 hover:text-primary-600 text-sm font-medium px-5 py-3 rounded-lg hover:bg-gray-50 transition-all duration-200">
                     Latest Jobs
-                    <i data-lucide="chevron-down" class="w-3 h-3 ml-1 transform group-hover:rotate-180 transition-transform duration-200"></i>
+                    <i data-lucide="chevron-down" class="w-3 h-3 ml-2 transform group-hover:rotate-180 transition-transform duration-200"></i>
                   </a>
                   <!-- Dropdown Menu -->
                   <div class="absolute left-0 mt-2 w-80 bg-white border border-gray-200 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 rounded-xl">
@@ -131,35 +130,35 @@
                 </li>
                 
                 <!-- Other Navigation Items -->
-                <li><a href="{% url 'fresher_jobs_by_skills' 'fresher' %}" class="flex items-center text-gray-700 hover:text-primary-600 text-sm font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200"><i data-lucide="graduation-cap" class="w-4 h-4 mr-2"></i>Fresh Graduates</a></li>
-                <li><a href="{% url 'fresher_jobs_by_skills' 'walkin' %}" class="flex items-center text-gray-700 hover:text-primary-600 text-sm font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200"><i data-lucide="door-open" class="w-4 h-4 mr-2"></i>Walk-ins</a></li>
-                <li><a href="{% url 'internship_jobs' %}" class="flex items-center text-gray-700 hover:text-primary-600 text-sm font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200"><i data-lucide="sparkles" class="w-4 h-4 mr-2"></i>Internships</a></li>
-                <li><a href="{% url 'companies' %}" class="flex items-center text-gray-700 hover:text-primary-600 text-sm font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200"><i data-lucide="building-2" class="w-4 h-4 mr-2"></i>Companies</a></li>
-                <li><a href="{% url 'recruiters' %}" class="flex items-center text-gray-700 hover:text-primary-600 text-sm font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200"><i data-lucide="users-round" class="w-4 h-4 mr-2"></i>Consultants</a></li>
+                <li><a href="{% url 'fresher_jobs_by_skills' 'fresher' %}" class="text-gray-700 hover:text-primary-600 text-sm font-medium px-5 py-3 rounded-lg hover:bg-gray-50 transition-all duration-200">Fresh Graduates</a></li>
+                <li><a href="{% url 'fresher_jobs_by_skills' 'walkin' %}" class="text-gray-700 hover:text-primary-600 text-sm font-medium px-5 py-3 rounded-lg hover:bg-gray-50 transition-all duration-200">Walk-ins</a></li>
+                <li><a href="{% url 'internship_jobs' %}" class="text-gray-700 hover:text-primary-600 text-sm font-medium px-5 py-3 rounded-lg hover:bg-gray-50 transition-all duration-200">Internships</a></li>
+                <li><a href="{% url 'companies' %}" class="text-gray-700 hover:text-primary-600 text-sm font-medium px-5 py-3 rounded-lg hover:bg-gray-50 transition-all duration-200">Companies</a></li>
+                <li><a href="{% url 'recruiters' %}" class="text-gray-700 hover:text-primary-600 text-sm font-medium px-5 py-3 rounded-lg hover:bg-gray-50 transition-all duration-200">Consultants</a></li>
               </ul>
             </div>
 
             <!-- User Actions -->
-            <div class="hidden lg:flex items-center space-x-3">
+            <div class="hidden lg:flex items-center space-x-4">
               {% if request.user.is_authenticated %}
-                <a href="{% url 'my:alerts_list'%}" class="flex items-center text-gray-700 hover:text-primary-600 text-sm font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200">
-                  <i data-lucide="bell" class="w-4 h-4 mr-2"></i>Job Alerts
+                <a href="{% url 'my:alerts_list'%}" class="text-gray-700 hover:text-primary-600 text-sm font-medium px-5 py-3 rounded-lg hover:bg-gray-50 transition-all duration-200">
+                  Job Alerts
                 </a>
-                <a href="{% url 'my:profile' %}" class="flex items-center text-gray-700 hover:text-primary-600 text-sm font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200">
-                  <i data-lucide="user" class="w-4 h-4 mr-2"></i>My Profile
+                <a href="{% url 'my:profile' %}" class="text-gray-700 hover:text-primary-600 text-sm font-medium px-5 py-3 rounded-lg hover:bg-gray-50 transition-all duration-200">
+                  My Profile
                 </a>
-                <a href="/logout/?next={{ request.path }}" class="flex items-center text-gray-700 hover:text-red-600 text-sm font-medium px-4 py-2 rounded-lg hover:bg-red-50 transition-all duration-200">
-                  <i data-lucide="log-out" class="w-4 h-4 mr-2"></i>Logout
+                <a href="/logout/?next={{ request.path }}" class="text-gray-700 hover:text-red-600 text-sm font-medium px-5 py-3 rounded-lg hover:bg-red-50 transition-all duration-200">
+                  Logout
                 </a>
               {% else %}
-                <a href="/login" class="flex items-center text-gray-700 hover:text-primary-600 text-sm font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200">
-                  <i data-lucide="log-in" class="w-4 h-4 mr-2"></i>Login
+                <a href="/login" class="text-gray-700 hover:text-primary-600 text-sm font-medium px-5 py-3 rounded-lg hover:bg-gray-50 transition-all duration-200">
+                  Login
                 </a>
-                <a href="/register" class="flex items-center bg-primary-600 hover:bg-primary-700 text-white text-sm px-5 py-2 rounded-lg transition-all duration-200 font-medium shadow-sm hover:shadow-md">
-                  <i data-lucide="user-plus" class="w-4 h-4 mr-2"></i>Register
+                <a href="/register" class="bg-primary-600 hover:bg-primary-700 text-white text-sm px-6 py-3 rounded-lg transition-all duration-200 font-medium shadow-sm hover:shadow-md">
+                  Register
                 </a>
-                <a href="{% url 'post_job' %}" class="flex items-center bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white text-sm px-5 py-2 rounded-lg transition-all duration-200 font-medium shadow-sm hover:shadow-md">
-                  <i data-lucide="briefcase-business" class="w-4 h-4 mr-2"></i>Post Jobs
+                <a href="{% url 'post_job' %}" class="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white text-sm px-6 py-3 rounded-lg transition-all duration-200 font-medium shadow-sm hover:shadow-md">
+                  Post Jobs
                 </a>
               {% endif %}
             </div>
@@ -176,22 +175,22 @@
           <!-- Mobile Menu -->
           <div id="mobile-menu" class="lg:hidden hidden border-t border-gray-200 bg-white">
             <div class="p-4 space-y-2">
-              <a href="{% url 'jobs:index' %}" class="flex items-center text-gray-700 hover:text-primary-600 text-sm font-medium px-3 py-2 rounded-md hover:bg-gray-50 transition-all duration-200"><i data-lucide="search" class="w-4 h-4 mr-2"></i>Latest Jobs</a>
-              <a href="{% url 'fresher_jobs_by_skills' 'fresher' %}" class="flex items-center text-gray-700 hover:text-primary-600 text-sm font-medium px-3 py-2 rounded-md hover:bg-gray-50 transition-all duration-200"><i data-lucide="graduation-cap" class="w-4 h-4 mr-2"></i>Fresh Graduates</a>
-              <a href="{% url 'fresher_jobs_by_skills' 'walkin' %}" class="flex items-center text-gray-700 hover:text-primary-600 text-sm font-medium px-3 py-2 rounded-md hover:bg-gray-50 transition-all duration-200"><i data-lucide="door-open" class="w-4 h-4 mr-2"></i>Walk-ins</a>
-              <a href="{% url 'internship_jobs'%}" class="flex items-center text-gray-700 hover:text-primary-600 text-sm font-medium px-3 py-2 rounded-md hover:bg-gray-50 transition-all duration-200"><i data-lucide="sparkles" class="w-4 h-4 mr-2"></i>Internships</a>
-              <a href="{% url 'companies' %}" class="flex items-center text-gray-700 hover:text-primary-600 text-sm font-medium px-3 py-2 rounded-md hover:bg-gray-50 transition-all duration-200"><i data-lucide="building-2" class="w-4 h-4 mr-2"></i>Companies</a>
-              <a href="{% url 'recruiters' %}" class="flex items-center text-gray-700 hover:text-primary-600 text-sm font-medium px-3 py-2 rounded-md hover:bg-gray-50 transition-all duration-200"><i data-lucide="users-round" class="w-4 h-4 mr-2"></i>Consultants</a>
+              <a href="{% url 'jobs:index' %}" class="block text-gray-700 hover:text-primary-600 text-sm font-medium px-3 py-2 rounded-md hover:bg-gray-50 transition-all duration-200">Latest Jobs</a>
+              <a href="{% url 'fresher_jobs_by_skills' 'fresher' %}" class="block text-gray-700 hover:text-primary-600 text-sm font-medium px-3 py-2 rounded-md hover:bg-gray-50 transition-all duration-200">Fresh Graduates</a>
+              <a href="{% url 'fresher_jobs_by_skills' 'walkin' %}" class="block text-gray-700 hover:text-primary-600 text-sm font-medium px-3 py-2 rounded-md hover:bg-gray-50 transition-all duration-200">Walk-ins</a>
+              <a href="{% url 'internship_jobs'%}" class="block text-gray-700 hover:text-primary-600 text-sm font-medium px-3 py-2 rounded-md hover:bg-gray-50 transition-all duration-200">Internships</a>
+              <a href="{% url 'companies' %}" class="block text-gray-700 hover:text-primary-600 text-sm font-medium px-3 py-2 rounded-md hover:bg-gray-50 transition-all duration-200">Companies</a>
+              <a href="{% url 'recruiters' %}" class="block text-gray-700 hover:text-primary-600 text-sm font-medium px-3 py-2 rounded-md hover:bg-gray-50 transition-all duration-200">Consultants</a>
               
               {% if request.user.is_authenticated %}
                 <div class="border-t border-gray-200 pt-3 mt-3 space-y-2">
-                  <a href="{% url 'my:alerts_list'%}" class="flex items-center text-gray-700 hover:text-primary-600 text-sm font-medium px-3 py-2 rounded-md hover:bg-gray-50 transition-all duration-200"><i data-lucide="bell" class="w-4 h-4 mr-2"></i>Job Alerts</a>
-                  <a href="{% url 'my:profile' %}" class="flex items-center text-gray-700 hover:text-primary-600 text-sm font-medium px-3 py-2 rounded-md hover:bg-gray-50 transition-all duration-200"><i data-lucide="user" class="w-4 h-4 mr-2"></i>My Profile</a>
-                  <a href="/logout/?next={{ request.path }}" class="flex items-center text-red-600 hover:text-red-700 text-sm font-medium px-3 py-2 rounded-md hover:bg-red-50 transition-all duration-200"><i data-lucide="log-out" class="w-4 h-4 mr-2"></i>Logout</a>
+                  <a href="{% url 'my:alerts_list'%}" class="block text-gray-700 hover:text-primary-600 text-sm font-medium px-3 py-2 rounded-md hover:bg-gray-50 transition-all duration-200">Job Alerts</a>
+                  <a href="{% url 'my:profile' %}" class="block text-gray-700 hover:text-primary-600 text-sm font-medium px-3 py-2 rounded-md hover:bg-gray-50 transition-all duration-200">My Profile</a>
+                  <a href="/logout/?next={{ request.path }}" class="block text-red-600 hover:text-red-700 text-sm font-medium px-3 py-2 rounded-md hover:bg-red-50 transition-all duration-200">Logout</a>
                 </div>
               {% else %}
                 <div class="border-t border-gray-200 pt-3 mt-3 space-y-2">
-                  <a href="/login" class="flex items-center text-gray-700 hover:text-primary-600 text-sm font-medium px-3 py-2 rounded-md hover:bg-gray-50 transition-all duration-200"><i data-lucide="log-in" class="w-4 h-4 mr-2"></i>Login</a>
+                  <a href="/login" class="block text-gray-700 hover:text-primary-600 text-sm font-medium px-3 py-2 rounded-md hover:bg-gray-50 transition-all duration-200">Login</a>
                   <a href="/register" class="block bg-primary-600 hover:bg-primary-700 text-white text-sm px-3 py-2 rounded-md transition-all duration-200 text-center font-medium">Register</a>
                   <a href="{% url 'post_job' %}" class="block bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white text-sm px-3 py-2 rounded-md transition-all duration-200 text-center font-medium">Post Jobs</a>
                 </div>
