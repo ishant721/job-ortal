@@ -144,6 +144,7 @@
                                     <h3 class="font-semibold text-gray-900 mb-3 text-sm">By Category</h3>
                                     <ul class="space-y-2">
                                         {% load searchtags %}
+                                        {% load page_tags %}
                                         {% get_skills as total_skills %}
                                         {% for skill in total_skills|slice:":5" %}
                                         <li><a href="{{ skill.get_job_url }}" class="text-sm text-gray-600 hover:text-primary hover:bg-blue-50 px-3 py-2 block rounded-lg transition-colors">{{ skill.name|truncatewords:2 }}</a></li>
