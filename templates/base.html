@@ -116,50 +116,50 @@
 
 <body class="font-inter bg-white text-gray-900 smooth-scroll">
     <!-- Navigation Header -->
-    <header class="fixed top-0 left-0 right-0 z-50 glass-effect shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <nav class="flex justify-between items-center h-16">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+        <div class="w-full px-4">
+            <nav class="flex justify-between items-center h-12">
                 <!-- Brand Logo -->
-                <div class="flex items-center">
-                    <a href="/" class="flex items-center group">
-                        <div class="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center mr-3 group-hover:scale-110 transition-transform duration-300">
-                            <i class="fas fa-briefcase text-white text-lg"></i>
+                <div class="flex items-center flex-shrink-0">
+                    <a href="/" class="flex items-center">
+                        <div class="w-7 h-7 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center mr-2">
+                            <i class="fas fa-briefcase text-white text-sm"></i>
                         </div>
-                        <span class="text-2xl font-bold text-primary group-hover:text-accent transition-colors duration-300">morgan</span>
+                        <span class="text-lg font-bold text-primary">morgan</span>
                     </a>
                 </div>
 
-                <!-- Desktop Navigation Menu -->
-                <div class="hidden lg:flex items-center space-x-8">
+                <!-- Desktop Navigation Menu - All in one line -->
+                <div class="hidden lg:flex items-center justify-center flex-1 mx-8">
                     <!-- Latest Jobs Dropdown -->
                     <div class="relative group">
-                        <a href="{% url 'jobs:index' %}" class="flex items-center px-4 py-2 text-gray-700 hover:text-primary font-medium transition-colors duration-200">
+                        <a href="{% url 'jobs:index' %}" class="flex items-center px-3 py-2 text-sm text-gray-700 hover:text-primary font-medium transition-colors duration-200 whitespace-nowrap">
                             Latest Jobs
-                            <i class="fas fa-chevron-down ml-2 text-xs transform group-hover:rotate-180 transition-transform duration-200"></i>
+                            <i class="fas fa-chevron-down ml-1 text-xs transform group-hover:rotate-180 transition-transform duration-200"></i>
                         </a>
                         <!-- Dropdown Menu -->
-                        <div class="absolute top-full left-0 mt-2 w-80 bg-white rounded-2xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-gray-100">
-                            <div class="p-6 grid grid-cols-2 gap-6">
+                        <div class="absolute top-full left-0 mt-2 w-80 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-gray-100">
+                            <div class="p-4 grid grid-cols-2 gap-4">
                                 <div>
-                                    <h3 class="font-semibold text-gray-900 mb-3 text-sm">By Category</h3>
-                                    <ul class="space-y-2">
+                                    <h3 class="font-semibold text-gray-900 mb-2 text-xs">By Category</h3>
+                                    <ul class="space-y-1">
                                         {% load searchtags %}
                                         {% load page_tags %}
                                         {% get_skills as total_skills %}
                                         {% for skill in total_skills|slice:":5" %}
-                                        <li><a href="{{ skill.get_job_url }}" class="text-sm text-gray-600 hover:text-primary hover:bg-blue-50 px-3 py-2 block rounded-lg transition-colors">{{ skill.name|truncatewords:2 }}</a></li>
+                                        <li><a href="{{ skill.get_job_url }}" class="text-xs text-gray-600 hover:text-primary hover:bg-blue-50 px-2 py-1 block rounded transition-colors">{{ skill.name|truncatewords:2 }}</a></li>
                                         {% endfor %}
-                                        <li><a href="{% url 'jobs_by_skill' %}" class="text-sm text-primary hover:text-accent px-3 py-2 block rounded-lg font-medium">View All →</a></li>
+                                        <li><a href="{% url 'jobs_by_skill' %}" class="text-xs text-primary hover:text-accent px-2 py-1 block rounded font-medium">View All →</a></li>
                                     </ul>
                                 </div>
                                 <div>
-                                    <h3 class="font-semibold text-gray-900 mb-3 text-sm">By Location</h3>
-                                    <ul class="space-y-2">
+                                    <h3 class="font-semibold text-gray-900 mb-2 text-xs">By Location</h3>
+                                    <ul class="space-y-1">
                                         {% get_locations as total_locations %}
                                         {% for location in total_locations|slice:":5" %}
-                                        <li><a href="{{ location.get_job_url }}" class="text-sm text-gray-600 hover:text-primary hover:bg-blue-50 px-3 py-2 block rounded-lg transition-colors">{{ location.name }}</a></li>
+                                        <li><a href="{{ location.get_job_url }}" class="text-xs text-gray-600 hover:text-primary hover:bg-blue-50 px-2 py-1 block rounded transition-colors">{{ location.name }}</a></li>
                                         {% endfor %}
-                                        <li><a href="{% url 'jobs_by_location' 'jobs' %}" class="text-sm text-primary hover:text-accent px-3 py-2 block rounded-lg font-medium">View All →</a></li>
+                                        <li><a href="{% url 'jobs_by_location' 'jobs' %}" class="text-xs text-primary hover:text-accent px-2 py-1 block rounded font-medium">View All →</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -167,41 +167,39 @@
                     </div>
                     
                     <!-- Other Navigation Items -->
-                    <a href="{% url 'fresher_jobs_by_skills' 'fresher' %}" class="px-4 py-2 text-gray-700 hover:text-primary font-medium transition-colors duration-200">Fresher Jobs</a>
-                    <a href="{% url 'fresher_jobs_by_skills' 'walkin' %}" class="px-4 py-2 text-gray-700 hover:text-primary font-medium transition-colors duration-200">Walkin Jobs</a>
-                    <a href="{% url 'internship_jobs' %}" class="px-4 py-2 text-gray-700 hover:text-primary font-medium transition-colors duration-200">Internship</a>
-                    <a href="{% url 'companies' %}" class="px-4 py-2 text-gray-700 hover:text-primary font-medium transition-colors duration-200">Companies</a>
-                    <a href="{% url 'recruiters' %}" class="px-4 py-2 text-gray-700 hover:text-primary font-medium transition-colors duration-200">Recruiters</a>
+                    <a href="{% url 'fresher_jobs_by_skills' 'fresher' %}" class="px-3 py-2 text-sm text-gray-700 hover:text-primary font-medium transition-colors duration-200 whitespace-nowrap">Fresher Jobs</a>
+                    <a href="{% url 'fresher_jobs_by_skills' 'walkin' %}" class="px-3 py-2 text-sm text-gray-700 hover:text-primary font-medium transition-colors duration-200 whitespace-nowrap">Walkin Jobs</a>
+                    <a href="{% url 'internship_jobs' %}" class="px-3 py-2 text-sm text-gray-700 hover:text-primary font-medium transition-colors duration-200">Internship</a>
+                    <a href="{% url 'companies' %}" class="px-3 py-2 text-sm text-gray-700 hover:text-primary font-medium transition-colors duration-200">Companies</a>
+                    <a href="{% url 'recruiters' %}" class="px-3 py-2 text-sm text-gray-700 hover:text-primary font-medium transition-colors duration-200">Recruiters</a>
+                    <a href="{% url 'my:alerts_list' %}" class="px-3 py-2 text-sm text-gray-700 hover:text-primary font-medium transition-colors duration-200 whitespace-nowrap">Job Alerts</a>
                 </div>
 
                 <!-- User Actions -->
-                <div class="hidden lg:flex items-center space-x-4">
-                    <a href="{% url 'my:alerts_list' %}" class="px-4 py-2 text-gray-700 hover:text-primary font-medium transition-colors duration-200">
-                        Job Alerts
-                    </a>
+                <div class="hidden lg:flex items-center space-x-2 flex-shrink-0">
                     {% if request.user.is_authenticated %}
-                        <a href="{% url 'my:profile' %}" class="px-4 py-2 text-gray-700 hover:text-primary font-medium transition-colors duration-200">
+                        <a href="{% url 'my:profile' %}" class="px-3 py-2 text-sm text-gray-700 hover:text-primary font-medium transition-colors duration-200">
                             My Profile
                         </a>
-                        <a href="/logout/?next={{ request.path }}" class="px-4 py-2 text-red-600 hover:text-red-700 font-medium transition-colors duration-200">
+                        <a href="/logout/?next={{ request.path }}" class="px-3 py-2 text-sm text-red-600 hover:text-red-700 font-medium transition-colors duration-200">
                             Logout
                         </a>
                     {% else %}
-                        <a href="/login" class="px-6 py-2 text-primary border border-primary rounded-full hover:bg-primary hover:text-white font-medium transition-all duration-200">
+                        <a href="/login" class="px-4 py-1.5 text-sm text-primary border border-primary rounded-full hover:bg-primary hover:text-white font-medium transition-all duration-200">
                             Login
                         </a>
-                        <a href="/register" class="px-6 py-2 bg-secondary text-white rounded-full hover:bg-orange-600 font-medium transition-all duration-200">
+                        <a href="/register" class="px-4 py-1.5 text-sm bg-secondary text-white rounded-full hover:bg-orange-600 font-medium transition-all duration-200">
                             Register
                         </a>
                         <div class="relative group">
-                            <button class="flex items-center px-4 py-2 text-gray-700 hover:text-primary font-medium transition-colors duration-200">
+                            <button class="flex items-center px-3 py-2 text-sm text-gray-700 hover:text-primary font-medium transition-colors duration-200 whitespace-nowrap">
                                 For employers
-                                <i class="fas fa-chevron-down ml-2 text-xs transform group-hover:rotate-180 transition-transform duration-200"></i>
+                                <i class="fas fa-chevron-down ml-1 text-xs transform group-hover:rotate-180 transition-transform duration-200"></i>
                             </button>
-                            <div class="absolute top-full right-0 mt-2 w-48 bg-white rounded-2xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-gray-100">
-                                <div class="p-4">
-                                    <a href="{% url 'post_job' %}" class="block px-4 py-3 text-gray-700 hover:text-primary hover:bg-blue-50 rounded-lg transition-colors text-sm font-medium">Post Jobs</a>
-                                    <a href="{% url 'recruiter:new_user' %}" class="block px-4 py-3 text-gray-700 hover:text-primary hover:bg-blue-50 rounded-lg transition-colors text-sm font-medium">Recruiter Registration</a>
+                            <div class="absolute top-full right-0 mt-2 w-44 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-gray-100">
+                                <div class="p-2">
+                                    <a href="{% url 'post_job' %}" class="block px-3 py-2 text-sm text-gray-700 hover:text-primary hover:bg-blue-50 rounded transition-colors font-medium">Post Jobs</a>
+                                    <a href="{% url 'recruiter:new_user' %}" class="block px-3 py-2 text-sm text-gray-700 hover:text-primary hover:bg-blue-50 rounded transition-colors font-medium">Recruiter Registration</a>
                                 </div>
                             </div>
                         </div>
@@ -211,8 +209,8 @@
                 <!-- Mobile menu button -->
                 <div class="lg:hidden">
                     <button type="button" class="text-gray-700 hover:text-primary p-2 rounded-lg" onclick="toggleMobileMenu()">
-                        <i class="fas fa-bars w-6 h-6" id="menu-icon"></i>
-                        <i class="fas fa-times w-6 h-6 hidden" id="close-icon"></i>
+                        <i class="fas fa-bars text-lg" id="menu-icon"></i>
+                        <i class="fas fa-times text-lg hidden" id="close-icon"></i>
                     </button>
                 </div>
             </nav>
@@ -246,7 +244,7 @@
     </header>
 
     <!-- Main Content -->
-    <main class="pt-16">
+    <main class="pt-12">
         {% block base %}{% endblock %}
     </main>
 
