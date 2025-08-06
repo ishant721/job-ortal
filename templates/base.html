@@ -131,10 +131,10 @@
 
                 <!-- Desktop Navigation Menu -->
                 <div class="hidden lg:flex items-center space-x-8">
-                    <!-- Jobs Dropdown -->
+                    <!-- Latest Jobs Dropdown -->
                     <div class="relative group">
                         <a href="{% url 'jobs:index' %}" class="flex items-center px-4 py-2 text-gray-700 hover:text-primary font-medium transition-colors duration-200">
-                            Jobs
+                            Latest Jobs
                             <i class="fas fa-chevron-down ml-2 text-xs transform group-hover:rotate-180 transition-transform duration-200"></i>
                         </a>
                         <!-- Dropdown Menu -->
@@ -167,17 +167,19 @@
                     </div>
                     
                     <!-- Other Navigation Items -->
+                    <a href="{% url 'fresher_jobs_by_skills' 'fresher' %}" class="px-4 py-2 text-gray-700 hover:text-primary font-medium transition-colors duration-200">Fresher Jobs</a>
+                    <a href="{% url 'fresher_jobs_by_skills' 'walkin' %}" class="px-4 py-2 text-gray-700 hover:text-primary font-medium transition-colors duration-200">Walkin Jobs</a>
+                    <a href="{% url 'internship_jobs' %}" class="px-4 py-2 text-gray-700 hover:text-primary font-medium transition-colors duration-200">Internship</a>
                     <a href="{% url 'companies' %}" class="px-4 py-2 text-gray-700 hover:text-primary font-medium transition-colors duration-200">Companies</a>
-                    <a href="{% url 'fresher_jobs_by_skills' 'fresher' %}" class="px-4 py-2 text-gray-700 hover:text-primary font-medium transition-colors duration-200">Fresh Jobs</a>
-                    <a href="{% url 'recruiters' %}" class="px-4 py-2 text-gray-700 hover:text-primary font-medium transition-colors duration-200">Services</a>
+                    <a href="{% url 'recruiters' %}" class="px-4 py-2 text-gray-700 hover:text-primary font-medium transition-colors duration-200">Recruiters</a>
                 </div>
 
                 <!-- User Actions -->
                 <div class="hidden lg:flex items-center space-x-4">
+                    <a href="{% url 'my:alerts_list' %}" class="px-4 py-2 text-gray-700 hover:text-primary font-medium transition-colors duration-200">
+                        Job Alerts
+                    </a>
                     {% if request.user.is_authenticated %}
-                        <a href="{% url 'my:alerts_list' %}" class="px-4 py-2 text-gray-700 hover:text-primary font-medium transition-colors duration-200">
-                            Job Alerts
-                        </a>
                         <a href="{% url 'my:profile' %}" class="px-4 py-2 text-gray-700 hover:text-primary font-medium transition-colors duration-200">
                             My Profile
                         </a>
@@ -218,14 +220,16 @@
             <!-- Mobile Menu -->
             <div id="mobile-menu" class="lg:hidden hidden border-t border-gray-200 bg-white">
                 <div class="p-4 space-y-3">
-                    <a href="{% url 'jobs:index' %}" class="block px-4 py-3 text-gray-700 hover:text-primary hover:bg-blue-50 rounded-lg transition-colors font-medium">Jobs</a>
+                    <a href="{% url 'jobs:index' %}" class="block px-4 py-3 text-gray-700 hover:text-primary hover:bg-blue-50 rounded-lg transition-colors font-medium">Latest Jobs</a>
+                    <a href="{% url 'fresher_jobs_by_skills' 'fresher' %}" class="block px-4 py-3 text-gray-700 hover:text-primary hover:bg-blue-50 rounded-lg transition-colors font-medium">Fresher Jobs</a>
+                    <a href="{% url 'fresher_jobs_by_skills' 'walkin' %}" class="block px-4 py-3 text-gray-700 hover:text-primary hover:bg-blue-50 rounded-lg transition-colors font-medium">Walkin Jobs</a>
+                    <a href="{% url 'internship_jobs' %}" class="block px-4 py-3 text-gray-700 hover:text-primary hover:bg-blue-50 rounded-lg transition-colors font-medium">Internship</a>
                     <a href="{% url 'companies' %}" class="block px-4 py-3 text-gray-700 hover:text-primary hover:bg-blue-50 rounded-lg transition-colors font-medium">Companies</a>
-                    <a href="{% url 'fresher_jobs_by_skills' 'fresher' %}" class="block px-4 py-3 text-gray-700 hover:text-primary hover:bg-blue-50 rounded-lg transition-colors font-medium">Fresh Jobs</a>
-                    <a href="{% url 'recruiters' %}" class="block px-4 py-3 text-gray-700 hover:text-primary hover:bg-blue-50 rounded-lg transition-colors font-medium">Services</a>
+                    <a href="{% url 'recruiters' %}" class="block px-4 py-3 text-gray-700 hover:text-primary hover:bg-blue-50 rounded-lg transition-colors font-medium">Recruiters</a>
+                    <a href="{% url 'my:alerts_list' %}" class="block px-4 py-3 text-gray-700 hover:text-primary hover:bg-blue-50 rounded-lg transition-colors font-medium">Job Alerts</a>
                     
                     {% if request.user.is_authenticated %}
                         <div class="border-t border-gray-200 pt-3 mt-3 space-y-3">
-                            <a href="{% url 'my:alerts_list' %}" class="block px-4 py-3 text-gray-700 hover:text-primary hover:bg-blue-50 rounded-lg transition-colors font-medium">Job Alerts</a>
                             <a href="{% url 'my:profile' %}" class="block px-4 py-3 text-gray-700 hover:text-primary hover:bg-blue-50 rounded-lg transition-colors font-medium">My Profile</a>
                             <a href="/logout/?next={{ request.path }}" class="block px-4 py-3 text-red-600 hover:text-red-700 hover:bg-red-50 rounded-lg transition-colors font-medium">Logout</a>
                         </div>
