@@ -1,3 +1,4 @@
+
 {% extends "base_with_tailwind_megamenu.html" %}
 {% load page_tags %}
 {% load thumbnail %}
@@ -15,132 +16,145 @@
 {% endblock %}
 
 {% block search_block %}
-<!-- Hero Section with Job Search -->
-<section class="relative bg-slate-900 min-h-[70vh] flex items-center overflow-hidden">
-  <!-- Background Pattern -->
-  <div class="absolute inset-0 bg-slate-900">
-    <div class="absolute inset-0 bg-blue-600/10"></div>
-    <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.1),transparent_50%)]"></div>
-    <div class="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_80%,rgba(147,51,234,0.1),transparent_50%)]"></div>
+<!-- Hero Section with Enhanced Design -->
+<section class="relative bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-800 min-h-[80vh] flex items-center overflow-hidden">
+  <!-- Animated Background Elements -->
+  <div class="absolute inset-0">
+    <div class="absolute top-10 left-10 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
+    <div class="absolute top-20 right-10 w-96 h-96 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-2000"></div>
+    <div class="absolute bottom-10 left-1/2 w-80 h-80 bg-pink-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-4000"></div>
   </div>
   
+  <!-- Grid Pattern Overlay -->
+  <div class="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]"></div>
+  
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-      <!-- Search Section -->
-      <div class="lg:col-span-7">
-        <!-- Hero Text -->
-        <div class="text-center lg:text-left mb-10">
-          <div class="inline-flex items-center gap-2 bg-blue-600/20 backdrop-blur-sm border border-blue-500/30 text-blue-300 px-4 py-2 rounded-full text-sm font-medium mb-6">
-            <i data-lucide="sparkles" class="w-4 h-4"></i>
-            AI-Powered Job Matching
-          </div>
-          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-white">
-            Find Your Dream Job with 
-            <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">Smart Precision</span>
-          </h1>
-          <p class="text-lg md:text-xl lg:text-2xl mb-8 max-w-3xl mx-auto lg:mx-0 leading-relaxed text-slate-300">
-            Join thousands of professionals who've accelerated their careers with our intelligent job matching platform. Your perfect opportunity is just one search away.
-          </p>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+      <!-- Hero Content -->
+      <div class="lg:col-span-7 text-center lg:text-left">
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 text-white px-6 py-3 rounded-full text-sm font-medium mb-8 hover:bg-white/20 transition-all duration-300">
+          <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+          <span>10,000+ Jobs Updated Daily</span>
+          <i data-lucide="trending-up" class="w-4 h-4"></i>
         </div>
+        
+        <!-- Main Heading -->
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-black mb-8 leading-tight">
+          <span class="text-white">Find Your</span>
+          <br>
+          <span class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 animate-gradient-x">Dream Career</span>
+        </h1>
+        
+        <!-- Subheading -->
+        <p class="text-xl md:text-2xl lg:text-3xl mb-12 text-gray-200 font-light leading-relaxed max-w-4xl">
+          Connect with top companies and discover opportunities that match your skills and aspirations
+        </p>
 
-        <!-- Search Form -->
-        <div class="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl border border-white/20 p-6 md:p-8">
+        <!-- Enhanced Search Form -->
+        <div class="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl border border-white/20 p-8 mb-8">
           <form name="search-form" id="search-form" class="search-form autocomplete-me" method="POST" action="{% url 'jobs:index' %}">
             {% csrf_token %}
-            <div class="flex flex-col md:flex-row gap-4">
-              <!-- Location Input -->
+            <div class="flex flex-col lg:flex-row gap-4 mb-6">
+              <!-- Job Title/Skills Input -->
               <div class="flex-1">
+                <label class="block text-sm font-semibold text-gray-700 mb-2">What job are you looking for?</label>
                 <div class="relative">
                   <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                    <i data-lucide="map-pin" class="w-5 h-5 text-slate-400"></i>
+                    <i data-lucide="briefcase" class="w-5 h-5 text-gray-400"></i>
                   </div>
-                  <input type="text" class="w-full pl-12 pr-4 py-4 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white text-slate-900 placeholder-slate-500 shadow-sm" name="location" id="location_input" placeholder="Select Location" autocomplete="off">
-                  <div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
-                    <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400"></i>
-                  </div>
-                  <div id="location-autocomplete" class="absolute z-[9999] w-full bg-white border border-slate-200 rounded-2xl shadow-xl mt-2 hidden max-h-60 overflow-y-auto"></div>
+                  <input type="text" class="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white text-gray-900 placeholder-gray-500 shadow-sm transition-all duration-200" name="q" id="q-field" placeholder="e.g. Software Engineer, Marketing Manager" autocomplete="off">
+                  <div id="skills-autocomplete" class="absolute z-[9999] w-full bg-white border border-gray-200 rounded-2xl shadow-xl mt-2 hidden max-h-60 overflow-y-auto"></div>
                 </div>
               </div>
 
-              <!-- Skills Input -->
+              <!-- Location Input -->
               <div class="flex-1">
+                <label class="block text-sm font-semibold text-gray-700 mb-2">Where do you want to work?</label>
                 <div class="relative">
                   <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                    <i data-lucide="search" class="w-5 h-5 text-slate-400"></i>
+                    <i data-lucide="map-pin" class="w-5 h-5 text-gray-400"></i>
                   </div>
-                  <input type="text" class="w-full pl-12 pr-4 py-4 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white text-slate-900 placeholder-slate-500 shadow-sm" id="q-field" name="q" placeholder="Enter skills or job title" autocomplete="off">
-                  <div id="skills-autocomplete" class="absolute z-[9999] w-full bg-white border border-slate-200 rounded-2xl shadow-xl mt-2 hidden max-h-60 overflow-y-auto"></div>
+                  <input type="text" class="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white text-gray-900 placeholder-gray-500 shadow-sm transition-all duration-200" name="location" id="location_input" placeholder="e.g. Mumbai, Delhi, Bangalore" autocomplete="off">
+                  <div id="location-autocomplete" class="absolute z-[9999] w-full bg-white border border-gray-200 rounded-2xl shadow-xl mt-2 hidden max-h-60 overflow-y-auto"></div>
                 </div>
               </div>
 
               <!-- Search Button -->
-              <div class="flex-shrink-0">
-                <button type="submit" class="w-full md:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-2xl shadow-lg flex items-center justify-center gap-2 transition-all duration-200 hover:shadow-xl hover:scale-105">
-                  <i data-lucide="search" class="w-5 h-5"></i>
-                  <span>Search Jobs</span>
+              <div class="lg:self-end">
+                <button type="submit" class="w-full lg:w-auto px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold rounded-2xl shadow-lg flex items-center justify-center gap-3 transition-all duration-300 hover:shadow-xl hover:scale-105 group">
+                  <i data-lucide="search" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
+                  <span>Find Jobs</span>
                 </button>
               </div>
-
-              <input type="hidden" name="job_type" id="job_type" value="full-time">
             </div>
-          </form>
 
-          <!-- Job Type Tabs -->
-          <div class="mt-6">
-            <ul class="flex flex-wrap gap-2 bg-slate-50 p-2 rounded-2xl">
-              <li class="flex-1 min-w-0">
-                <button data-job-type="full-time" class="w-full px-4 py-3 text-sm font-medium rounded-xl bg-blue-600 text-white shadow-md transition-all duration-200" id="full-time">
-                  <i data-lucide="briefcase" class="w-4 h-4 inline mr-2"></i>
-                  Full Time
-                </button>
-              </li>
-              <li class="flex-1 min-w-0">
-                <button data-job-type="internship" class="w-full px-4 py-3 text-sm font-medium rounded-xl text-slate-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200" id="internship">
-                  <i data-lucide="graduation-cap" class="w-4 h-4 inline mr-2"></i>
-                  Internship
-                </button>
-              </li>
-              <li class="flex-1 min-w-0">
-                <button data-job-type="walk-in" class="w-full px-4 py-3 text-sm font-medium rounded-xl text-slate-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200" id="walk-in">
-                  <i data-lucide="users" class="w-4 h-4 inline mr-2"></i>
-                  Walkin
-                </button>
-              </li>
-              <li class="flex-1 min-w-0">
-                <button data-job-type="fresher" class="w-full px-4 py-3 text-sm font-medium rounded-xl text-slate-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200" id="fresher">
-                  <i data-lucide="star" class="w-4 h-4 inline mr-2"></i>
-                  Fresher
-                </button>
-              </li>
-            </ul>
+            <!-- Job Type Pills -->
+            <div class="flex flex-wrap gap-3 justify-center lg:justify-start">
+              <button type="button" data-job-type="full-time" class="px-6 py-3 text-sm font-semibold rounded-full bg-blue-600 text-white shadow-md transition-all duration-200 hover:shadow-lg" id="full-time">
+                <i data-lucide="briefcase" class="w-4 h-4 inline mr-2"></i>
+                Full Time
+              </button>
+              <button type="button" data-job-type="internship" class="px-6 py-3 text-sm font-semibold rounded-full text-gray-600 bg-gray-100 hover:bg-blue-100 hover:text-blue-600 transition-all duration-200" id="internship">
+                <i data-lucide="graduation-cap" class="w-4 h-4 inline mr-2"></i>
+                Internship
+              </button>
+              <button type="button" data-job-type="walk-in" class="px-6 py-3 text-sm font-semibold rounded-full text-gray-600 bg-gray-100 hover:bg-blue-100 hover:text-blue-600 transition-all duration-200" id="walk-in">
+                <i data-lucide="users" class="w-4 h-4 inline mr-2"></i>
+                Walk-in
+              </button>
+              <button type="button" data-job-type="fresher" class="px-6 py-3 text-sm font-semibold rounded-full text-gray-600 bg-gray-100 hover:bg-blue-100 hover:text-blue-600 transition-all duration-200" id="fresher">
+                <i data-lucide="star" class="w-4 h-4 inline mr-2"></i>
+                Fresher
+              </button>
+            </div>
+
+            <input type="hidden" name="job_type" id="job_type" value="full-time">
+          </form>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="flex flex-wrap gap-8 justify-center lg:justify-start text-white/80">
+          <div class="text-center">
+            <div class="text-2xl font-bold text-white">10K+</div>
+            <div class="text-sm">Active Jobs</div>
+          </div>
+          <div class="text-center">
+            <div class="text-2xl font-bold text-white">50K+</div>
+            <div class="text-sm">Job Seekers</div>
+          </div>
+          <div class="text-center">
+            <div class="text-2xl font-bold text-white">5K+</div>
+            <div class="text-sm">Companies</div>
           </div>
         </div>
       </div>
 
-      <!-- Hero Image/Illustration -->
-      <div class="lg:col-span-5 text-center lg:text-right">
+      <!-- Hero Visual -->
+      <div class="lg:col-span-5 text-center">
         <div class="relative">
-          <div class="inline-flex items-center justify-center w-80 h-80 md:w-96 md:h-96 rounded-full bg-gradient-to-br from-blue-500/20 to-purple-600/20 backdrop-blur-sm border border-white/10">
-            <div class="grid grid-cols-2 gap-4 p-8">
-              <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg">
-                <i data-lucide="briefcase" class="w-8 h-8 text-blue-600 mb-2"></i>
-                <div class="text-sm font-semibold text-slate-700">10K+</div>
-                <div class="text-xs text-slate-500">Jobs</div>
+          <!-- Floating Cards Animation -->
+          <div class="relative z-10">
+            <div class="grid grid-cols-2 gap-6 p-8">
+              <div class="bg-white/10 backdrop-blur-lg rounded-3xl p-6 shadow-2xl border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105 animate-float">
+                <i data-lucide="trending-up" class="w-8 h-8 text-green-400 mb-4"></i>
+                <div class="text-2xl font-bold text-white">95%</div>
+                <div class="text-sm text-gray-200">Success Rate</div>
               </div>
-              <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg">
-                <i data-lucide="users" class="w-8 h-8 text-green-600 mb-2"></i>
-                <div class="text-sm font-semibold text-slate-700">50K+</div>
-                <div class="text-xs text-slate-500">Users</div>
+              <div class="bg-white/10 backdrop-blur-lg rounded-3xl p-6 shadow-2xl border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105 animate-float animation-delay-1000">
+                <i data-lucide="clock" class="w-8 h-8 text-blue-400 mb-4"></i>
+                <div class="text-2xl font-bold text-white">24h</div>
+                <div class="text-sm text-gray-200">Avg Response</div>
               </div>
-              <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg">
-                <i data-lucide="building" class="w-8 h-8 text-purple-600 mb-2"></i>
-                <div class="text-sm font-semibold text-slate-700">5K+</div>
-                <div class="text-xs text-slate-500">Companies</div>
+              <div class="bg-white/10 backdrop-blur-lg rounded-3xl p-6 shadow-2xl border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105 animate-float animation-delay-2000">
+                <i data-lucide="users" class="w-8 h-8 text-purple-400 mb-4"></i>
+                <div class="text-2xl font-bold text-white">1M+</div>
+                <div class="text-sm text-gray-200">Users</div>
               </div>
-              <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg">
-                <i data-lucide="map-pin" class="w-8 h-8 text-orange-600 mb-2"></i>
-                <div class="text-sm font-semibold text-slate-700">100+</div>
-                <div class="text-xs text-slate-500">Cities</div>
+              <div class="bg-white/10 backdrop-blur-lg rounded-3xl p-6 shadow-2xl border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105 animate-float animation-delay-3000">
+                <i data-lucide="globe" class="w-8 h-8 text-yellow-400 mb-4"></i>
+                <div class="text-2xl font-bold text-white">100+</div>
+                <div class="text-sm text-gray-200">Cities</div>
               </div>
             </div>
           </div>
@@ -152,78 +166,102 @@
 {% endblock %}
 
 {% block base %}
-<!-- Job Categories Section -->
-<section class="py-16 bg-white">
+<!-- Job Categories Section with Modern Cards -->
+<section class="py-20 bg-gray-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-        Explore Job Categories
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        Explore <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">Top Categories</span>
       </h2>
-      <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
         Discover opportunities across various industries and find your perfect career match
       </p>
     </div>
 
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
-      <a href="/technology-jobs/" class="group bg-blue-50 hover:bg-blue-100 border border-blue-200 rounded-2xl p-6 text-center transition-all duration-300 hover:shadow-lg hover:scale-105">
-        <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-700 transition-colors">
-          <i data-lucide="code" class="w-6 h-6 text-white"></i>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <a href="/technology-jobs/" class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100">
+        <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+          <i data-lucide="code" class="w-8 h-8 text-white"></i>
         </div>
-        <h3 class="font-semibold text-slate-900 mb-1">Technology</h3>
-        <p class="text-sm text-slate-600">2.5K+ Jobs</p>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Technology</h3>
+        <p class="text-gray-600 mb-4">Software development, AI, cybersecurity, and more</p>
+        <div class="flex items-center justify-between">
+          <span class="text-blue-600 font-semibold">2,500+ Jobs</span>
+          <i data-lucide="arrow-right" class="w-5 h-5 text-gray-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all duration-300"></i>
+        </div>
       </a>
 
-      <a href="/marketing-jobs/" class="group bg-secondary-light hover:bg-secondary-light-hover border border-secondary-border rounded-2xl p-6 text-center transition-all duration-300 hover:shadow-lg hover:scale-105">
-        <div class="w-12 h-12 bg-green-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-green-700 transition-colors">
-          <i data-lucide="megaphone" class="w-6 h-6 text-white"></i>
+      <a href="/marketing-jobs/" class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100">
+        <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+          <i data-lucide="megaphone" class="w-8 h-8 text-white"></i>
         </div>
-        <h3 class="font-semibold text-slate-900 mb-1">Marketing</h3>
-        <p class="text-sm text-slate-600">1.8K+ Jobs</p>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Marketing</h3>
+        <p class="text-gray-600 mb-4">Digital marketing, content creation, brand management</p>
+        <div class="flex items-center justify-between">
+          <span class="text-green-600 font-semibold">1,800+ Jobs</span>
+          <i data-lucide="arrow-right" class="w-5 h-5 text-gray-400 group-hover:text-green-600 group-hover:translate-x-1 transition-all duration-300"></i>
+        </div>
       </a>
 
-      <a href="/finance-jobs/" class="group bg-purple-50 hover:bg-purple-100 border border-purple-200 rounded-2xl p-6 text-center transition-all duration-300 hover:shadow-lg hover:scale-105">
-        <div class="w-12 h-12 bg-purple-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-purple-700 transition-colors">
-          <i data-lucide="coins" class="w-6 h-6 text-white"></i>
+      <a href="/finance-jobs/" class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100">
+        <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+          <i data-lucide="coins" class="w-8 h-8 text-white"></i>
         </div>
-        <h3 class="font-semibold text-slate-900 mb-1">Finance</h3>
-        <p class="text-sm text-slate-600">1.2K+ Jobs</p>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Finance</h3>
+        <p class="text-gray-600 mb-4">Banking, investment, financial analysis, accounting</p>
+        <div class="flex items-center justify-between">
+          <span class="text-purple-600 font-semibold">1,200+ Jobs</span>
+          <i data-lucide="arrow-right" class="w-5 h-5 text-gray-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all duration-300"></i>
+        </div>
       </a>
 
-      <a href="/healthcare-jobs/" class="group bg-red-50 hover:bg-red-100 border border-red-200 rounded-2xl p-6 text-center transition-all duration-300 hover:shadow-lg hover:scale-105">
-        <div class="w-12 h-12 bg-red-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-red-700 transition-colors">
-          <i data-lucide="heart" class="w-6 h-6 text-white"></i>
+      <a href="/healthcare-jobs/" class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100">
+        <div class="w-16 h-16 bg-gradient-to-r from-red-500 to-red-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+          <i data-lucide="heart" class="w-8 h-8 text-white"></i>
         </div>
-        <h3 class="font-semibold text-slate-900 mb-1">Healthcare</h3>
-        <p class="text-sm text-slate-600">900+ Jobs</p>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Healthcare</h3>
+        <p class="text-gray-600 mb-4">Medical professionals, healthcare administration</p>
+        <div class="flex items-center justify-between">
+          <span class="text-red-600 font-semibold">900+ Jobs</span>
+          <i data-lucide="arrow-right" class="w-5 h-5 text-gray-400 group-hover:text-red-600 group-hover:translate-x-1 transition-all duration-300"></i>
+        </div>
       </a>
 
-      <a href="/education-jobs/" class="group bg-yellow-50 hover:bg-yellow-100 border border-yellow-200 rounded-2xl p-6 text-center transition-all duration-300 hover:shadow-lg hover:scale-105">
-        <div class="w-12 h-12 bg-yellow-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-yellow-700 transition-colors">
-          <i data-lucide="book-open" class="w-6 h-6 text-white"></i>
+      <a href="/education-jobs/" class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100">
+        <div class="w-16 h-16 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+          <i data-lucide="book-open" class="w-8 h-8 text-white"></i>
         </div>
-        <h3 class="font-semibold text-slate-900 mb-1">Education</h3>
-        <p class="text-sm text-slate-600">750+ Jobs</p>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Education</h3>
+        <p class="text-gray-600 mb-4">Teaching, training, educational technology</p>
+        <div class="flex items-center justify-between">
+          <span class="text-yellow-600 font-semibold">750+ Jobs</span>
+          <i data-lucide="arrow-right" class="w-5 h-5 text-gray-400 group-hover:text-yellow-600 group-hover:translate-x-1 transition-all duration-300"></i>
+        </div>
       </a>
 
-      <a href="/design-jobs/" class="group bg-indigo-50 hover:bg-indigo-100 border border-indigo-200 rounded-2xl p-6 text-center transition-all duration-300 hover:shadow-lg hover:scale-105">
-        <div class="w-12 h-12 bg-indigo-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-indigo-700 transition-colors">
-          <i data-lucide="palette" class="w-6 h-6 text-white"></i>
+      <a href="/design-jobs/" class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100">
+        <div class="w-16 h-16 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+          <i data-lucide="palette" class="w-8 h-8 text-white"></i>
         </div>
-        <h3 class="font-semibold text-slate-900 mb-1">Design</h3>
-        <p class="text-sm text-slate-600">650+ Jobs</p>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Design</h3>
+        <p class="text-gray-600 mb-4">UI/UX design, graphic design, creative direction</p>
+        <div class="flex items-center justify-between">
+          <span class="text-indigo-600 font-semibold">650+ Jobs</span>
+          <i data-lucide="arrow-right" class="w-5 h-5 text-gray-400 group-hover:text-indigo-600 group-hover:translate-x-1 transition-all duration-300"></i>
+        </div>
       </a>
     </div>
   </div>
 </section>
 
-<!-- Top Job Locations Section -->
-<section class="py-16 bg-slate-50">
+<!-- Popular Locations with Enhanced Design -->
+<section class="py-20 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-        Popular Job Locations
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">Popular</span> Job Locations
       </h2>
-      <p class="text-lg text-slate-600">
+      <p class="text-xl text-gray-600">
         Discover career opportunities across India's top cities
       </p>
     </div>
@@ -233,9 +271,9 @@
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-8">
         {% for location in total_locations|slice:"36" %}
           <a href="{{ location.get_job_url }}" 
-             class="block text-center py-4 px-3 bg-white hover:bg-blue-50 text-slate-700 hover:text-blue-600 text-sm font-medium rounded-2xl transition-all duration-200 border border-slate-200 hover:border-blue-200 shadow-sm hover:shadow-md">
-            <i data-lucide="map-pin" class="w-4 h-4 mx-auto mb-2 text-slate-400"></i>
-            {{ location.name }}
+             class="group block text-center py-6 px-4 bg-gray-50 hover:bg-blue-50 text-gray-700 hover:text-blue-600 text-sm font-medium rounded-2xl transition-all duration-300 border border-gray-200 hover:border-blue-200 shadow-sm hover:shadow-lg hover:scale-105">
+            <i data-lucide="map-pin" class="w-6 h-6 mx-auto mb-3 text-gray-400 group-hover:text-blue-500 transition-colors"></i>
+            <div class="font-semibold">{{ location.name }}</div>
           </a>
         {% endfor %}
       </div>
@@ -243,113 +281,114 @@
   </div>
 </section>
 
-<!-- Stats Section -->
-<section class="py-20 bg-slate-900 relative overflow-hidden">
-  <div class="absolute inset-0 bg-slate-900">
-    <div class="absolute inset-0 bg-blue-600/5"></div>
+<!-- Enhanced Stats Section -->
+<section class="py-24 bg-gradient-to-r from-gray-900 via-blue-900 to-purple-900 relative overflow-hidden">
+  <!-- Background Pattern -->
+  <div class="absolute inset-0">
     <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.1),transparent_50%)]"></div>
+    <div class="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_80%,rgba(147,51,234,0.1),transparent_50%)]"></div>
   </div>
   
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-16">
-      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-        Join Thousands of Success Stories
+    <div class="text-center mb-20">
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8">
+        Join the Success Story
       </h2>
-      <p class="text-xl text-slate-300 max-w-3xl mx-auto">
+      <p class="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto">
         Be part of India's fastest growing job platform trusted by professionals nationwide
       </p>
     </div>
     
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="text-center p-8 rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300 group">
-        <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-          <i data-lucide="briefcase" class="w-10 h-10 text-white"></i>
+      <div class="text-center p-10 rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-500 group">
+        <div class="w-24 h-24 bg-gradient-to-br from-blue-500 to-blue-600 rounded-3xl flex items-center justify-center mx-auto mb-8 group-hover:scale-110 transition-transform duration-300">
+          <i data-lucide="briefcase" class="w-12 h-12 text-white"></i>
         </div>
-        <h3 data-counter="10000" class="text-4xl lg:text-5xl font-bold text-blue-400 mb-3">0+</h3>
-        <p class="text-white font-semibold text-lg mb-2">Active Jobs</p>
-        <p class="text-slate-400 text-sm">Updated daily across all industries</p>
+        <h3 data-counter="10000" class="text-5xl lg:text-6xl font-bold text-blue-400 mb-4">0+</h3>
+        <p class="text-white font-semibold text-xl mb-3">Active Jobs</p>
+        <p class="text-gray-400 text-sm">Updated daily across all industries</p>
       </div>
       
-      <div class="text-center p-8 rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300 group">
-        <div class="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-          <i data-lucide="users" class="w-10 h-10 text-white"></i>
+      <div class="text-center p-10 rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-500 group">
+        <div class="w-24 h-24 bg-gradient-to-br from-green-500 to-green-600 rounded-3xl flex items-center justify-center mx-auto mb-8 group-hover:scale-110 transition-transform duration-300">
+          <i data-lucide="users" class="w-12 h-12 text-white"></i>
         </div>
-        <h3 data-counter="50000" class="text-4xl lg:text-5xl font-bold text-green-400 mb-3">0+</h3>
-        <p class="text-white font-semibold text-lg mb-2">Job Seekers</p>
-        <p class="text-slate-400 text-sm">Verified profiles ready to hire</p>
+        <h3 data-counter="50000" class="text-5xl lg:text-6xl font-bold text-green-400 mb-4">0+</h3>
+        <p class="text-white font-semibold text-xl mb-3">Job Seekers</p>
+        <p class="text-gray-400 text-sm">Verified profiles ready to hire</p>
       </div>
       
-      <div class="text-center p-8 rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300 group">
-        <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-          <i data-lucide="building" class="w-10 h-10 text-white"></i>
+      <div class="text-center p-10 rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-500 group">
+        <div class="w-24 h-24 bg-gradient-to-br from-purple-500 to-purple-600 rounded-3xl flex items-center justify-center mx-auto mb-8 group-hover:scale-110 transition-transform duration-300">
+          <i data-lucide="building" class="w-12 h-12 text-white"></i>
         </div>
-        <h3 data-counter="5000" class="text-4xl lg:text-5xl font-bold text-purple-400 mb-3">0+</h3>
-        <p class="text-white font-semibold text-lg mb-2">Companies</p>
-        <p class="text-slate-400 text-sm">Trusted brands and startups</p>
+        <h3 data-counter="5000" class="text-5xl lg:text-6xl font-bold text-purple-400 mb-4">0+</h3>
+        <p class="text-white font-semibold text-xl mb-3">Companies</p>
+        <p class="text-gray-400 text-sm">Trusted brands and startups</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Featured Companies Section -->
-<section class="py-16 bg-white">
+<!-- Enhanced Featured Companies Section -->
+<section class="py-20 bg-gray-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-        Trusted by Leading Companies
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        Trusted by <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">Leading Companies</span>
       </h2>
-      <p class="text-lg text-slate-600">
+      <p class="text-xl text-gray-600">
         Join professionals working at India's top organizations
       </p>
     </div>
 
-    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center">
-      <div class="flex items-center justify-center p-6 bg-slate-50 rounded-2xl hover:bg-slate-100 transition-colors">
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+      <div class="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-100">
         <div class="text-center">
-          <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mx-auto mb-2">
-            <i data-lucide="building" class="w-6 h-6 text-white"></i>
+          <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+            <i data-lucide="building" class="w-8 h-8 text-white"></i>
           </div>
-          <span class="text-sm font-medium text-slate-600">TechCorp</span>
+          <span class="text-sm font-semibold text-gray-700">TechCorp</span>
         </div>
       </div>
-      <div class="flex items-center justify-center p-6 bg-slate-50 rounded-2xl hover:bg-slate-100 transition-colors">
+      <div class="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-100">
         <div class="text-center">
-          <div class="w-12 h-12 bg-green-600 rounded-xl flex items-center justify-center mx-auto mb-2">
-            <i data-lucide="building" class="w-6 h-6 text-white"></i>
+          <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+            <i data-lucide="building" class="w-8 h-8 text-white"></i>
           </div>
-          <span class="text-sm font-medium text-slate-600">FinanceHub</span>
+          <span class="text-sm font-semibold text-gray-700">FinanceHub</span>
         </div>
       </div>
-      <div class="flex items-center justify-center p-6 bg-slate-50 rounded-2xl hover:bg-slate-100 transition-colors">
+      <div class="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-100">
         <div class="text-center">
-          <div class="w-12 h-12 bg-purple-600 rounded-xl flex items-center justify-center mx-auto mb-2">
-            <i data-lucide="building" class="w-6 h-6 text-white"></i>
+          <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+            <i data-lucide="building" class="w-8 h-8 text-white"></i>
           </div>
-          <span class="text-sm font-medium text-slate-600">StartupX</span>
+          <span class="text-sm font-semibold text-gray-700">StartupX</span>
         </div>
       </div>
-      <div class="flex items-center justify-center p-6 bg-slate-50 rounded-2xl hover:bg-slate-100 transition-colors">
+      <div class="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-100">
         <div class="text-center">
-          <div class="w-12 h-12 bg-red-600 rounded-xl flex items-center justify-center mx-auto mb-2">
-            <i data-lucide="building" class="w-6 h-6 text-white"></i>
+          <div class="w-16 h-16 bg-gradient-to-r from-red-500 to-red-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+            <i data-lucide="building" class="w-8 h-8 text-white"></i>
           </div>
-          <span class="text-sm font-medium text-slate-600">HealthPlus</span>
+          <span class="text-sm font-semibold text-gray-700">HealthPlus</span>
         </div>
       </div>
-      <div class="flex items-center justify-center p-6 bg-slate-50 rounded-2xl hover:bg-slate-100 transition-colors">
+      <div class="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-100">
         <div class="text-center">
-          <div class="w-12 h-12 bg-yellow-600 rounded-xl flex items-center justify-center mx-auto mb-2">
-            <i data-lucide="building" class="w-6 h-6 text-white"></i>
+          <div class="w-16 h-16 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+            <i data-lucide="building" class="w-8 h-8 text-white"></i>
           </div>
-          <span class="text-sm font-medium text-slate-600">EduTech</span>
+          <span class="text-sm font-semibold text-gray-700">EduTech</span>
         </div>
       </div>
-      <div class="flex items-center justify-center p-6 bg-slate-50 rounded-2xl hover:bg-slate-100 transition-colors">
+      <div class="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-100">
         <div class="text-center">
-          <div class="w-12 h-12 bg-indigo-600 rounded-xl flex items-center justify-center mx-auto mb-2">
-            <i data-lucide="building" class="w-6 h-6 text-white"></i>
+          <div class="w-16 h-16 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+            <i data-lucide="building" class="w-8 h-8 text-white"></i>
           </div>
-          <span class="text-sm font-medium text-slate-600">DesignStudio</span>
+          <span class="text-sm font-semibold text-gray-700">DesignStudio</span>
         </div>
       </div>
     </div>
@@ -371,17 +410,17 @@
       const name = item.name || item.title || 'Unknown';
       
       return `
-        <div class="ac-result px-4 py-3 hover:bg-blue-50 cursor-pointer border-b border-slate-100 last:border-b-0 flex items-center justify-between group">
-          <div class="flex items-center gap-3">
-            <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
-              <i data-lucide="${type === 'location' ? 'map-pin' : 'search'}" class="w-4 h-4 text-blue-600"></i>
+        <div class="ac-result px-6 py-4 hover:bg-blue-50 cursor-pointer border-b border-gray-100 last:border-b-0 flex items-center justify-between group transition-all duration-200">
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center group-hover:bg-blue-200 transition-colors">
+              <i data-lucide="${type === 'location' ? 'map-pin' : 'search'}" class="w-5 h-5 text-blue-600"></i>
             </div>
             <div>
-              <span class="text-slate-900 font-medium group-hover:text-blue-600">${name}</span>
-              <div class="text-xs text-slate-500">${jobsCount}</div>
+              <span class="text-gray-900 font-semibold group-hover:text-blue-600 transition-colors">${name}</span>
+              <div class="text-xs text-gray-500">${jobsCount}</div>
             </div>
           </div>
-          <i data-lucide="arrow-right" class="w-4 h-4 text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+          <i data-lucide="arrow-right" class="w-5 h-5 text-gray-400 opacity-0 group-hover:opacity-100 group-hover:text-blue-600 transition-all duration-200"></i>
         </div>
       `;
     }
@@ -400,9 +439,9 @@
         }
         
         autocompleteDiv.removeClass('hidden').html(`
-          <div class="px-4 py-3 text-slate-500 flex items-center gap-2">
-            <div class="w-4 h-4 border-2 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
-            Loading...
+          <div class="px-6 py-4 text-gray-500 flex items-center gap-3">
+            <div class="w-5 h-5 border-2 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+            Loading suggestions...
           </div>
         `);
         
@@ -415,7 +454,7 @@
             var results = data.results || [];
             
             if (results.length === 0) {
-              autocompleteDiv.html('<div class="px-4 py-3 text-slate-500 text-center">No results found</div>');
+              autocompleteDiv.html('<div class="px-6 py-4 text-gray-500 text-center">No results found</div>');
               return;
             }
             
@@ -439,7 +478,7 @@
             });
           },
           error: function() {
-            autocompleteDiv.html('<div class="px-4 py-3 text-red-500 text-center">Error loading suggestions</div>');
+            autocompleteDiv.html('<div class="px-6 py-4 text-red-500 text-center">Error loading suggestions</div>');
           }
         });
       });
@@ -459,9 +498,9 @@
         }
         
         locationAutocompleteDiv.removeClass('hidden').html(`
-          <div class="px-4 py-3 text-slate-500 flex items-center gap-2">
-            <div class="w-4 h-4 border-2 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
-            Loading...
+          <div class="px-6 py-4 text-gray-500 flex items-center gap-3">
+            <div class="w-5 h-5 border-2 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+            Loading suggestions...
           </div>
         `);
         
@@ -474,7 +513,7 @@
             var results = data.results || [];
             
             if (results.length === 0) {
-              locationAutocompleteDiv.html('<div class="px-4 py-3 text-slate-500 text-center">No results found</div>');
+              locationAutocompleteDiv.html('<div class="px-6 py-4 text-gray-500 text-center">No results found</div>');
               return;
             }
             
@@ -498,7 +537,7 @@
             });
           },
           error: function() {
-            locationAutocompleteDiv.html('<div class="px-4 py-3 text-red-500 text-center">Error loading suggestions</div>');
+            locationAutocompleteDiv.html('<div class="px-6 py-4 text-red-500 text-center">Error loading suggestions</div>');
           }
         });
       });
@@ -519,12 +558,12 @@
       e.preventDefault();
       
       $('[data-job-type]').removeClass('bg-blue-600 text-white shadow-md');
-      $('[data-job-type]').addClass('text-slate-600 hover:text-blue-600 hover:bg-blue-50');
+      $('[data-job-type]').addClass('text-gray-600 bg-gray-100 hover:bg-blue-100 hover:text-blue-600');
       
-      $('#job_type').val($(this).attr('id'));
+      $('#job_type').val($(this).data('job-type'));
       
-      $(this).removeClass('text-neutral-600 hover:text-primary hover:bg-primary-light');
-      $(this).addClass('bg-primary text-white shadow-md');
+      $(this).removeClass('text-gray-600 bg-gray-100 hover:bg-blue-100 hover:text-blue-600');
+      $(this).addClass('bg-blue-600 text-white shadow-md');
     });
 
     // Animate stats on scroll with counter animation
@@ -563,7 +602,7 @@
       
       if (!skill && !location) {
         const alertDiv = $(`
-          <div class="fixed top-4 right-4 bg-red text-white px-6 py-4 rounded-2xl shadow-2xl z-50 border border-red-dark">
+          <div class="fixed top-4 right-4 bg-red-500 text-white px-6 py-4 rounded-2xl shadow-2xl z-50 border border-red-600 max-w-sm">
             <div class="flex items-center gap-3">
               <i data-lucide="alert-circle" class="w-5 h-5"></i>
               <span class="font-medium">Please enter a skill or select a location</span>
@@ -606,4 +645,34 @@
     });
   });
 </script>
+
+<style>
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  @keyframes gradient-x {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-gradient-x {
+    background-size: 400% 400%;
+    animation: gradient-x 15s ease infinite;
+  }
+  
+  .animation-delay-1000 { animation-delay: 1s; }
+  .animation-delay-2000 { animation-delay: 2s; }
+  .animation-delay-3000 { animation-delay: 3s; }
+  .animation-delay-4000 { animation-delay: 4s; }
+  
+  .bg-grid-white\/\[0\.02\] {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke-width='1' stroke='%23ffffff05'%3e%3cpath d='m0 .5h32v31h-32z'/%3e%3c/svg%3e");
+  }
+</style>
 {% endblock %}
