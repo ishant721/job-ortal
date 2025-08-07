@@ -93,14 +93,14 @@
                   {% endfor %}
                 </p>
                 
-                <a href="{{ job.get_absolute_url }}" target="_blank" class="inline-block bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded text-sm font-medium transition-colors">Apply Job</a>
+                <a href="{{ job.get_absolute_url }}" target="_blank" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded text-sm font-medium transition-colors">Apply Job</a>
               </div>
             {% endfor %}
           {% endfor %}
           
           <!-- View More Jobs Card -->
           <div class="bg-gradient-to-r from-blue-50 to-blue-100 border border-blue-200 rounded-lg p-6 flex items-center justify-center min-h-[200px]">
-            <a class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-medium transition-colors" href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/{{ job.get_skills.0.slug }}{% if job.get_skills %}-{% endif %}jobs-in-{{job.location.all.0.slug}}/" target="_blank">
+            <a class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors" href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/{{ job.get_skills.0.slug }}{% if job.get_skills %}-{% endif %}jobs-in-{{job.location.all.0.slug}}/" target="_blank">
               View More Jobs
             </a>
           </div>
