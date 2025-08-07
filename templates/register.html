@@ -5,173 +5,172 @@
 {% block title %}Register - Morgan{% endblock %}
 
 {% block base %}
-<div class="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 flex items-center justify-center p-4 relative overflow-hidden">
-    <!-- Animated Background Elements -->
-    <div class="absolute inset-0">
-        <div class="absolute top-20 left-20 w-64 h-64 bg-primary/10 rounded-full animate-bounce-gentle"></div>
-        <div class="absolute top-40 right-20 w-96 h-96 bg-accent/10 rounded-full animate-bounce-gentle" style="animation-delay: 2s;"></div>
-        <div class="absolute bottom-20 left-1/3 w-80 h-80 bg-secondary/10 rounded-full animate-bounce-gentle" style="animation-delay: 4s;"></div>
-    </div>
-    
-    <!-- Floating Icons -->
-    <div class="absolute inset-0 overflow-hidden pointer-events-none">
-        <div class="absolute top-32 left-1/4 text-primary/20 animate-bounce" style="animation-delay: 1s;">
-            <i class="fas fa-laptop-code text-4xl"></i>
-        </div>
-        <div class="absolute top-48 right-1/4 text-accent/20 animate-bounce" style="animation-delay: 3s;">
-            <i class="fas fa-chart-line text-3xl"></i>
-        </div>
-        <div class="absolute bottom-48 left-1/5 text-secondary/20 animate-bounce" style="animation-delay: 5s;">
-            <i class="fas fa-briefcase text-4xl"></i>
-        </div>
-    </div>
-    
-    <div class="w-full max-w-md relative z-10">
-        <!-- Main Card Container -->
-        <div class="glass-effect rounded-3xl shadow-2xl border border-white/30 overflow-hidden transform hover:scale-[1.02] transition-all duration-500">
-            <!-- Header Section -->
-            <div class="bg-gradient-to-r from-primary via-accent to-secondary px-8 py-8 relative overflow-hidden">
-                <div class="absolute inset-0 bg-gradient-to-r from-primary/20 via-accent/20 to-secondary/20"></div>
-                <div class="absolute top-0 left-0 w-full h-full">
-                    <div class="absolute top-3 right-6 w-10 h-10 bg-white/10 rounded-full blur-lg animate-pulse"></div>
-                    <div class="absolute bottom-3 left-6 w-8 h-8 bg-white/5 rounded-full blur-md animate-bounce"></div>
+<div class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
+    <div class="w-full max-w-6xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-8 items-center">
+            
+            <!-- Left Side - Illustration & Content -->
+            <div class="hidden lg:block text-center">
+                <div class="mb-8">
+                    <div class="inline-flex items-center justify-center w-32 h-32 bg-gradient-to-r from-accent to-secondary rounded-full mb-6 shadow-lg">
+                        <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M15,14C12.33,14 7,15.33 7,18V20H23V18C23,15.33 17.67,14 15,14M6,10V7H4V10H1V12H4V15H6V12H9V10M15,12A4,4 0 0,0 19,8A4,4 0 0,0 15,4A4,4 0 0,0 11,8A4,4 0 0,0 15,12Z"/>
+                        </svg>
+                    </div>
+                    <h1 class="text-4xl font-bold text-gray-800 mb-4">Join Morgan Today!</h1>
+                    <p class="text-xl text-gray-600 mb-8">Start your career journey with thousands of opportunities</p>
+                    
+                    <!-- Simple Character Illustration -->
+                    <div class="relative">
+                        <div class="w-80 h-80 mx-auto bg-gradient-to-br from-green-100 to-blue-100 rounded-full flex items-center justify-center mb-6">
+                            <div class="text-center">
+                                <div class="w-24 h-24 bg-gradient-to-r from-accent to-secondary rounded-full mx-auto mb-4 flex items-center justify-center">
+                                    <i class="fas fa-rocket text-3xl text-white"></i>
+                                </div>
+                                <div class="text-gray-600">
+                                    <i class="fas fa-star text-4xl mb-2 text-yellow-500"></i>
+                                    <p class="text-sm font-medium">Launch Your Career</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="text-center relative z-10 stagger-animation">
-                    <div class="flex items-center justify-center mb-6">
-                        <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mr-4 shadow-lg">
-                            <i class="fas fa-briefcase text-white text-lg"></i>
-                        </div>
-                        <span class="text-3xl font-bold text-white tracking-tight">morgan</span>
+                <div class="grid grid-cols-3 gap-4 text-center">
+                    <div class="p-4 bg-white rounded-lg shadow-sm">
+                        <i class="fas fa-users text-2xl text-primary mb-2"></i>
+                        <p class="text-sm text-gray-600 font-medium">Join Community</p>
                     </div>
-                    <h1 class="text-2xl font-semibold text-white mb-2">Create Your Account</h1>
-                    <p class="text-blue-100/90 text-sm font-medium">Join thousands of job seekers finding their dream careers</p>
+                    <div class="p-4 bg-white rounded-lg shadow-sm">
+                        <i class="fas fa-briefcase text-2xl text-accent mb-2"></i>
+                        <p class="text-sm text-gray-600 font-medium">Find Jobs</p>
+                    </div>
+                    <div class="p-4 bg-white rounded-lg shadow-sm">
+                        <i class="fas fa-trophy text-2xl text-secondary mb-2"></i>
+                        <p class="text-sm text-gray-600 font-medium">Achieve Goals</p>
+                    </div>
                 </div>
             </div>
             
-            <!-- Form Content -->
-            <div class="p-8 bg-white/95 backdrop-blur-sm">
-                <form id="ApplicantFormRegisterPage" name="ApplicantFormRegisterPage" class="space-y-6" method="POST" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    <input type="hidden" name="register_from" value="Email">
-                    
-                    <!-- Email Input -->
-                    <div class="form-group stagger-animation">
-                        <label class="block text-sm font-bold text-gray-800 mb-3">Email Address <span class="text-red-500">*</span></label>
-                        <div class="relative group">
-                            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none z-10">
-                                <i data-lucide="mail" class="w-5 h-5 text-gray-400 group-focus-within:text-blue-500 transition-colors duration-300"></i>
+            <!-- Right Side - Register Form -->
+            <div class="w-full max-w-md mx-auto lg:mx-0">
+                <div class="bg-white rounded-2xl shadow-xl p-8">
+                    <!-- Header -->
+                    <div class="text-center mb-8">
+                        <div class="flex items-center justify-center mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-primary to-accent rounded-xl flex items-center justify-center mr-3">
+                                <i class="fas fa-briefcase text-white text-lg"></i>
                             </div>
-                            <input type="email" 
-                                   class="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl bg-white text-gray-900 placeholder-gray-500 font-medium focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 transition-all duration-300 hover:border-gray-300" 
-                                   id="user_register_email" 
-                                   placeholder="Enter your email address" 
-                                   name="email" 
-                                   required>
+                            <span class="text-2xl font-bold text-gray-800">morgan</span>
                         </div>
-                        <p id="user_register_response_message" class="text-sm text-red-500 mt-2"></p>
+                        <h2 class="text-2xl font-bold text-gray-800 mb-2">Create Account</h2>
+                        <p class="text-gray-600">Join thousands of job seekers finding their dream careers</p>
                     </div>
                     
-                    <!-- Password Input -->
-                    <div class="form-group stagger-animation">
-                        <label class="block text-sm font-bold text-gray-800 mb-3">Password <span class="text-red-500">*</span></label>
-                        <div class="relative group">
-                            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none z-10">
-                                <i data-lucide="lock" class="w-5 h-5 text-gray-400 group-focus-within:text-blue-500 transition-colors duration-300"></i>
+                    <!-- Register Form -->
+                    <form id="ApplicantFormRegisterPage" name="ApplicantFormRegisterPage" method="POST" enctype="multipart/form-data" class="space-y-6">
+                        {% csrf_token %}
+                        <input type="hidden" name="register_from" value="Email">
+                        
+                        <!-- Email Input -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-envelope text-gray-400"></i>
+                                </div>
+                                <input type="email" 
+                                       class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" 
+                                       id="user_register_email" 
+                                       placeholder="Enter your email address" 
+                                       name="email" 
+                                       required>
                             </div>
-                            <input type="password" 
-                                   class="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl bg-white text-gray-900 placeholder-gray-500 font-medium focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 transition-all duration-300 hover:border-gray-300" 
-                                   id="user_register_password" 
-                                   placeholder="Enter password (minimum 7 characters)" 
-                                   name="password" 
-                                   required>
+                            <p id="user_register_response_message" class="text-sm text-red-500 mt-1"></p>
                         </div>
-                    </div>
-                    
-                    <!-- Mobile Number Input -->
-                    <div class="form-group stagger-animation">
-                        <label class="block text-sm font-bold text-gray-800 mb-3">Mobile Number <span class="text-red-500">*</span></label>
-                        <div class="relative group">
-                            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none z-10">
-                                <i data-lucide="phone" class="w-5 h-5 text-gray-400 group-focus-within:text-blue-500 transition-colors duration-300"></i>
+                        
+                        <!-- Password Input -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-lock text-gray-400"></i>
+                                </div>
+                                <input type="password" 
+                                       class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" 
+                                       id="user_register_password" 
+                                       placeholder="Enter password (minimum 7 characters)" 
+                                       name="password" 
+                                       required>
                             </div>
-                            <input type="text" 
-                                   class="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl bg-white text-gray-900 placeholder-gray-500 font-medium focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 transition-all duration-300 hover:border-gray-300" 
-                                   id="user_register_mobile" 
-                                   placeholder="Enter your mobile number" 
-                                   name="mobile" 
-                                   required>
                         </div>
-                    </div>
+                        
+                        <!-- Mobile Number Input -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Mobile Number</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-phone text-gray-400"></i>
+                                </div>
+                                <input type="text" 
+                                       class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" 
+                                       id="user_register_mobile" 
+                                       placeholder="Enter your mobile number" 
+                                       name="mobile" 
+                                       required>
+                            </div>
+                        </div>
+                        
+                        <!-- Register Button -->
+                        <button type="submit" class="w-full bg-gradient-to-r from-accent to-secondary text-white py-3 px-6 rounded-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 register_form_button">
+                            <span class="flex items-center justify-center load_register" style="display:none;">
+                                <i class="fas fa-spinner fa-spin mr-2"></i>
+                                Creating Account...
+                            </span>
+                            <span class="flex items-center justify-center register_click">
+                                <i class="fas fa-user-plus mr-2"></i>
+                                Create Account
+                            </span>
+                        </button>
+                        
+                        <!-- Login Link -->
+                        <div class="text-center">
+                            <span class="text-sm text-gray-600">
+                                Already have an account? 
+                                <a href="/login/" class="text-primary font-medium hover:text-blue-700">Sign In</a>
+                            </span>
+                        </div>
+                    </form>
                     
-                    <!-- Register Button -->
-                    <button type="submit" class="w-full py-4 px-6 bg-gradient-to-r from-primary to-accent hover:from-blue-600 hover:to-green-600 text-white font-bold rounded-xl shadow-lg transform hover:scale-[1.02] transition-all duration-300 register_form_button stagger-animation group">
-                        <span class="flex items-center justify-center load_register" style="display:none;">
-                            <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                            </svg>
-                            Creating Account...
-                        </span>
-                        <span class="flex items-center justify-center register_click">
-                            <i data-lucide="user-plus" class="w-5 h-5 mr-3 group-hover:scale-110 transition-transform"></i>
-                            Create Account
-                        </span>
-                    </button>
-                    
-                    <!-- Login Link -->
-                    <div class="text-center stagger-animation">
-                        <span class="text-sm text-gray-600">
-                            Already have an account? 
-                            <a href="/login/" class="text-blue-600 font-bold hover:text-blue-700 transition-colors duration-300 hover:underline">Sign In</a>
-                        </span>
-                    </div>
-                </form>
-                
-                <!-- Social Login Section -->
-                <div class="relative my-8 stagger-animation">
-                    <div class="absolute inset-0 flex items-center">
-                        <div class="w-full border-t border-gray-300"></div>
-                    </div>
-                    <div class="relative flex justify-center text-sm">
-                        <span class="px-6 bg-white text-gray-600 font-bold text-xs uppercase tracking-wide">Or continue with</span>
+                    <!-- Social Login -->
+                    <div class="mt-6">
+                        <div class="relative">
+                            <div class="absolute inset-0 flex items-center">
+                                <div class="w-full border-t border-gray-300"></div>
+                            </div>
+                            <div class="relative flex justify-center text-sm">
+                                <span class="px-4 bg-white text-gray-500">Or continue with</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4 grid grid-cols-3 gap-3">
+                            <a href="/social/google_login/" class="flex items-center justify-center px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
+                                <svg class="w-5 h-5" viewBox="0 0 24 24">
+                                    <path fill="#ea4335" d="M5.266 9.765A7.077 7.077 0 0 1 12 4.909c1.69 0 3.218.6 4.418 1.582L19.91 3C17.782 1.145 15.055 0 12 0 7.27 0 3.198 2.698 1.24 6.65l4.026 3.115Z"/>
+                                    <path fill="#34a853" d="M16.04 18.013c-1.09.703-2.474 1.078-4.04 1.078a7.077 7.077 0 0 1-6.723-4.823l-4.04 3.067A11.965 11.965 0 0 0 12 24c2.933 0 5.735-1.043 7.834-3l-3.793-2.987Z"/>
+                                    <path fill="#4285f4" d="M19.834 21c2.195-2.048 3.62-5.096 3.62-9 0-.71-.109-1.473-.272-2.182H12v4.637h6.436c-.317 1.559-1.17 2.766-2.395 3.558L19.834 21Z"/>
+                                    <path fill="#fbbc05" d="M5.277 14.268A7.12 7.12 0 0 1 4.909 12c0-.782.125-1.533.357-2.235L1.24 6.65A11.934 11.934 0 0 0 0 12c0 1.92.445 3.73 1.237 5.335l4.04-3.067Z"/>
+                                </svg>
+                            </a>
+                            <a href="/social/facebook_login/" class="flex items-center justify-center px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
+                                <i class="fab fa-facebook-f text-blue-600"></i>
+                            </a>
+                            <a href="/social/github/" class="flex items-center justify-center px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
+                                <i class="fab fa-github text-gray-800"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="grid grid-cols-3 gap-4 stagger-animation">
-                    <a href="/social/google_login/" class="flex items-center justify-center px-4 py-3 border-2 border-gray-200 rounded-xl bg-white text-gray-700 text-sm font-semibold hover:bg-gray-50 hover:border-gray-300 hover:scale-105 transition-all duration-300 shadow-sm">
-                        <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24">
-                            <path fill="#ea4335" d="M5.266 9.765A7.077 7.077 0 0 1 12 4.909c1.69 0 3.218.6 4.418 1.582L19.91 3C17.782 1.145 15.055 0 12 0 7.27 0 3.198 2.698 1.24 6.65l4.026 3.115Z"/>
-                            <path fill="#34a853" d="M16.04 18.013c-1.09.703-2.474 1.078-4.04 1.078a7.077 7.077 0 0 1-6.723-4.823l-4.04 3.067A11.965 11.965 0 0 0 12 24c2.933 0 5.735-1.043 7.834-3l-3.793-2.987Z"/>
-                            <path fill="#4285f4" d="M19.834 21c2.195-2.048 3.62-5.096 3.62-9 0-.71-.109-1.473-.272-2.182H12v4.637h6.436c-.317 1.559-1.17 2.766-2.395 3.558L19.834 21Z"/>
-                            <path fill="#fbbc05" d="M5.277 14.268A7.12 7.12 0 0 1 4.909 12c0-.782.125-1.533.357-2.235L1.24 6.65A11.934 11.934 0 0 0 0 12c0 1.92.445 3.73 1.237 5.335l4.04-3.067Z"/>
-                        </svg>
-                        Google
-                    </a>
-                    <a href="/social/facebook_login/" class="flex items-center justify-center px-4 py-3 border-2 border-gray-200 rounded-xl bg-white text-gray-700 text-sm font-semibold hover:bg-gray-50 hover:border-blue-600 hover:scale-105 transition-all duration-300 shadow-sm">
-                        <i data-lucide="facebook" class="w-5 h-5 mr-2 text-blue-600"></i>
-                        Facebook
-                    </a>
-                    <a href="/social/github/" class="flex items-center justify-center px-4 py-3 border-2 border-gray-200 rounded-xl bg-white text-gray-700 text-sm font-semibold hover:bg-gray-50 hover:border-gray-800 hover:scale-105 transition-all duration-300 shadow-sm">
-                        <i data-lucide="github" class="w-5 h-5 mr-2 text-gray-800"></i>
-                        GitHub
-                    </a>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Footer -->
-        <div class="text-center mt-8 stagger-animation">
-            <div class="inline-flex items-center justify-center space-x-3 bg-white/80 backdrop-blur-sm rounded-full px-6 py-3 shadow-lg border border-white/50">
-                <i data-lucide="sparkles" class="w-4 h-4 text-blue-500 animate-pulse"></i>
-                <p class="text-gray-700 text-sm font-semibold">
-                    © 2025 Morgan. Building careers, one opportunity at a time.
-                </p>
-            </div>
-            <div class="mt-4 flex justify-center space-x-6 text-sm text-gray-600">
-                <a href="/page/privacy-policy/" class="hover:text-blue-600 transition-colors duration-300 font-medium">Privacy Policy</a>
-                <a href="/page/terms-conditions/" class="hover:text-blue-600 transition-colors duration-300 font-medium">Terms of Service</a>
-                <a href="/contact/" class="hover:text-blue-600 transition-colors duration-300 font-medium">Help & Support</a>
             </div>
         </div>
     </div>
@@ -181,16 +180,6 @@
 {% block extra_js %}
 <script>
 $(document).ready(function() {
-    // Initialize Lucide icons
-    if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-    }
-    
-    // Add entrance animations
-    setTimeout(() => {
-        $('.stagger-animation').addClass('animate-on-scroll animate');
-    }, 200);
-    
     // Handle form submission
     $('#ApplicantFormRegisterPage').submit(function(e) {
         e.preventDefault();
@@ -231,7 +220,7 @@ $(document).ready(function() {
                     }, 2000);
                 } else if (data.response) {
                     for (var key in data.response) {
-                        var errorMessage = '<p class="text-sm text-red-500 mt-2">' + data.response[key] + '</p>';
+                        var errorMessage = '<p class="text-sm text-red-500 mt-1">' + data.response[key] + '</p>';
                         
                         if (key === 'email') {
                             $('#user_register_response_message').html(errorMessage);
@@ -269,22 +258,18 @@ $(document).ready(function() {
         $('.message-container').remove();
         
         const messageClass = type === 'error' ? 'bg-red-50 border-red-200 text-red-800' : 'bg-green-50 border-green-200 text-green-800';
-        const iconClass = type === 'error' ? 'alert-circle' : 'check-circle';
+        const iconClass = type === 'error' ? 'fa-exclamation-circle' : 'fa-check-circle';
         
         const messageHtml = `
-            <div class="message-container mb-6 p-4 rounded-xl border-2 ${messageClass} animate-slide-down">
+            <div class="message-container mb-6 p-4 rounded-lg border-2 ${messageClass}">
                 <div class="flex items-center">
-                    <i data-lucide="${iconClass}" class="w-5 h-5 mr-3"></i>
-                    <span class="text-sm font-semibold">${message}</span>
+                    <i class="fas ${iconClass} mr-3"></i>
+                    <span class="text-sm font-medium">${message}</span>
                 </div>
             </div>
         `;
         
         $('#ApplicantFormRegisterPage').before(messageHtml);
-        
-        if (typeof lucide !== 'undefined') {
-            lucide.createIcons();
-        }
         
         if (type === 'success') {
             setTimeout(function() {
@@ -294,15 +279,6 @@ $(document).ready(function() {
             }, 4000);
         }
     }
-    
-    // Add focus animations
-    $('input').on('focus', function() {
-        $(this).parent().addClass('scale-105');
-    });
-    
-    $('input').on('blur', function() {
-        $(this).parent().removeClass('scale-105');
-    });
 });
 </script>
 {% endblock %}
