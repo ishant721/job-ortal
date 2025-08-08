@@ -144,6 +144,7 @@ MIDDLEWARE = [
     # "hmin.middleware.MarkMiddleware",
     # "jobsp.middlewares.DetectMobileBrowser",
     "jobsp.middlewares.LowerCased",
+    "website_manager.WebsiteExpiryMiddle"
 ]
 
 

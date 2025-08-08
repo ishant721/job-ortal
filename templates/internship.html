@@ -3,399 +3,440 @@
 {% load thumbnail %}
 {% load static %}
 {% load searchtags %}
+
 {% block block_title %}
   <title>{{ meta_title|safe }}</title>
   <meta name="description" content="{{ meta_description|safe }}"/>
-    <meta property="og:title"  content="{{ meta_title|safe }}" />
-  <meta property="og:description"  content="{{ meta_description|safe }}"/>
-  <meta property="og:image"  content="{{jobopenings}}"/>
+  <meta property="og:title" content="{{ meta_title|safe }}" />
+  <meta property="og:description" content="{{ meta_description|safe }}"/>
+  <meta property="og:image" content="{{jobopenings}}"/>
   <meta property="og:image:width" content="200" />
   <meta property="og:image:height" content="200" />
 {% endblock %}
+
 {% block meta_tags %}
 <meta name="google-site-verification" content="YRAH49iQBxqqgGD-ogtwLY3t39VcM_7NrhX0hyzirPY" />
 {% endblock %}
+
 {% block search_block %}
-  {% show_adv_search_filter %}
-  <style type="text/css">
-      .latest_jobs_class:hover {
-     cursor: pointer;
-      }
-      .walkin_block:hover {
-     cursor: pointer;
-      }
-      .register_point:hover{
-        cursor:pointer;
-      }
-      </style>
-
-  <section class=" mar_lr_0 search_login_row">
-    <div class="container"> 
-      <div class="row mar_lr_0 search_login_blocks">
-        <div class="search_block col-md-8 col-sm-12">
-          <p class="message">One step to change your career<br> Better matching jobs for your bright career</p>
-          <div class="tabs_block">
-           <ul class="tabs">
-              <li><button class="job_type active_button" id="full-time">Full Time</button></li>
-              <li><button class='job_type' id="internship">Internship</button></li>
-              <li><button class='job_type' id="walk-in">Walkin</button></li>
-              <li><button class='job_type' id="Fresher">Fresher</button></li>
-            </ul>
-            <div class="search_location_other_block">
-              <div class="job-location_other">
-                <form class="form-inline autocomplete-me search-form" name="search-form" id="search-form" method="POST">
-                  <div class="form_input_groups">
-                    <div class="group location">
-                      <label class="sr-only"></label>
-                      <select class="form-select form-control_opt" placeholder="Job Location" name="location" id="job_location">
-                        <option value="">Location</option>
-                        {% for city in cities %}
-                        <option value="{{ city.name }}">{{ city.name }}</option>
-                        {% endfor %}
-                      </select>
-                    </div>
-                    <div class="group">
-                      <label class="sr-only"></label>
-                      <input type="text" class="form-control form-control_opt content_wrap_list" id ="q-field" name="q" placeholder="Enter Any Skill">
-                    </div>
-                  </div>
-                  <button type="submit" class="btn btn-default">Search Job</button>
-                </form>
-              </div>
-              <!--<span class="advanced_tag_div"><a href="#" class="adv_srch_link adv_search">Advanced Search</a></span>-->
-            </div>
-            <br clear="all">
-          </div>
-        </div>
-       
-      </div>
+<!-- Hero Section with Search -->
+<section class="relative bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 py-20">
+  <div class="absolute inset-0 bg-black opacity-10"></div>
+  <div class="relative container mx-auto px-4">
+    <div class="text-center text-white mb-8">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Find Your Perfect Internship</h1>
+      <p class="text-xl mb-8 opacity-90">Launch your career with top companies</p>
     </div>
-  </section>
-{% endblock %}
-{% block base %}
-<!-- main_container starts here -->
-  <section class="main_container">
-    <div class="container">
-      <div class="row mar_lr_0">
-        <div class="col-md-9 left_container">
-          <!-- register_block starts here -->
-          <div class="row mar_lr_0 register_block">
-            <div class="col-md-12 register_point border redirect_link" data-href="{% url 'my:alerts_list'%}">
-              <div class="text-center register_col">
-                <a href="{% url 'my:alerts_list'%}"><strong>Get Jobs Into your inbox</strong></a>
-                <p>Create Job Alert in your desired areas and get best-matched jobs into your inbox.</p>
-              </div>
-            </div>
-          </div>
-          <!-- register_block ends here -->
-          <!-- skills_companies starts here -->
-          <div class="row mar_lr_0 skills_locations">
-            <!-- Nav tabs -->
-            <ul class="nav nav-tabs" role="tablist">
-              <li role="presentation" class="nav-items"><a href="#profile" class="nav-link active" aria-controls="profile" aria-expanded="true" role="tab" data-bs-toggle="tab">Top companies</a></li>
-              <li role="presentation" class="nav-items" ><a href="#home" class="nav-link" aria-controls="home" role="tab" aria-expanded="false" data-bs-toggle="tab">Top Skills</a></li>
-            </ul>
-            <!-- Tab panes -->
-            <div class="tab-content">
-              <div role="tabpanel" class="tab-pane active" id="profile">
-                <div class="row d-flex justify-content-center align-items-center image_row">
-                    <div class="col-md-2 col-sm-3 col-xs-3 image_col">
-                     <a href="/micropyramid-informatics-pvt-ltd-job-openings/" class='company_logo'><img src="https://d28k6hocvoxiuc.cloudfront.net/site/images/new_design/logo.png" alt="Micropyramid Informatics Private Ltd."/></a>
-                    </div>
-                    <div class="col-md-2 col-sm-3 col-xs-3 image_col">
-                      <a href="/ibm-india-pvt-limited-job-openings/" class='company_logo'>
-                      <img src="https://cdn.morgan.com/companies1/ibm.png" alt="ibm-india-pvt-limited" style="max-width:80%;" /></a>
-                    </div>
-                     <div class="col-md-2 col-sm-3 col-xs-3 image_col">
-                      <a href="/infosys-multinational-private-limited-job-openings/" class='company_logo'><img src="https://cdn.morgan.com/companies1/infosys.png" alt="infosys-multinational-private-limited" style="max-width:80%;" /></a>
-                    </div>
-                    <div class="col-md-2 col-sm-3 col-xs-3 image_col">
-                      <a href="/tcs-pvt-ltd-job-openings/" class='company_logo'><img src="https://cdn.morgan.com/companies1/tcs.png" alt="tcs-pvt-ltd"/></a>
-                    </div> 
-                     <div class="col-md-2 col-sm-3 col-xs-3 image_col">
-                    <a href="/dell-private-limited-job-openings/" class='company_logo'><img style="max-width:86%;"  src="https://cdn.morgan.com/companies1/dell.png" alt="dell-private-limited"/></a>
-                    </div>
-                    <div class="col-md-2 col-sm-3 col-xs-3 image_col">
-                     <a href="/accenture-job-openings/" class='company_logo'><img src="https://cdn.morgan.com/companies1/accenture.png" alt="accenture"/></a>
-                    </div>
-                    <div class="col-md-2 col-sm-3 col-xs-3 image_col">
-                    <a href="/tech-mahindra-private-limited-job-openings/" class='company_logo'><img src="https://cdn.morgan.com/companies1/mahindra.png" alt="tech-mahindra-private-limited"/></a>
-                    </div>
-                    <div class="col-md-2 col-sm-3 col-xs-3 image_col">
-                    <a href="/cognizant-technology-solutions-india-ltd-job-openings/" class='company_logo'><img src="https://cdn.morgan.com/companies1/cts.png" alt="cognizant-technology-solutions-india-ltd" /></a>
-                    </div>
-                    <div class="col-md-2 col-sm-3 col-xs-3 image_col">
-                    <a href="/ravsoft-solutions-india-pvt-ltd-job-openings/" class='company_logo'><img src="https://cdn.morgan.com/companies1/rav.png" alt="RAVSoft Solutions India Pvt Ltd"/></a>
-                    </div>
-                    <div class="col-md-2 col-sm-3 col-xs-3 image_col">
-                    <a href="/3dplm-software-solutions-limited-job-openings/" class='company_logo'><img src="https://cdn.morgan.com/companies1/3d.png" alt="3DPLM Software Solutions Limited"/></a>
-                    </div>
-                    <div class="col-md-2 col-sm-3 col-xs-3 image_col">
-                    <a href="/ace-group-private-limited-job-openings/" class='company_logo'><img src="https://cdn.morgan.com/companies1/ace.png" alt="ACE Group Private Limited"/></a>
-                    </div>
-                    <div class="col-md-2 col-sm-3 col-xs-3 image_col">
-                    <a href="/readmind-info-services-job-openings/" class='company_logo'><img src="https://cdn.morgan.com/companies1/rmis.png" alt="ReadMind Info Services"/></a>
-                    </div>
-                    <div class="col-md-2 col-sm-3 col-xs-3 image_col">
-                    <a href="/grape-services-pvt-ltd-job-openings/" class='company_logo'><img src="https://morgan.s3.amazonaws.com/company/logo/5930cf748cb53e748decf649c5e59bbd/grape-services-pvt-ltd" alt="Grape Services Pvt. Ltd"/></a>
-                    </div>
-                    <div class="col-md-2 col-sm-3 col-xs-3 image_col">
-                    <a href="/haileo-technologies-pvt-ltd-job-openings/" class='company_logo'><img src="https://cdn.morgan.com/companies1/haileo.png" alt="Haileo Technologies Pvt Ltd"/></a>
-                    </div>
-                    <div class="col-md-2 col-sm-3 col-xs-3 image_col">
-                    <a href="/nitor-infotech-pvt-ltd-job-openings/" class='company_logo'><img src="https://cdn.morgan.com/companies/nitor.png" alt="Nitor Infotech Pvt. Ltd"/></a>
-                    </div>
-                    <div class="col-md-2 col-sm-3 col-xs-3 image_col">
-                    <a href="/cms-computers-limited-job-openings/" class='company_logo'><img src="https://cdn.morgan.com/companies/cms.png" alt="CMS Computers Limited"/></a>
-                    </div>
-                    <div class="col-md-2 col-sm-3 col-xs-3 image_col">
-                      <a href="/capgemini-india-pvt-ltd-job-openings/" class='company_logo'><img src="https://morgan.s3.amazonaws.com/company/logo/636f389e7ba1383d54b27186f1f9dda0/capgemini-india-pvt-ltd" alt="CAPGEMINI INDIA PVT LTD"/></a>
-                    </div>
-                   
-                    <div class="col-md-2 col-sm-3 col-xs-3 image_col">
-                      <a href="/peoplestrong-hr-services-pvt-ltd-job-openings/" class='company_logo'><img src="https://cdn.morgan.com/companies1/people.png" alt="PeopleStrong HR Services Pvt. Ltd."/></a>
-                    </div>
-
-                </div>
-                <a class="pull-right view-more" href="/companies/">View More</a>
-              </div>
-              <div role="tabpanel" class="tab-pane" id="home">
-                <div class="row image_row">
-
-                  <div class="col-md-2 col-sm-3 col-xs-3 image_col skill_image"><a href="/java-jobs/">
-                  <img src="https://morgan.s3.amazonaws.com/static/skills1/java_logo.png" alt="Java Jobs">
-                  </a></div>
-                  <div class="col-md-2 col-sm-3 col-xs-3 image_col skill_image"><a href="/asp-dot-net-jobs/"><img src="https://morgan.s3.amazonaws.com/static/skills1/asp-dot-net.png" alt="ASP.net Jobs"></a></div>
-                  <div class="col-md-2 col-sm-3 col-xs-3 image_col skill_image"><a href="/bootstrap-jobs/"><img src="https://morgan.s3.amazonaws.com/static/skills1/bootstrap.png" alt="Bootstrap Jobs"></a></div>
-                  <div class="col-md-2 col-sm-3 col-xs-3 image_col skill_image"><a href="/css-jobs/"><img src="https://morgan.s3.amazonaws.com/static/skills/CSS.png" alt="Css Jobs"></a></div>
-                  <div class="col-md-2 col-sm-3 col-xs-3 image_col skill_image"><a href="/adobe-photoshop-jobs/"><img src="https://morgan.s3.amazonaws.com/static/skills1/Adobe_Photoshop.png" alt="Adobe Photoshop Jobs"></a></div>
-                  <div class="col-md-2 col-sm-3 col-xs-3 image_col skill_image"><a href="/javascript-jobs/"><img src="https://morgan.s3.amazonaws.com/static/skills/js.png" alt="JavaScript Jobs"></a></div>
-                  <div class="col-md-2 col-sm-3 col-xs-3 image_col skill_image"><a href="/jquery-jobs/"><img src="https://morgan.s3.amazonaws.com/static/skills/jquery.png" alt="JQuery Jobs"></a></div>
-                  <div class="col-md-2 col-sm-3 col-xs-3 image_col skill_image"><a href="/android-jobs/"><img src="https://morgan.s3.amazonaws.com/static/skills1/android1.jpg" alt="Android Jobs"></a></div>
-                  <div class="col-md-2 col-sm-3 col-xs-3 image_col skill_image"><a href="/oracle-jobs/"><img src="https://morgan.s3.amazonaws.com/static/skills1/oracle.png" alt="Oracle Jobs"></a></div>
-                  <div class="col-md-2 col-sm-3 col-xs-3 image_col skill_image"><a href="/c-plus-plus-jobs/"><img src="https://morgan.s3.amazonaws.com/static/skills/c-logo.png" alt="C Jobs"></a></div>
-                  <div class="col-md-2 col-sm-3 col-xs-3 image_col skill_image"><a href="/mysql-jobs/"><img src="https://morgan.s3.amazonaws.com/static/skills1/MySQL.png" alt="Mysql Jobs"></a></div>
-                  <div class="col-md-2 col-sm-3 col-xs-3 image_col skill_image"><a href="/spring-jobs/"><img src="https://morgan.s3.amazonaws.com/static/skills1/spring.png" alt="Spring Jobs"></a></div>
-                  <div class="col-md-2 col-sm-3 col-xs-3 image_col skill_image"><a href="/angular-js-jobs/"><img src="https://morgan.s3.amazonaws.com/static/skills1/AngularJS_logo.png" alt="Angular Js Jobs"></a></div>
-                  <div class="col-md-2 col-sm-3 col-xs-3 image_col skill_image"><a href="/j2ee-jobs/"><img src="https://morgan.s3.amazonaws.com/static/skills1/j2ee.png" alt="J2ee Jobs"></a></div>
-                  <div class="col-md-2 col-sm-3 col-xs-3 image_col skill_image"><a href="/c-sharp-jobs/"><img src="https://morgan.s3.amazonaws.com/static/skills1/c-sharp.png" alt="c-sharp Jobs"></a></div>
-                  <div class="col-md-2 col-sm-3 col-xs-3 image_col skill_image"><a href="/xml-jobs/"><img src="https://morgan.s3.amazonaws.com/static/skills1/xml-logo.png" alt="Xml Jobs"></a></div>
-                  <div class="col-md-2 col-sm-3 col-xs-3 image_col skill_image"><a href="/hibernate-jobs/"><img src="https://morgan.s3.amazonaws.com/static/skills1/hibernate.png" alt="Hibernate Jobs"></a></div>
-                  <div class="col-md-2 col-sm-3 col-xs-3 image_col skill_image"><a href="/bpo-jobs/"><img src="https://morgan.s3.amazonaws.com/static/skills1/bpo.png" alt="BPO Jobs"></a></div>
-
-
-                </div>
-                <a class="pull-right view-more" href="{% url 'jobs_by_skill' %}">View More</a>
-              </div>
-            </div>
-          </div>
-          <!-- skills_companies ends here -->
-          <!-- top_locations starts here -->
-          <div class="row mar_lr_0 top_locations">
-            <div class="heading text-uppercase">Top Job Locations</div>
-            <div class="locations">
-            {%get_locations as total_locations%}
-              <ul class="location_ul">
-              {% for location in total_locations|slice:"35" %}
-                <li><a href="{{ location.get_job_url }}" target="_blank">{{ location.name }}</a></li>
-                {% if forloop.counter|divisibleby:7 %}
-                  </ul>
-                  <ul class="location_ul">
-                {% endif %}
+    
+    <!-- Search Form -->
+    <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-2xl p-6">
+      <div class="flex flex-wrap items-center justify-center mb-4">
+        <button class="job_type active_button bg-blue-600 text-white px-6 py-2 rounded-full mr-4 mb-2" id="full-time">Full Time</button>
+        <button class="job_type bg-gray-200 text-gray-700 px-6 py-2 rounded-full mr-4 mb-2" id="internship">Internship</button>
+        <button class="job_type bg-gray-200 text-gray-700 px-6 py-2 rounded-full mr-4 mb-2" id="walk-in">Walk-in</button>
+        <button class="job_type bg-gray-200 text-gray-700 px-6 py-2 rounded-full mb-2" id="Fresher">Fresher</button>
+      </div>
+      
+      <form class="form-inline autocomplete-me search-form" name="search-form" id="search-form" method="POST">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="relative">
+            <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" name="location" id="job_location">
+              <option value="">Select Location</option>
+              {% for city in cities %}
+              <option value="{{ city.name }}">{{ city.name }}</option>
               {% endfor %}
-              </ul>
-              <a class="pull-right view-more" target="_blank" href="{% url "jobs_by_location" 'jobs' %}">View More</a>
-            </div>
+            </select>
           </div>
-          <!-- top_locations edns here -->
-          <!-- latest_jobs starts here -->
-          <div class="latest_jobs row mar_lr_0">
-            <div class="heading text-uppercase">Latest Jobs<!--<a class="pull-right view-more" href="#">View More</a>--></div>
-            <div class="row jobs_columns">
-               {% for job in jobs_list %}
-                <div class="col-md-4 col-sm-6 job_outer_col">
-                  <div class="job_col latest_jobs_class" id="{{ job.slug }}">
-                  <strong class="title"><a href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}{{ job.slug }}" target="_blank" >{{ job.title }} [{% if job.min_year == 0 and job.max_year == 0 %}Fresher{% else %}{{ job.min_year }} - {{ job.max_year }} Years{% endif %}]</a></strong>
-                 {% if job.company.is_active and job.company.slug %}
-                    <p><a href="{% url 'company_jobs' job.company.slug %}">{{job.company.name|capfirst}}</a></p>
-                  {% elif job.company %}
-                    <p>{{job.company.name|capfirst}}</p>
-                  {% elif job.company_name %}
-                    <p>{{job.company_name|capfirst}}</p>
-                  {% endif %}
-                  <p>{% if job.min_salary == 0 %}{% else %}<i class="fa fa-inr" aria-hidden="true"></i> <span>{{ job.get_job_salary.0 }} P.A</span>{% endif %}</p>
-                  <p class="location"><i class="fa fa-map-marker"></i> {%for location in job.location.all %}
-                  {% if location.status == 'Enabled' %}
-                      <a href="{{location.get_job_url}}" target="_blank">{{ location.name }}</a>
-                      {% else %}
-                      <a style="cursor:default">{{ location.name }}</a>
-                      {% endif %}{% if forloop.last %}{% else %}, {% endif%}{% endfor %}</p>
-                  <!--<p><a href="https://morgan.com/{{job.get_job_type}}-jobs/" target="_blank" class="apply">{{ job.job_type|get_string }}</a></p>-->
-                    <p>
-
-                    {% if job.user.is_superuser %}
-                      {% if job.company_emails %}
-                       <a href="mailto:{{ job.get_company_emails }}?subject={{ job.title }}%20-%20Morgan&body={{ job.get_absolute_url }}" class="apply send_mail{% if request.user.is_active %} active{% endif %}{% if request.user.profile_completion_percentage > 50 %} completed{% endif %}{% if request.user.is_authenticated %} logged{% endif %}">Apply Now</a>
-                      {% endif %}
-                    {% else %}
-                    {% if request.user.is_authenticated %}
-                      {% if request.user.id|is_applied_for_job:job.pk %}
-                      <a href="{{ job_url }}" class="apply">Applied</a>
-                      {% else%}
-                        <a href="#" class="apply job_apply  applicant_apply" id="{{ job.pk }}" data-href="{{ job_url }}?job_apply=applied">Apply Now</a>
-                      {% endif %}
-                    {% else %}
-                      <a href="#" class='apply job_apply job_apply_login' id="{{ job.pk }}" data-href="{{ job_url }}?job_apply=applied">Apply Now</a>
-                    {% endif %}
-                  {% endif %}
-                    </p>
-                  </div>
-                </div>
-              {% endfor %}
-              <div>
-                <a class="pull-right view-more" href="/jobs/" target="_blank">View More</a>
-              </div>
-            </div>
+          <div class="relative">
+            <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" id="q-field" name="q" placeholder="Enter Skills (e.g. Python, React)">
           </div>
-          <!-- latest_jobs ends here -->
+          <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-200">
+            Search Internships
+          </button>
         </div>
-        <div class="col-md-3 right_container">
-          <!-- upload_btn_block starts here -->
-
-          <!-- <div class="upload_block text-center">
-            <p class="text-capitalize"><strong class="text-uppercase">Upload your resume</strong> to get hired into top companies</p>
-            <a href="#"><i class="fa fa-upload"></i> Upload Your Resume <i class="fa fa-file"></i></a>
-          </div> -->
-          {% if request.user.is_authenticated %}
-            {% if request.user.is_jobseeker and not request.user.resume %}
-        <div class="upload_btn_block">
-    <form name="resumeupload" id="resumeupload" method="post" action="{% url 'my:upload_resume' %}">
-    <div class="upload_btn" id="resume_upload_but"><a href="/profile/"><i class="fa fa-cloud-upload" aria-hidden="true"></i> Upload Your Resume </a></div>
-      <input type="file" name="resume" id="resume" style="display:none" accept="application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/pdf, application/rtf, application/x-rtf, text/richtext, application/msword, application/vnd.oasis.opendocument.text, application/x-vnd.oasis.opendocument.text, .docx, .odt"></span>
-      <button type="submit" name="submit" class="submit" style="
-        display:none;"><span>Submit</span></button>
       </form>
+    </div>
   </div>
-  {% endif %} 
-          {% else %}
-              <div class="upload_btn_block">
-                <div class="upload_btn upload_btn_resume"><a href="#" data-toggle="modal" data-target="#login_register"><i class="fa fa-cloud-upload" aria-hidden="true"></i> Upload Your Resume </a></div>
-              </div>
-          {% endif %}
-          <!-- upload_btn_block ends here -->
-          <!-- walkin_jobs starts here -->
-          {%get_latest_walkins as walkins%}
-          {% if walkins %}
-          <div class="walkin_jobs">
-            <div class="heading text-uppercase">Walk-in Jobs</div>
-            <ul class="walkin_blocks">
-            {% for walkin in walkins|slice:"7" %}
-              <li class="walkin_block" id="{{ walkin.slug }}">
-                <strong class="title"><a href="{{ walkin.slug }}" target="_blank">{{ walkin.title }}</a></strong>
-                {% if walkin.company %}<p>{{ walkin.company.name }}</p>{% endif %}
-                <p class="location"><i class="fa fa-map-marker"></i>{%for location in walkin.location.all %}
-                {% if location.status == 'Enabled' %}
-                      <a href="{{location.get_job_url}}" target="_blank">{{ location.name }}</a>
-                      {% else %}
-                      <a style="cursor:default">{{ location.name }}</a>
-                      {% endif %}{% if forloop.last %}{% else %}, {% endif %}{% endfor %} </p>
-              </li>
-            {% endfor %}
-            <a href="{% url 'walkin_jobs' %}" target="_blank"><span class="view_all">See More</span></a>
-            </ul>
+</section>
+{% endblock %}
+
+{% block base %}
+<!-- Main Content -->
+<div class="min-h-screen bg-gray-50">
+  <div class="container mx-auto px-4 py-12">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      
+      <!-- Main Content Area -->
+      <div class="lg:col-span-2 space-y-8">
+        
+        <!-- Job Alert Section -->
+        <div class="bg-white rounded-lg shadow-md p-6 border border-gray-200">
+          <div class="text-center">
+            <div class="mb-4">
+              <svg class="w-12 h-12 text-blue-600 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-5 5v-5zM4 19h6v-2H4v2zM4 15h8v-2H4v2zM4 11h8V9H4v2zM4 7h8V5H4v2z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">Get Internship Alerts</h3>
+            <p class="text-gray-600 mb-4">Create alerts for your preferred internships and get notifications in your inbox</p>
+            <a href="{% url 'my:alerts_list' %}" class="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors duration-200">
+              Create Alert
+              <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </a>
           </div>
-          {% endif %}
-          <!-- walkin_jobs ends here -->
-          <!-- top_recruiters starts here -->
-          {%get_latest_recruiters as latest_recruiters%}
-          {% if latest_recruiters %}
-          <div class="top_recruiters">
-            <div class="heading text-uppercase">Top Recruiters</div>
-            <ul class="recruiter_blocks">
-              {% for recruiter in latest_recruiters|slice:"6" %}
-              <li class="recruiter_block" id="{% url 'recruiter_profile' recruiter.username %}">
-                <div class="img_part">
-                  <img src="{% if recruiter.profile_pic %}{{recruiter.profile_pic.url}}{% else %}{% static 'static/img/dummy.jpg' %}{% endif %}" />
-                </div>
-                <div class="content">
-                  <strong class="title"><a href="{% url 'recruiter_profile' recruiter.username %}" target="_blank">{{ recruiter.get_full_name }}</a></strong>
-                  {% if recruiter.company %}<p>{{ recruiter.company.name }}</p>{% endif %}
-                  <p class="redirect"><a href="{% url 'recruiter_profile' recruiter.username %}" target="_blank">View {{ recruiter.num_posts }} Jobs</a></p>
-                </div>
-              </li>
-              {% endfor %}
-              <a href="{% url 'recruiters' %}" target="_blank"><span class="view_all">See More</span></a>
-            </ul>
-          </div>
-          {% endif %}
-          <!-- top_recruiters ends here -->
         </div>
+
+        <!-- Top Companies & Skills Section -->
+        <div class="bg-white rounded-lg shadow-md p-6 border border-gray-200">
+          <div class="border-b border-gray-200 mb-6">
+            <nav class="-mb-px flex space-x-8">
+              <button class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-2 px-1 border-b-2 font-medium text-sm tab-button active" data-tab="companies">
+                Top Companies
+              </button>
+              <button class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-2 px-1 border-b-2 font-medium text-sm tab-button" data-tab="skills">
+                Top Skills
+              </button>
+            </nav>
+          </div>
+
+          <!-- Companies Tab -->
+          <div id="companies-tab" class="tab-content">
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+              <a href="/micropyramid-informatics-pvt-ltd-job-openings/" class="flex items-center justify-center p-4 border border-gray-200 rounded-lg hover:shadow-md transition-shadow duration-200">
+                <img src="https://d28k6hocvoxiuc.cloudfront.net/site/images/new_design/logo.png" alt="Micropyramid" class="max-h-10 max-w-full object-contain"/>
+              </a>
+              <a href="/ibm-india-pvt-limited-job-openings/" class="flex items-center justify-center p-4 border border-gray-200 rounded-lg hover:shadow-md transition-shadow duration-200">
+                <img src="https://cdn.morgan.com/companies1/ibm.png" alt="IBM" class="max-h-10 max-w-full object-contain"/>
+              </a>
+              <a href="/infosys-multinational-private-limited-job-openings/" class="flex items-center justify-center p-4 border border-gray-200 rounded-lg hover:shadow-md transition-shadow duration-200">
+                <img src="https://cdn.morgan.com/companies1/infosys.png" alt="Infosys" class="max-h-10 max-w-full object-contain"/>
+              </a>
+              <a href="/tcs-pvt-ltd-job-openings/" class="flex items-center justify-center p-4 border border-gray-200 rounded-lg hover:shadow-md transition-shadow duration-200">
+                <img src="https://cdn.morgan.com/companies1/tcs.png" alt="TCS" class="max-h-10 max-w-full object-contain"/>
+              </a>
+              <a href="/dell-private-limited-job-openings/" class="flex items-center justify-center p-4 border border-gray-200 rounded-lg hover:shadow-md transition-shadow duration-200">
+                <img src="https://cdn.morgan.com/companies1/dell.png" alt="Dell" class="max-h-10 max-w-full object-contain"/>
+              </a>
+              <a href="/accenture-job-openings/" class="flex items-center justify-center p-4 border border-gray-200 rounded-lg hover:shadow-md transition-shadow duration-200">
+                <img src="https://cdn.morgan.com/companies1/accenture.png" alt="Accenture" class="max-h-10 max-w-full object-contain"/>
+              </a>
+            </div>
+            <div class="mt-6 text-center">
+              <a href="/companies/" class="text-blue-600 hover:text-blue-700 font-medium">View All Companies →</a>
+            </div>
+          </div>
+
+          <!-- Skills Tab -->
+          <div id="skills-tab" class="tab-content hidden">
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+              <a href="/java-jobs/" class="flex items-center justify-center p-4 border border-gray-200 rounded-lg hover:shadow-md transition-shadow duration-200">
+                <img src="https://morgan.s3.amazonaws.com/static/skills1/java_logo.png" alt="Java" class="max-h-10 max-w-full object-contain"/>
+              </a>
+              <a href="/javascript-jobs/" class="flex items-center justify-center p-4 border border-gray-200 rounded-lg hover:shadow-md transition-shadow duration-200">
+                <img src="https://morgan.s3.amazonaws.com/static/skills/js.png" alt="JavaScript" class="max-h-10 max-w-full object-contain"/>
+              </a>
+              <a href="/css-jobs/" class="flex items-center justify-center p-4 border border-gray-200 rounded-lg hover:shadow-md transition-shadow duration-200">
+                <img src="https://morgan.s3.amazonaws.com/static/skills/CSS.png" alt="CSS" class="max-h-10 max-w-full object-contain"/>
+              </a>
+              <a href="/android-jobs/" class="flex items-center justify-center p-4 border border-gray-200 rounded-lg hover:shadow-md transition-shadow duration-200">
+                <img src="https://morgan.s3.amazonaws.com/static/skills1/android1.jpg" alt="Android" class="max-h-10 max-w-full object-contain"/>
+              </a>
+              <a href="/mysql-jobs/" class="flex items-center justify-center p-4 border border-gray-200 rounded-lg hover:shadow-md transition-shadow duration-200">
+                <img src="https://morgan.s3.amazonaws.com/static/skills1/MySQL.png" alt="MySQL" class="max-h-10 max-w-full object-contain"/>
+              </a>
+              <a href="/oracle-jobs/" class="flex items-center justify-center p-4 border border-gray-200 rounded-lg hover:shadow-md transition-shadow duration-200">
+                <img src="https://morgan.s3.amazonaws.com/static/skills1/oracle.png" alt="Oracle" class="max-h-10 max-w-full object-contain"/>
+              </a>
+            </div>
+            <div class="mt-6 text-center">
+              <a href="{% url 'jobs_by_skill' %}" class="text-blue-600 hover:text-blue-700 font-medium">View All Skills →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Top Locations -->
+        <div class="bg-white rounded-lg shadow-md p-6 border border-gray-200">
+          <h3 class="text-xl font-semibold text-gray-900 mb-6">Top Internship Locations</h3>
+          {%get_locations as total_locations%}
+          <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3">
+            {% for location in total_locations|slice:"20" %}
+            <a href="{{ location.get_job_url }}" class="text-sm text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition-colors duration-200 block text-center">
+              {{ location.name }}
+            </a>
+            {% endfor %}
+          </div>
+          <div class="mt-6 text-center">
+            <a href="{% url 'jobs_by_location' 'jobs' %}" class="text-blue-600 hover:text-blue-700 font-medium">View All Locations →</a>
+          </div>
+        </div>
+
+        <!-- Latest Internships -->
+        <div class="bg-white rounded-lg shadow-md p-6 border border-gray-200">
+          <h3 class="text-xl font-semibold text-gray-900 mb-6">Latest Internships</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {% for job in jobs_list %}
+            <div class="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow duration-200 cursor-pointer latest_jobs_class" id="{{ job.slug }}">
+              <h4 class="text-lg font-semibold text-gray-900 mb-2">
+                <a href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}{{ job.slug }}" class="hover:text-blue-600">
+                  {{ job.title }}
+                  <span class="text-sm font-normal text-gray-600">
+                    [{% if job.min_year == 0 and job.max_year == 0 %}Fresher{% else %}{{ job.min_year }} - {{ job.max_year }} Years{% endif %}]
+                  </span>
+                </a>
+              </h4>
+              
+              {% if job.company.is_active and job.company.slug %}
+                <p class="text-gray-600 mb-2">
+                  <a href="{% url 'company_jobs' job.company.slug %}" class="hover:text-blue-600">
+                    {{job.company.name|capfirst}}
+                  </a>
+                </p>
+              {% elif job.company %}
+                <p class="text-gray-600 mb-2">{{job.company.name|capfirst}}</p>
+              {% elif job.company_name %}
+                <p class="text-gray-600 mb-2">{{job.company_name|capfirst}}</p>
+              {% endif %}
+              
+              {% if job.min_salary != 0 %}
+              <p class="text-gray-600 mb-2 flex items-center">
+                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                </svg>
+                ₹ {{ job.get_job_salary.0 }} P.A
+              </p>
+              {% endif %}
+              
+              <p class="text-gray-600 mb-4 flex items-center">
+                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+                {%for location in job.location.all %}
+                  {% if location.status == 'Enabled' %}
+                    <a href="{{location.get_job_url}}" class="hover:text-blue-600">{{ location.name }}</a>
+                  {% else %}
+                    <span>{{ location.name }}</span>
+                  {% endif %}{% if forloop.last %}{% else %}, {% endif%}
+                {% endfor %}
+              </p>
+              
+              {% if job.user.is_superuser %}
+                {% if job.company_emails %}
+                <a href="mailto:{{ job.get_company_emails }}?subject={{ job.title }}%20-%20Morgan&body={{ job.get_absolute_url }}" class="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition-colors duration-200">
+                  Apply Now
+                </a>
+                {% endif %}
+              {% else %}
+                {% if request.user.is_authenticated %}
+                  {% if request.user.id|is_applied_for_job:job.pk %}
+                  <button class="inline-flex items-center px-4 py-2 bg-gray-400 text-white text-sm font-medium rounded-lg cursor-not-allowed">
+                    Applied
+                  </button>
+                  {% else %}
+                    <a href="#" class="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition-colors duration-200 job_apply applicant_apply" id="{{ job.pk }}" data-href="{{ job_url }}?job_apply=applied">
+                      Apply Now
+                    </a>
+                  {% endif %}
+                {% else %}
+                  <a href="#" class="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition-colors duration-200 job_apply job_apply_login" id="{{ job.pk }}" data-href="{{ job_url }}?job_apply=applied">
+                    Apply Now
+                  </a>
+                {% endif %}
+              {% endif %}
+            </div>
+            {% endfor %}
+          </div>
+          <div class="mt-6 text-center">
+            <a href="/jobs/" class="text-blue-600 hover:text-blue-700 font-medium">View All Internships →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="space-y-6">
+        
+        <!-- Resume Upload -->
+        {% if request.user.is_authenticated %}
+          {% if request.user.is_jobseeker and not request.user.resume %}
+          <div class="bg-white rounded-lg shadow-md p-6 border border-gray-200">
+            <div class="text-center">
+              <svg class="w-12 h-12 text-blue-600 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+              </svg>
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">Upload Your Resume</h3>
+              <p class="text-gray-600 text-sm mb-4">Get hired by top companies with your updated resume</p>
+              <form name="resumeupload" id="resumeupload" method="post" action="{% url 'my:upload_resume' %}">
+                <a href="/profile/" class="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors duration-200">
+                  <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                  </svg>
+                  Upload Resume
+                </a>
+                <input type="file" name="resume" id="resume" style="display:none" accept="application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/pdf, application/rtf, application/x-rtf, text/richtext, application/msword, application/vnd.oasis.opendocument.text, application/x-vnd.oasis.opendocument.text, .docx, .odt">
+                <button type="submit" name="submit" class="submit" style="display:none;">Submit</button>
+              </form>
+            </div>
+          </div>
+          {% endif %}
+        {% else %}
+          <div class="bg-white rounded-lg shadow-md p-6 border border-gray-200">
+            <div class="text-center">
+              <svg class="w-12 h-12 text-blue-600 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+              </svg>
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">Upload Your Resume</h3>
+              <p class="text-gray-600 text-sm mb-4">Get hired by top companies with your updated resume</p>
+              <a href="#" data-toggle="modal" data-target="#login_register" class="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors duration-200">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                </svg>
+                Upload Resume
+              </a>
+            </div>
+          </div>
+        {% endif %}
+
+        <!-- Walk-in Jobs -->
+        {%get_latest_walkins as walkins%}
+        {% if walkins %}
+        <div class="bg-white rounded-lg shadow-md p-6 border border-gray-200">
+          <h3 class="text-lg font-semibold text-gray-900 mb-4">Walk-in Jobs</h3>
+          <div class="space-y-3">
+            {% for walkin in walkins|slice:"5" %}
+            <div class="border-b border-gray-200 pb-3 last:border-b-0 walkin_block cursor-pointer" id="{{ walkin.slug }}">
+              <h4 class="font-medium text-gray-900 mb-1">
+                <a href="{{ walkin.slug }}" class="hover:text-blue-600">{{ walkin.title }}</a>
+              </h4>
+              {% if walkin.company %}
+              <p class="text-sm text-gray-600 mb-1">{{ walkin.company.name }}</p>
+              {% endif %}
+              <p class="text-xs text-gray-500 flex items-center">
+                <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+                {%for location in walkin.location.all %}
+                  {% if location.status == 'Enabled' %}
+                    <a href="{{location.get_job_url}}" class="hover:text-blue-600">{{ location.name }}</a>
+                  {% else %}
+                    <span>{{ location.name }}</span>
+                  {% endif %}{% if forloop.last %}{% else %}, {% endif %}
+                {% endfor %}
+              </p>
+            </div>
+            {% endfor %}
+          </div>
+          <div class="mt-4 text-center">
+            <a href="{% url 'walkin_jobs' %}" class="text-blue-600 hover:text-blue-700 text-sm font-medium">See All Walk-ins →</a>
+          </div>
+        </div>
+        {% endif %}
+
+        <!-- Top Recruiters -->
+        {%get_latest_recruiters as latest_recruiters%}
+        {% if latest_recruiters %}
+        <div class="bg-white rounded-lg shadow-md p-6 border border-gray-200">
+          <h3 class="text-lg font-semibold text-gray-900 mb-4">Top Recruiters</h3>
+          <div class="space-y-4">
+            {% for recruiter in latest_recruiters|slice:"4" %}
+            <div class="flex items-center space-x-3 recruiter_block cursor-pointer" id="{% url 'recruiter_profile' recruiter.username %}">
+              <img src="{% if recruiter.profile_pic %}{{recruiter.profile_pic.url}}{% else %}{% static 'static/img/dummy.jpg' %}{% endif %}" 
+                   alt="{{ recruiter.get_full_name }}" 
+                   class="w-12 h-12 rounded-full object-cover"/>
+              <div class="flex-1">
+                <h4 class="font-medium text-gray-900">
+                  <a href="{% url 'recruiter_profile' recruiter.username %}" class="hover:text-blue-600">
+                    {{ recruiter.get_full_name }}
+                  </a>
+                </h4>
+                {% if recruiter.company %}
+                <p class="text-sm text-gray-600">{{ recruiter.company.name }}</p>
+                {% endif %}
+                <a href="{% url 'recruiter_profile' recruiter.username %}" class="text-xs text-blue-600 hover:text-blue-700">
+                  View {{ recruiter.num_posts }} Jobs
+                </a>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+          <div class="mt-4 text-center">
+            <a href="{% url 'recruiters' %}" class="text-blue-600 hover:text-blue-700 text-sm font-medium">See All Recruiters →</a>
+          </div>
+        </div>
+        {% endif %}
       </div>
     </div>
-  </section>
-  <!-- main_container ends here -->
-  <!-- help_options_row starts here -->
-  <div class="hint_options_row row mar_lr_0">
-    <!--<div class="container">
-      <div class="row mar_lr_0">
-        <div class="col-md-4 col-sm-12">
-          <div class="hint_module">
-            <div class="img_part">
-              <img src="{{ STATIC_URL }}img/hints_help.png" />
-            </div>
-            <div class="hint_content">
-              <strong>Help Module</strong>
-              As the Internet technology and network communication technology development, age I hope you like it ！
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-12">
-          <div class="hint_module">
-            <div class="img_part">
-              <img src="{{ STATIC_URL }}img/hints_assesment.png" />
-            </div>
-            <div class="hint_content">
-              <strong>Help Assesments</strong>
-              As the Internet technology and network communication technology development, age I hope you like it ！
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-12">
-          <div class="hint_module">
-            <div class="img_part">
-              <img src="{{ STATIC_URL }}img/hints_idea.png" />
-            </div>
-            <div class="hint_content">
-              <strong>Job Tips</strong>
-              As the Internet technology and network communication technology development, age I hope you like it ！
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>-->
   </div>
-<!-- help_options_row ends here -->
+</div>
+
 <div id="block_job_apply" style="display: none;"></div>
-{% block pj_info %}
-  <div class="col-md-2 col-sm-8 col-xs-8 about">
-  </div>
-{% endblock %}
-{% endblock base %}
-{% block 'extra_js' %}
-<script type="text/javascript">
-  $('span.user_search').click(function(e){
-        $(window).scrollTop($('#banner').offset().top-$('.page-top').height()-100);
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Tab functionality
+  const tabButtons = document.querySelectorAll('.tab-button');
+  const tabContents = document.querySelectorAll('.tab-content');
+  
+  tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const tabName = button.dataset.tab;
+      
+      // Remove active class from all buttons and contents
+      tabButtons.forEach(btn => {
+        btn.classList.remove('active', 'border-blue-500', 'text-blue-600');
+        btn.classList.add('border-transparent', 'text-gray-500');
+      });
+      tabContents.forEach(content => content.classList.add('hidden'));
+      
+      // Add active class to clicked button and show corresponding content
+      button.classList.add('active', 'border-blue-500', 'text-blue-600');
+      button.classList.remove('border-transparent', 'text-gray-500');
+      document.getElementById(tabName + '-tab').classList.remove('hidden');
+    });
   });
-  $(document).ready(function() {
-    $('#myCarousel').carousel({
-      interval: 10000
-  })
-    $(".latest_jobs_class a").click(function(e){
-      e.stopPropagation();
-    })
-    $(".latest_jobs_class").click(function(){
-        window.open($(this).attr('id'), '_blank')
-      })
+  
+  // Job type buttons
+  const jobTypeButtons = document.querySelectorAll('.job_type');
+  jobTypeButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      jobTypeButtons.forEach(btn => {
+        btn.classList.remove('active_button', 'bg-blue-600', 'text-white');
+        btn.classList.add('bg-gray-200', 'text-gray-700');
+      });
+      button.classList.add('active_button', 'bg-blue-600', 'text-white');
+      button.classList.remove('bg-gray-200', 'text-gray-700');
+    });
+  });
+  
+  // Job card clicks
+  document.querySelectorAll('.latest_jobs_class').forEach(card => {
+    card.addEventListener('click', function(e) {
+      if (!e.target.closest('a')) {
+        window.open(this.id, '_blank');
+      }
+    });
+  });
+  
+  // Walkin clicks
+  document.querySelectorAll('.walkin_block').forEach(card => {
+    card.addEventListener('click', function(e) {
+      if (!e.target.closest('a')) {
+        window.open(this.id, '_blank');
+      }
+    });
+  });
+  
+  // Recruiter clicks
+  document.querySelectorAll('.recruiter_block').forEach(card => {
+    card.addEventListener('click', function(e) {
+      if (!e.target.closest('a')) {
+        window.open(this.id, '_blank');
+      }
+    });
+  });
 });
 </script>
-{% endblock %}
+
+{% endblock base %}
